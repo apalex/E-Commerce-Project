@@ -1,0 +1,33 @@
+/* Global */
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: midnightblue;
+}
+
+/* Navigation Bar */
+
+/* Left Side */
+
+/* Right Side */
+
+/* Bottom Header */
+
+.column {
+    font-size: 1.5rem;
+}
+
+/* -------------- */
+
+
+/* Main Body */
+
+
