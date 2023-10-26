@@ -6,6 +6,17 @@
 
 body {
     line-height: 1.5;
+    margin: 0;
+    height: 100%;
+}
+
+header {
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
 }
 
 a {
@@ -15,9 +26,58 @@ a {
 
 /* Navigation Bar */
 
+.page-content-inner {
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+}
+
+.header-inner.top {
+    padding: 15px 20px;
+    height: 80px;
+}
+
 /* Left Side */
 
+.section-left {
+    width: 50%;
+    height: 50px;
+}
+
+.header-nav.hamburger-icon {
+    float: left;
+}
+
+.header-nav.logo {
+    float: left;
+}
+
 /* Right Side */
+
+.section-right {
+    width: 50%;
+    height: 50px;
+    float: right;
+}
+
+.header-nav.languages {
+    float: right;
+}
+
+.header-nav.cart {
+    width: 53px;
+    height: 44px;
+    float: right;
+}
+
+.header-nav.account {
+    width: 60px;
+    height: 44px;
+    float: right;
+}
 
 /* Bottom Header */
 
