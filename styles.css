@@ -38,8 +38,9 @@ header {
 /* Left Side */
 
 .section-left {
-    width: 50%;
+    width: 60%;
     height: 50px;
+    display: inline-block;
 }
 
 .header-nav.hamburger-icon {
@@ -50,11 +51,29 @@ header {
     float: left;
 }
 
+.header-nav.search-bar {
+    float: right;
+}
+
+#searchbox {
+    padding: 2px;
+    border: none;   
+}
+
+#searchbtn {
+    height: 8%;
+    border: none;
+    float: right;
+    padding: 2px 5px;
+    margin-right: 8px;
+}
+
 /* Right Side */
 
 .section-right {
-    width: 50%;
+    width: 40%;
     height: 50px;
+    display: inline-block;
     float: right;
 }
 
@@ -76,10 +95,40 @@ header {
 
 /* Bottom Header */
 
+.header-inner.bottom {
+    height: 50%;
+    border-bottom: 1px solid black;
+}
+
 .column {
     font-size: 1.5rem;
     text-decoration: none;
     color: midnightblue;
+    text-align: center;
+}
+
+.header-nav.home {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header-nav.about {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header-nav.services {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header-nav.store-locator {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* -------------- */
