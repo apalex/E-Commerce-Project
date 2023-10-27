@@ -19,11 +19,6 @@ header {
     right: 0px;
 }
 
-a {
-    text-decoration: none;
-    color: midnightblue;
-}
-
 /* Navigation Bar */
 
 .page-content-inner {
@@ -83,6 +78,8 @@ a {
 
 .column {
     font-size: 1.5rem;
+    text-decoration: none;
+    color: midnightblue;
 }
 
 /* -------------- */
@@ -92,7 +89,7 @@ a {
 
 /* Footer */
 footer {
-    top: 600px;
+    position: absolute;
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -104,6 +101,15 @@ footer {
 .footerTable {
     height: 250px;
     width: 100%;
+}
+
+.footerTable a {
+    color: white;
+    text-decoration: none;
+}
+
+.footerTable a:hover {
+    color: white;
 }
 
 #c_email {
