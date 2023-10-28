@@ -6,6 +6,7 @@ function closeNav() {
     document.getElementById("sidenav").style.width = "0";
 }
 
+// Countries Option REST API
 document.addEventListener('DOMContentLoaded', () => {
     const selectDrop = document.querySelector('#countries');
 
@@ -27,3 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 });
+
+// Caret-Down Categories
+function caretDown() {
+    
+}
