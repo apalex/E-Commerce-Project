@@ -4,15 +4,14 @@
     box-sizing: border-box;
 }
 
-body {
-    line-height: 1.5;
-    margin: 0;
+html, body {
     height: 100%;
+    margin: 0;
 }
 
 header {
     width: 100vw;
-    height: 100px;
+    height: 130px;
     position: absolute;
     left: 0px;
     top: 0px;
@@ -23,7 +22,7 @@ header {
 
 .page-content-inner {
     width: 100vw;
-    height: 100px;
+    height: 130px;
     position: absolute;
     left: 0px;
     top: 0px;
@@ -49,6 +48,13 @@ header {
 
 .header-nav.logo {
     float: left;
+}
+
+#logo {
+    text-decoration: none;
+    color: black;
+    padding-left: 20px;
+    font-size: large;
 }
 
 .header-nav.search-bar {
@@ -136,7 +142,7 @@ header {
 /* Bottom Header */
 
 .header-inner.bottom {
-    height: 50%;
+    height: 50px;
     border-bottom: 1px solid black;
 }
 
@@ -173,18 +179,16 @@ header {
 
 /* -------------- */
 
-
-/* Main Body */
-
 /* Footer */
 footer {
-    position: absolute;
     bottom: 0px;
     left: 0px;
     right: 0px;
     background-color: black;
     color: white;
     text-align: center;
+    padding: 20px;
+    min-height: 35%;
 }
 
 .footerTable {
@@ -212,4 +216,28 @@ footer {
 
 .footerLinkStyle:hover {
     text-decoration: underline;
+}
+
+
+/* -------------- */
+
+
+/* Main Body */
+
+/* About Section */
+
+.container.about {
+    border: 3px solid;
+    width: 75%;
+    height: 50%;
+    margin-top: 200px;
+    margin-bottom: 150px;
+}
+
+.container.about h1 {
+    color: rgb(28, 146, 225);
+}
+
+.container.about p {
+    font-size: 30px;
 }
