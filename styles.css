@@ -113,7 +113,7 @@ header {
     float: right;
 }
 
-.header-nav.languages {
+.header-nav.countries {
     float: right;
 }
 
@@ -127,6 +127,10 @@ header {
     width: 60px;
     height: 44px;
     float: right;
+}
+
+#countries {
+    width: 100px;
 }
 
 /* Bottom Header */
