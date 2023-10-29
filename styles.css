@@ -1,9 +1,5 @@
 /* Global */
 
-*, ::after, ::before {
-    box-sizing: border-box;
-}
-
 html, body {
     height: 100%;
     margin: 0;
@@ -16,6 +12,11 @@ header {
     left: 0px;
     top: 0px;
     right: 0px;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -250px;
 }
 
 /* Navigation Bar */
@@ -188,7 +189,6 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    min-height: 35%;
 }
 
 .footerTable {
@@ -230,8 +230,7 @@ footer {
     border: 3px solid;
     width: 75%;
     height: 50%;
-    margin-top: 200px;
-    margin-bottom: 150px;
+    margin-top: 250px;
 }
 
 .container.about h1 {
