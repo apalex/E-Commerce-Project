@@ -14,11 +14,6 @@ header {
     right: 0px;
 }
 
-.wrapper {
-    min-height: 100%;
-    margin-bottom: -250px;
-}
-
 /* Navigation Bar */
 
 .page-content-inner {
@@ -224,10 +219,15 @@ footer {
 
 /* Main Body */
 
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -250px;
+}
+
 /* About Section */
 
 .container.about {
-    border: 3px solid;
+    border: 1px solid;
     width: 75%;
     height: 50%;
     margin-top: 250px;
@@ -238,5 +238,22 @@ footer {
 }
 
 .container.about p {
+    font-size: 30px;
+}
+
+/* Contact Section */
+
+.container.contact {
+    border: 1px solid;
+    width: 75%;
+    height: 50%;
+    margin-top: 250px;
+}
+
+.container.contact h1 {
+    color: rgb(28, 146, 225);
+}
+
+.container.contact p {
     font-size: 30px;
 }
