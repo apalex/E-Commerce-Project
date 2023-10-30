@@ -173,6 +173,35 @@ header {
     padding-right: 20px;
 }
 
+.cat_dropdown{
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown_content{
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #FFFFFF;
+}
+
+.cat_dropdown:hover .dropdown_content{
+    display: block;
+    
+}
+.dropdown_content a{
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+}
+.dropdown_content a:hover{
+    color: #FFFFFF;
+    background-color: #00A4BD;
+}
+
 /* -------------- */
 
 /* Footer */
