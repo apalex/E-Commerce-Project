@@ -300,20 +300,20 @@ footer {
     position: absolute;
 }
 
-/* Registration Section */
+/* Registration Section and Login Section */
 
-.container.registration {
+.container.registration, .container.login {
     width: 35%;
     height: 600px;
     margin-top: 250px;
 }
 
-.container.registration form {
+.container.registration form, .container.login form {
     display: block;
     text-align: center;
 }
 
-.container.registration input {
+.container.registration input, .container.login input {
     width: 100%;
     height: 40px;
     outline: none;
@@ -325,7 +325,7 @@ footer {
     padding-bottom: 20px;
 }
 
-.registration.form {
+.registration.form, .login.form {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
@@ -333,6 +333,8 @@ footer {
     width: 100%;
     height: 65%;
 }
+
+/* Registration Section */
 
 .registration.form button {
     background-color: #ff4343;
@@ -344,8 +346,32 @@ footer {
     width: 95%;
 }
 
+.registration.form button:hover {
+    color: white;
+}
+
 .registration.form form p {
     margin: 10px;
 }
 
+/* Login Section */
 
+.login.form button {
+    background-color: #ff4343;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 30%;
+    float: left;
+    margin-left: 10px;
+}
+
+.login.form button:hover {
+    color: white;
+}
+
+.login.form a {
+    float: right;
+}
