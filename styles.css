@@ -257,6 +257,7 @@ footer {
 
 .container.about {
     border: 1px solid;
+    border-radius: 35px;
     width: 75%;
     height: 50%;
     margin-top: 250px;
@@ -274,6 +275,7 @@ footer {
 
 .container.contact {
     border: 1px solid;
+    border-radius: 35px;
     width: 75%;
     height: 50%;
     margin-top: 250px;
