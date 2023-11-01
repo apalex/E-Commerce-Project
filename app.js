@@ -29,7 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Caret-Down Categories
-function caretDown() {
-    
-}
+// Quantity Select Option
+document.addEventListener('DOMContentLoaded', () => {
+    const selectProd = document.getElementById("testt");
+    for (var i = 0; i < 100; i++) {
+        var opt = document.createElement("option");
+        opt.append(i);
+        selectProd.appendChild(opt);
+    }
+});
