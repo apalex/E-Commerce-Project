@@ -377,3 +377,116 @@ footer {
 .login.form a {
     float: right;
 }
+
+/* Cart Section */
+
+.container.cart {
+    margin-top: 150px;
+    min-height: 650px;
+}
+
+/* Cart Section Products Part */
+
+.cart.frame {
+    width: 100%;
+    border: 1px solid black;
+    display: table;
+    table-layout: fixed;
+}
+
+.cart.frame p {
+    display: table-cell;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: midnightblue;
+}
+
+.cart.box button {
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.cart.box button:hover {
+    color: gray;
+}
+
+/* Cart Section Bottom Part */
+
+.cart.discount {
+    height: 400px;
+    position: relative;
+}
+
+.cart.discount.left {
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    height: 20%;
+}
+
+#discountInput {
+    padding: 5px;
+    width: 45%;
+    border: 1px solid black;
+}
+
+#discountBtn {
+    background-color: #ff4343;
+    border: none;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 25%;
+}
+
+#discountBtn:hover {
+    color: white;
+}
+
+.cart.discount.right {
+    display: inline-block;
+    border: 2px solid black;
+    width: 35%;
+    height: 300px;
+    float: right;
+}
+
+.cart.discount.right h3 {
+    margin: 15px 10px;
+}
+
+.subtotal, .shipping, .total {
+    border-bottom: 1px solid black;
+    margin: 25px 15px;
+}
+
+.subtotal p, .shipping p, .total p {
+    float: right;
+}
+
+.checkout-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.cart.discount.right button {
+    background-color: #ff4343;
+    border: none;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cart.discount.right button:hover {
+    color: white;
+}
