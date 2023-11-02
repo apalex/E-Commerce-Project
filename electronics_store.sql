@@ -44,6 +44,7 @@ CREATE TABLE User_Payment
 CREATE TABLE Product_Info
 (
 	Prod_ID INT NOT NULL AUTO_INCREMENT,
+	Prod_Name VARCHAR(255),
 	Prod_Client_Price FLOAT NOT NULL,
 	Prod_Manufacturer_Price FLOAT NOT NULL,
 	Prod_Details TEXT,
