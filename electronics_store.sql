@@ -50,6 +50,7 @@ CREATE TABLE Product_Info
 	Prod_Comments TEXT,
 	Prod_Stock INT,
 	Prod_Category VARCHAR(255),
+	Prod_Image_Path VARCHAR(255),
 	CONSTRAINT PK_PINFO_PID PRIMARY KEY (Prod_ID)
 );
 
