@@ -126,6 +126,8 @@
                 </li>
                 <!-- Add more shipping and delivery questions as needed -->
             </ul>
+            <h2>Did not find an answer? Ask your questions here.</h2>
+            <input type="search" class="searchfaq" name="searchfaq" placeholder="Your question." size="80%">
         </div>
         <div class="push">
         </div>
