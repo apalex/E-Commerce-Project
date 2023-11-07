@@ -16,12 +16,18 @@ class UserController {
             $user = new User($id);
             $this -> render($action, array($user));
         }
+
+        
+    if($action == "login"){
+        $this -> render("login");
+    }
     }
 
-    function render($view, $data = []) {
-        // extract($data);
 
-        // include "Views/User/$view.php";
+    function render($view, $data = []) {
+        extract($data);
+
+      include_once "Views/User/$view.php";
     }
 
 }
