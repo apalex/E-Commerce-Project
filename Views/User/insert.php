@@ -1,0 +1,67 @@
+
+
+<?php
+
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "electronics_store";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if($conn -> connect_error) {
+    die("Connection failed: " . $conn -> connect_error);
+}else{
+
+    $F_NAME = $_POST['F_NAME'];
+    $L_NAME = $_POST['L_NAME'];
+    $EMAIL = $_POST['EMAIL'];
+    $PASSWD = $_POST['PASSWD'];
+    $C_PASSWD = $_POST['C_PASSWD'];
+
+    if($PASSWD != $C_PASSWD){
+        echo "Passwords do not match";
+       header('Location: ?controller=user&action=registration');
+    }
+    else{
+        $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$PASSWD')";
+        $conn -> query($sql);
+
+        $lastInsertedID = mysqli_insert_id($conn);
+
+        $sql = "SET @u_id = LAST_INSERT_ID()";
+        $conn -> query($sql);
+
+        $sql ="
+        UPDATE User_Info
+        SET Role_ID = @u_id
+        WHERE U_ID = @u_id;
+        ";
+
+        $conn -> query($sql);
+
+        $sql= "INSERT INTO User_Groups_Perms (U_ID, Role_Name) VALUES (@u_id, 'User');";
+        $conn ->query($sql);
+        
+        $sql = "SET @role_id = LAST_INSERT_ID()";
+        $conn ->query($sql);
+
+        $sql ="
+        UPDATE user_info
+        SET Role_ID = @role_id
+        WHERE U_ID = @u_id;
+        ";
+        $conn ->query($sql);
+        if($conn -> connect_error) {
+            die("Connection failed: " . $conn -> connect_error);
+        }
+        var_dump($conn);
+        echo "Account created successfully";
+    header('Location: ?controller=home&action=index&id='. $lastInsertedID);
+        
+    }
+}
+?>
+
