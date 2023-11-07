@@ -529,3 +529,30 @@ footer {
 .cart.discount.right button:hover {
     color: white;
 }
+
+/* Product View Section */
+
+.product.container {
+    margin-top: 150px;
+    min-height: 650px;
+}
+
+.product.image {
+    width: 50%;
+    display: inline-block;
+}
+
+.product.image.top {
+    width: 100%;
+    height: 80%;
+}
+
+.product.image.top img {
+    width: 100%;
+}
+
+.product.info {
+    width: 50%;
+    display: inline-block;
+    float: right;
+}
