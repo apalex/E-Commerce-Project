@@ -271,6 +271,20 @@ footer {
     font-size: 30px;
 }
 
+/* FAQ section */
+
+.container.FAQ {
+    width: 75%;
+    margin-top: 250px;
+}
+
+/* Terms Of Use */
+
+.container.TOU {
+    width: 75%;
+    margin-top: 250px;
+}
+
 /* Contact Section */
 
 .container.contact {
