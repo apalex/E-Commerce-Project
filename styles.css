@@ -206,9 +206,6 @@ header {
 
 /* Footer */
 footer {
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
     background-color: black;
     color: white;
     text-align: center;
@@ -216,7 +213,6 @@ footer {
 }
 
 .footerTable {
-    height: 250px;
     width: 100%;
 }
 
@@ -249,8 +245,37 @@ footer {
 /* Main Body */
 
 .wrapper {
-    min-height: 100%;
-    margin-bottom: -250px;
+    min-height: calc(100% - 130px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .section-left, .section-right {
+        display: none;
+    }
+
+    .header-nav.hamburger-icon {
+        display: block;
+    }
+
+    #closeNavBar {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .header-inner.top {
+        height: auto;
+    }
+
+    .header-inner.bottom {
+        display: none;
+    }
+
+    #searchbox, #searchbtn {
+        font-size: 1rem;
+    }
 }
 
 /* About Section */
