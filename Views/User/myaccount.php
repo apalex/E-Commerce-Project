@@ -8,7 +8,11 @@
         
             $user -> update($user,$uID);
     }
-
+    
+    if(isset($_POST['log_sub'])){
+        unset($_SESSION['id']);
+        header('Location: ?controller=home&action=index');
+    }
 
 ?>
 
@@ -161,6 +165,10 @@
                     <button type="submit" id="cancel-profile">Cancel</button>
                     <button type="submit" name="submit" id="save-profile">Save Changes</button>
                 </form>
+                <br><br>
+                <form action="" method="POST">
+                        <button type="submit" name="log_sub">Log out</button>
+                </form>
             </div>
         </div>
         <div class="push">
@@ -184,7 +192,7 @@
             <tr>
                 <td>Get 10% off your first order</td>
                 <td><address><a href="mailto:abdgamestore@gmail.com">abdgamestore@gmail.com</a></address></td>
-                <td><a href="login.html" class="footerLinkStyle">Login</a></td>
+                <td><a href="" class="footerLinkStyle">Login</a></td>
                 <td><a href="TOU.html" class="footerLinkStyle">Terms Of Use</a></td>
             </tr>
             <tr>
@@ -196,7 +204,7 @@
             <tr>
                 <td></td>
                 <td></td>
-                <td><a href="index.html" class="footerLinkStyle">Shop</a></td>
+                <td><a href="?controller=home&action=index" class="footerLinkStyle">Shop</a></td>
                 <td><a href="contact.html" class="footerLinkStyle">Contact</a></td>
             </tr>
         </table>
