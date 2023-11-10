@@ -634,3 +634,32 @@ footer {
     padding: 10px;
 }
 
+/* Admin Panel */
+
+.container.admin {
+    margin-top: 150px;
+    min-height: 650px;
+}
+
+.admin.categories {
+    width: 30%;
+    min-height: 250px;
+    display: inline-block;
+}
+
+.admin.user {
+    width: 70%;
+    float: right;
+}
+
+#search, #save-changes {
+    background-color: #ff4343;
+    color: white;
+    border: none;
+    width: 10%;
+    padding: 4px;
+}
+
+#U_ID {
+    width: 93%;
+}
