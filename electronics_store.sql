@@ -118,10 +118,25 @@ CREATE TABLE Discount
 );
 
 INSERT INTO Product_Info VALUES (1,"RAZER ISKUR GAMING CHAIR",1105.25,500.00,"Product details
+
 When sitting for long periods, your back tends to slouch and lose some of its natural curvature due to fatigue. The Razer Iskur’s lumbar support is engineered to prop up your posture and take pressure off your back, so you can maintain a form that allows you to game on, and on, and on.
 •Fully sculpted lumbar support for all-day gaming with superior ergonomics
 •Multi-layered synthetic leather to withstand longer hours of wear and tear
 •High density foam cushions for the perfect balance of support and comfort
 •4D Armrests for fully customizable positioning
 •Engineered to carry with a steel-reinforced body and angled seat edges
-•Memory foam head cushion for dynamic contouring of your head",null,30,"Chairs",null);
+•Memory foam head cushion for dynamic contouring of your head",null,30,"Chairs",null),
+(2,"Razer BlackWidow Chroma V2 - Tournament Edition - keyboard - backlit - USB - key switch: Razer Green",175.95,80.00,"Product details
+
+Razer BlackWidow Chroma V2 - Tournament Edition - keyboard
+•
+Key Features and Benefits:
+
+Backlighting with customizable color settings
+The Razer BlackWidow Chroma V2 features individually programmable backlit keys with multiple color settings. From preloaded lighting effects for different types of games, to your own custom uniquely programmed palette of colors, you can effortlessly enhance your gaming experience in a way, that is unique only to you.
+Ergonomic wrist rest for extended gaming comfort
+Specially designed for the Razer BlackWidow Chroma V2, this wrist rest features ergonomics, that ensure, that no matter how intense your gaming marathons are, you're always comfortable.
+What's Included:
+
+Razer BlackWidow Chroma V2 - keyboard
+Software",null,50,null),(),();
