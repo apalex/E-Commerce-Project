@@ -18,9 +18,9 @@ class ProductController {
     }
 
     function render($view, $data = []) {
-        // extract($data);
+        extract($data);
 
-        // include "Views/Product/$view.php";
+        include "Views/Product/$view.php";
     }
 
 }
