@@ -556,3 +556,81 @@ footer {
     display: inline-block;
     float: right;
 }
+
+/* My Account */
+
+.container.account {
+    margin-top: 150px;
+    min-height: 650px;
+}
+
+.account.info {
+    width: 30%;
+    min-height: 250px;
+    display: inline-block;
+}
+
+.stack {
+    display: grid;
+}
+
+.stack a {
+    grid-column: 1;
+    margin: 8px 0 8px 20px;
+}
+
+.account.edit {
+    width: 70%;
+    display: inline-block;
+    float: right;
+}
+
+#first_name, #last_name, #email, #phone {
+    width: 50%;
+    display: inline-block;
+}
+
+.stack-input {
+    width: 50%;
+    display: inline-block;
+}
+
+.stack-input.second, .stack-input.fourth {
+    float: right;
+}
+
+#F_Name, #U_Email {
+    width: 85%;
+    margin-bottom: 10px;
+}
+
+#L_Name, #Phone_Num {
+    float: left;
+    width: 85%;
+}
+
+#last_name, #phone {
+    float: right;
+}
+
+#U_Pass, #New_Pass, #New_Pass_Conf {
+    width: 93%;
+    margin-bottom: 20px;
+}
+
+#cancel-profile {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px;
+    width: 15%;
+}
+
+#save-profile {
+    background-color: #ff4343;
+    color: white;
+    border: none;
+    width: 30%;
+    padding: 10px;
+}
+
