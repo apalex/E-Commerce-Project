@@ -6,32 +6,7 @@
 
     if(isset($_POST['submit'])){
         
-        
-        if(isset($_POST['F_Name'])){
-                $fname = $_POST['F_Name'];
-               
-        }
-
-        if($_POST['U_Email'] != "" ){            
-            $email= $_POST['U_Email'];
-               var_dump($email);
-            $user -> updateEmail($uID,$email);
-     
-        header('Location: ?controller=user&action=myaccount&id=' . $uID);
-        }
-        
-        if(isset($_POST['new_pass'])){
-            $newpass = $_POST['new_pass'];
-            $cnfrm = $_POST['c_new_pass'];
-            if($newpass != $cnfrm){
-                echo "<script>alert('Confrim password does not match')</script>";
-            }else{
-
-            }
-
-        }
-
-
+            $user -> update($user,$uID);
     }
 
 
@@ -90,7 +65,7 @@
                         </a>
                     </div>
                     <div class="header-nav account">
-                        <a href="account.html" id="account">
+                        <a href="" id="account">
                             <img src="images/account.png" alt="Account" width="32" height="32">
                         </a>
                     </div>
@@ -181,8 +156,8 @@
                     </div>
                     <p>Change Password</p>
                     <label for="">Current password: <?php echo $user->U_Pass ?></label><br>
-                    <input type="text" name="new_pass" id="New_Pass" placeholder="New Password"><br>
-                    <input type="text" name="c_new_pass" id="New_Pass_Conf" placeholder="Confirm New Password"><br>
+                    <input type="password" name="new_pass" id="New_Pass" placeholder="New Password"><br>
+                    <input type="password" name="c_new_pass" id="New_Pass_Conf" placeholder="Confirm New Password"><br>
                     <button type="submit" id="cancel-profile">Cancel</button>
                     <button type="submit" name="submit" id="save-profile">Save Changes</button>
                 </form>
