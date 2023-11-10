@@ -3,18 +3,6 @@ CREATE DATABASE electronics_store;
 USE electronics_store;
 
 
-CREATE TABLE User_Groups_Perms
-(
-	Role_ID INT NOT NULL AUTO_INCREMENT,
-	U_ID INT NOT NULL,
-	Role_Name VARCHAR(255) NOT NULL,
-	CONSTRAINT PK_UGP_RID PRIMARY KEY (Role_ID)
-	
-);
-
-
-
-
 CREATE TABLE User_Info
 (
 	U_ID INT NOT NULL AUTO_INCREMENT,
@@ -128,3 +116,12 @@ CREATE TABLE Discount
 	CONSTRAINT PK_DISCOUNT_DID PRIMARY KEY (Discount_ID),
 	CONSTRAINT FK_DISCOUNT_PID FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
 );
+
+INSERT INTO Product_Info VALUES (1,"RAZER ISKUR GAMING CHAIR",1105.25,500.00,"Product details
+When sitting for long periods, your back tends to slouch and lose some of its natural curvature due to fatigue. The Razer Iskur’s lumbar support is engineered to prop up your posture and take pressure off your back, so you can maintain a form that allows you to game on, and on, and on.
+•Fully sculpted lumbar support for all-day gaming with superior ergonomics
+•Multi-layered synthetic leather to withstand longer hours of wear and tear
+•High density foam cushions for the perfect balance of support and comfort
+•4D Armrests for fully customizable positioning
+•Engineered to carry with a steel-reinforced body and angled seat edges
+•Memory foam head cushion for dynamic contouring of your head",null,30,"Chairs",null);
