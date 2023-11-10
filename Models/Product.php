@@ -16,31 +16,31 @@ class Product {
     function __construct($id = -1) {
         global $conn;
 
-        $this -> $Prod_ID = $id;
+        $this -> Prod_ID = $id;
         if ($id < 0) {
-            $this -> $Prod_Name = "";
-            $this -> $Prod_Client_Price = 0;
-            $this -> $Prod_Manufacturer_Price = 0;
-            $this -> $Prod_Details = "";
-            $this -> $Prod_Comments = "";
-            $this -> $Prod_Stock = 0;
-            $this -> $Prod_Category = "";
-            $this -> $Prod_Image_Path = "";
+            $this -> Prod_Name = "";
+            $this -> Prod_Client_Price = 0;
+            $this -> Prod_Manufacturer_Price = 0;
+            $this -> Prod_Details = "";
+            $this -> Prod_Comments = "";
+            $this -> Prod_Stock = 0;
+            $this -> Prod_Category = "";
+            $this -> Prod_Image_Path = "";
         } else {
-            $sql = "SELECT * FROM `Product_Info` WHERE `Prod_ID` = " . $id;
+            $sql = "SELECT * FROM `product_info` WHERE `Prod_ID` = " . $id;
             $result = $conn -> query($sql);
 
             $data = $result -> fetch_assoc();
 
-            $this -> $Prod_ID = $id;
-            $this -> $Prod_Name = $data['Prod_Name'];
-            $this -> $Prod_Client_Price = $data['Prod_Client_Price'];
-            $this -> $Prod_Manufacturer_Price = $data['Prod_Manufacturer_Price'];
-            $this -> $Prod_Details = $data['Prod_Details'];
-            $this -> $Prod_Comments = $data['Prod_Comments'];
-            $this -> $Prod_Stock = $data['Prod_Stock'];
-            $this -> $Prod_Category = $data['Prod_Category'];
-            $this -> $Prod_Image_Path = $data['Prod_Image_Path'];
+            $this -> Prod_ID = $id;
+            $this -> Prod_Name = $data['Prod_Name'];
+            $this -> Prod_Client_Price = $data['Prod_Client_Price'];
+            $this -> Prod_Manufacturer_Price = $data['Prod_Manufacturer_Price'];
+            $this -> Prod_Details = $data['Prod_Details'];
+            $this -> Prod_Comments = $data['Prod_Comments'];
+            $this -> Prod_Stock = $data['Prod_Stock'];
+            $this -> Prod_Category = $data['Prod_Category'];
+            $this -> Prod_Image_Path = $data['Prod_Image_Path'];
         }
     }
 
