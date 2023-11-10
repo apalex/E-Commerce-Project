@@ -1,3 +1,43 @@
+
+<?php
+    session_start();
+    $user = $data[0];
+    $uID = $_SESSION['id'];
+
+    if(isset($_POST['submit'])){
+        
+        
+        if(isset($_POST['F_Name'])){
+                $fname = $_POST['F_Name'];
+               
+        }
+
+        if($_POST['U_Email'] != "" ){            
+            $email= $_POST['U_Email'];
+               var_dump($email);
+            $user -> updateEmail($uID,$email);
+     
+        header('Location: ?controller=user&action=myaccount&id=' . $uID);
+        }
+        
+        if(isset($_POST['new_pass'])){
+            $newpass = $_POST['new_pass'];
+            $cnfrm = $_POST['c_new_pass'];
+            if($newpass != $cnfrm){
+                echo "<script>alert('Confrim password does not match')</script>";
+            }else{
+
+            }
+
+        }
+
+
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +69,7 @@
                         </span>
                     </div>
                     <div class="header-nav logo">
-                        <a href="index.html" id="logo">ABD Game Store</a>
+                        <a href="?controller=home&action=index" id="logo">ABD Game Store</a>
                     </div>
                     <div class="header-nav search-bar">
                         <form action="">
@@ -112,12 +152,12 @@
                 <h4>My Orders</h4>
                 <div class="stack 2">
                     <a href="">My Returns</a>
-                    <a href="">My Cancellations</a>
+                    <a href="">My Cancellations</a> 
                 </div>
             </div>
             <div class="account edit">
                 <h3>Edit Your Profile</h3>
-                <form action="">
+                <form action="" method="POST">
                     <!-- If value of input for Fname, Lname, Email, Phone Number 
                     is == to the value in database, means no changes made,
                     however if != then means its different. For the Password,
@@ -126,25 +166,25 @@
                     <p id="first_name">First Name</p>
                     <p id="last_name">Last Name</p>
                     <div class="stack-input first">
-                        <input type="text" name="F_Name" id="F_Name" placeholder="SQL F_Name Here">
+                        <input type="text" name="F_Name" id="F_Name" placeholder="<?php echo $user->F_Name ?>">
                     </div>
                     <div class="stack-input second">
-                        <input type="text" name="L_Name" id="L_Name" placeholder="SQL L_Name Here">
+                        <input type="text" name="L_Name" id="L_Name" placeholder="<?php echo $user->L_Name ?>">
                     </div>
                     <p id="email">Email</p>
-                    <p id="phone">Phone</p>
+                    <p id="phone">Phone(Optional)</p>
                     <div class="stack-input third">
-                        <input type="text" name="U_Email" id="U_Email" placeholder="SQL U_Email Here">
+                        <input type="text" name="U_Email" id="U_Email" placeholder="<?php echo $user->U_Email ?>">
                     </div>
                     <div class="stack-input fourth">
-                        <input type="text" name="Phone_Num" id="Phone_Num" placeholder="SQL Phone_Num Number Here">
+                        <input type="text" name="Phone_Num" id="Phone_Num" placeholder="<?php echo $user->Phone_Num ?>">
                     </div>
                     <p>Change Password</p>
-                    <input type="text" name="U_Pass" id="U_Pass" placeholder="Current Password"><br>
-                    <input type="text" name="" id="New_Pass" placeholder="New Password"><br>
-                    <input type="text" name="" id="New_Pass_Conf" placeholder="Confirm New Password"><br>
+                    <label for="">Current password: <?php echo $user->U_Pass ?></label><br>
+                    <input type="text" name="new_pass" id="New_Pass" placeholder="New Password"><br>
+                    <input type="text" name="c_new_pass" id="New_Pass_Conf" placeholder="Confirm New Password"><br>
                     <button type="submit" id="cancel-profile">Cancel</button>
-                    <button type="submit" id="save-profile">Save Changes</button>
+                    <button type="submit" name="submit" id="save-profile">Save Changes</button>
                 </form>
             </div>
         </div>
