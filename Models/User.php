@@ -91,13 +91,39 @@ class User {
         
     }
 
-    function updateEditUser($id, $F_Name, $L_Name, $Phone_Num) {
+    function update_fname($id, $F_Name) {
         global $conn;
         
-        $sql = "UPDATE `User_Info` SET `F_Name` = `$F_Name`, `L_Name` = `$L_Name`, `Phone_Num` = `$Phone_Num` WHERE `User_Info` . `U_ID` = $id;";
-        $conn = query($sql);
+        $sql = "UPDATE `User_Info` SET `F_Name` = '$F_Name' WHERE `U_ID` = $id;";
+        $conn -> query($sql);
 
-        var_dump($conn -> $error);
+        if($conn -> connect_error) {
+            die("Connection failed: " . $conn -> connect_error);
+        }
+    }
+
+
+    function update_lname($id, $L_Name) {
+        global $conn;
+        
+        $sql = "UPDATE `User_Info` SET `L_Name` = '$L_Name' WHERE `U_ID` = $id;";
+        $conn -> query($sql);
+
+        if($conn -> connect_error) {
+            die("Connection failed: " . $conn -> connect_error);
+        }
+    }
+
+
+    function update_phoneNum($id, $Phone_Num) {
+        global $conn;
+        
+        $sql = "UPDATE `User_Info` SET `Phone_Num` = '$Phone_Num' WHERE `U_ID` = $id;";
+        $conn -> query($sql);
+
+        if($conn -> connect_error) {
+            die("Connection failed: " . $conn -> connect_error);
+        }
     }
 
     function updateUser($id, $Role_ID, $U_Email, $U_Pass, $F_Name, $L_Name, $Phone_Num, $Created_On, $Modified_On) {
@@ -107,6 +133,51 @@ class User {
         $conn = query($sql);
 
         var_dump($conn -> $error);
+    }
+
+    function update($u, $uID){
+    
+        if($_POST['U_Email'] != "" ){            
+            $email= $_POST['U_Email'];
+              // var_dump($email);
+            $u -> updateEmail($uID,$email);
+     
+        header('Location: ?controller=user&action=myaccount&id=' . $uID);
+        }
+        
+        if($_POST['new_pass'] != ""){
+            $newpass = $_POST['new_pass'];
+            $cnfrm = $_POST['c_new_pass'];
+            if($newpass != $cnfrm){
+                echo "<script>alert('Confirm password does not match')</script>";
+            }else{
+                $u-> updatePassword($uID,$newpass);
+                header('Location: ?controller=user&action=myaccount&id=' . $uID);
+            }
+
+        }
+
+        if($_POST['F_Name'] != ""){
+            $fname = $_POST['F_Name'];
+
+            $u -> update_fname($uID,$fname);
+            header('Location: ?controller=user&action=myaccount&id=' . $uID);
+        }
+
+        if($_POST['L_Name'] != ""){
+            $lname = $_POST['L_Name'];
+
+            $u -> update_lname($uID,$lname);
+            header('Location: ?controller=user&action=myaccount&id=' . $uID);
+        }
+        
+        if($_POST['Phone_Num'] != ""){
+            $pNum = $_POST['Phone_Num'];
+
+            $u -> update_phoneNum($uID,$pNum);
+            header('Location: ?controller=user&action=myaccount&id=' . $uID);
+        }
+
     }
 
     function insertUser($Role_ID, $U_Email, $U_Pass, $F_Name, $L_Name, $Phone_Num, $Created_On, $Modified_On) {
