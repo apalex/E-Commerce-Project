@@ -1,10 +1,27 @@
+
+<?php
+    //include "mysqldatabase.php";
+    session_start();
+    $log_path;
+    if(isset($_SESSION["id"])){
+        $log_path = "myaccount";
+    }else{
+        $log_path = "login";
+    }
+ $product = $data[0];
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop all your electronic needs and save big! | ABDGameStore.com</title>
-    <link rel="stylesheet" href="../..styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +30,7 @@
             <div class="header-inner top">
                 <div class="section-left">
                     <div class="header-nav side-bar" id="sidenav">
-                        <a href="javascript:void(0)" onclick="closeNav()" id="closeNavBar"><img src="../../images/x.png" width="21" height="21"></a>
+                        <a href="javascript:void(0)" onclick="closeNav()" id="closeNavBar"><img src="images/x.png" width="21" height="21"></a>
                         <a href="newarrivals.php">New Arrivals</a>
                         <a href="bestsellers.php">Best Sellers</a>
                         <a href="allsellers.php">All Sellers</a>
@@ -24,17 +41,17 @@
                     <div class="header-nav hamburger-icon">
                         <span onclick="openNav()">
                             <a>
-                                <img src="../../images/hamburger.png" width="30" height="30">
+                                <img src="images/hamburger.png" width="30" height="30">
                             </a>
                         </span>
                     </div>
                     <div class="header-nav logo">
-                        <a href="../Home/index.php" id="logo">ABD Game Store</a>
+                        <a href="?controller=home&action=index" id="logo">ABD Game Store</a>
                     </div>
                     <div class="header-nav search-bar">
                         <form action="">
                             <input type="text" placeholder="What are you looking for?" id="searchbox">
-                            <button type="submit" id="searchbtn"><img src="../../images/search.png" width="28" height="28"></button>
+                            <button type="submit" id="searchbtn"><img src="images/search.png" width="28" height="28"></button>
                         </form>
                     </div>
                 </div>
@@ -46,12 +63,12 @@
                     </div>
                     <div class="header-nav cart">
                         <a href="cart.php" id="shopping-cart">
-                            <img src="../../images/shopping-cart.png" alt="Shopping Cart" width="30" height="40">
+                            <img src="images/shopping-cart.png" alt="Shopping Cart" width="30" height="40">
                         </a>
                     </div>
                     <div class="header-nav account">
-                        <a href="../User/myaccount.php" id="account">
-                            <img src="../../images/account.png" alt="Account" width="32" height="32">
+                        <a href="?controller=user&action=<?php echo $log_path?> " id="account">
+                            <img src="images/account.png" alt="Account" width="32" height="32">
                         </a>
                     </div>
                 </div>
@@ -71,7 +88,7 @@
                                     <a>
                                         Categories
                                         <i>
-                                            <img src="../../images/caret-down.png" width="20px" height="20px">
+                                            <img src="<?php echo $product -> Prod_Image_Path?>" width="20px" height="20px">
                                         </i>
                                     </a>
                                     <div class="dropdown_content">
@@ -101,15 +118,15 @@
     </header>
 
     <div class="wrapper">
-        <div class="container product">
+        <div class="product container">
             <div class="product location">
                 <!-- Instead of hard coding product name here, pull from SQL table product_name -->
-                <p>Home / Product / Keyboard / <b>Razer Ornata V3 TKL Gaming Keyboard</b></p>
+                <p>Home / Product / Keyboard / <b><?php echo $product -> Prod_Name ?></b></p>
             </div>
             <div class="product box">
                 <div class="product image">
                     <div class="product image top">
-                        <img src="../../images/razer_ornata_v3.jpg" alt="">
+                        <img src="images/razer_ornata_v3.jpg" alt="">
                     </div>
                     <div class="product image bottom">
                         <!-- Make a carousel here -->
@@ -118,16 +135,16 @@
                 <div class="product info">
                     <div class="product desc">
                         <div class="product name">
-                            <h2>Razer Ornata V3 TKL Gaming Keyboard</h2>
+                            <h2><?php echo $product -> Prod_Name?></h2>
                         </div>
                         <div class="product stars">
 
                         </div>
                         <div class="product price">
-                            <h1>$150.00</h1>
+                            <h1>$<?php echo $product->Prod_Client_Price ?></h1>
                         </div>
                         <div class="product comments">
-                            <p>Razer Ornata V3 is a Gaming Keybaord...</p>
+                            <p><?php echo $product-> Prod_Comments?></p>
                         </div>
                     </div>
                     <div class="product add">
@@ -170,7 +187,7 @@
             <tr>
                 <td>Get 10% off your first order</td>
                 <td><address><a href="mailto:abdgamestore@gmail.com">abdgamestore@gmail.com</a></address></td>
-                <td><a href="login.html" class="footerLinkStyle">Login</a></td>
+                <td><a href="?controller=user&action=login" class="footerLinkStyle">Login</a></td>
                 <td><a href="TOU.html" class="footerLinkStyle">Terms Of Use</a></td>
             </tr>
             <tr>
@@ -188,7 +205,7 @@
         </table>
     </footer>
 
-<script src="../../app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
