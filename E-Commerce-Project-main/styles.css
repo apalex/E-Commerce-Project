@@ -120,9 +120,9 @@ header {
     float: right;
 }
 
-.header-nav.countries {
+/* .header-nav.countries {
     float: right;
-}
+} */
 
 .header-nav.cart {
     width: 53px;
@@ -136,9 +136,9 @@ header {
     float: right;
 }
 
-#countries {
+/* #countries {
     width: 100px;
-}
+} */
 
 /* Bottom Header */
 
@@ -585,13 +585,13 @@ footer {
     margin: 8px 0 8px 20px;
 }
 
-.account.edit {
+.account.edit, .account.address {
     width: 70%;
     display: inline-block;
     float: right;
 }
 
-#first_name, #last_name, #email, #phone {
+#first_name, #last_name, #email, #phone, #Address_One, #city_1, #Address_Two, #zip {
     width: 50%;
     display: inline-block;
 }
@@ -605,17 +605,17 @@ footer {
     float: right;
 }
 
-#F_Name, #U_Email {
+#F_Name, #U_Email, #Address_1, #Address_2 {
     width: 85%;
     margin-bottom: 10px;
 }
 
-#L_Name, #Phone_Num {
+#L_Name, #Phone_Num, #City, #Zip_Code {
     float: left;
     width: 85%;
 }
 
-#last_name, #phone {
+#last_name, #phone, #city_1, #zip {
     float: right;
 }
 
@@ -638,6 +638,15 @@ footer {
     border: none;
     width: 30%;
     padding: 10px;
+}
+
+.stack-input.five {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.countries {
+    padding-right: 80%;
 }
 
 /* Admin Panel */
