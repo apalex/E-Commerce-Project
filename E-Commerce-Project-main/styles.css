@@ -678,3 +678,34 @@ footer {
 #U_ID {
     width: 93%;
 }
+
+/* Error Page */
+
+.container.error {
+    height: 100%;
+    margin-top: 150px;
+}
+
+.container.error-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container.error h1 {
+    font-size: 85px;
+    letter-spacing: 15px;
+}
+
+.container.error p {
+    font-size: large;
+    letter-spacing: 1px;
+}
+
+.container.error button {
+    background-color: #ff4343;
+    color: white;
+    border: none;
+    width: 15%;
+    padding: 10px;
+}
