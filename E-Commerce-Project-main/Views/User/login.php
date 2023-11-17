@@ -188,7 +188,7 @@ if($result->num_rows ==1){
         </table>
     </footer>
 
-<script src="../../app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
