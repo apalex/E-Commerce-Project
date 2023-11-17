@@ -709,3 +709,96 @@ footer {
     width: 15%;
     padding: 10px;
 }
+
+/* Checkout Page */
+
+.container.checkout {
+    margin-top: 150px;
+    margin-bottom: 100px;
+    height: 100%;
+}
+
+.checkout.details {
+    display: inline-block;
+    width: 50%;
+    height: 90%;
+}
+
+.checkout.details p {
+    letter-spacing: 1px;
+    font-size: large;
+}
+
+.checkout.details input {
+    width: 70%;
+}
+
+.checkout.products-total {
+    display: inline-block;
+    float: right;
+    width: 50%;
+    height: 90%;
+    margin-top: 85px;
+}
+
+.checkout.product-info {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-name-checkout {
+    width: 355px;
+    padding-left: 5%;
+    font-size: large;
+}
+
+#product-price-checkout {
+    width: 100px;
+    padding-left: 5%;
+    font-size: large;
+}
+
+.checkout.total-sub, .checkout.total-ship, .checkout.total-amt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.checkout.total-sub, .checkout.total-ship {
+    border-bottom: 1px solid black;
+}
+
+#product-left-total {
+    width: 455px;
+}
+
+#product-right-money {
+    width: 100px;
+    padding-left: 5%;
+    font-size: large;
+}
+
+.checkout.products-total button {
+    background-color: #ff4343;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 25px;
+    font-size: small;
+}
+
+.product.box {
+    margin-bottom: 10px;
+}
+
+.product-scroll-box {
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}
+
