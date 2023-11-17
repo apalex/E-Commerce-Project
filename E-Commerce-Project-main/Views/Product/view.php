@@ -27,7 +27,7 @@
 </head>
 <body>
     <?php
-    include_once 'navbarr.php';
+    include_once 'navbar.php';
     ?>
 
     <div class="wrapper">
