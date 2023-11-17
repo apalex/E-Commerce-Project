@@ -148,38 +148,51 @@
                         <input type="text">
                         <p>Last Name</p>
                         <input type="text">
+                        <p>Country</p>
+                        <select name="" id="">
+
+                        </select>
                         <p>Address 1</p>
                         <input type="text">
                         <p>Address 2</p>
                         <input type="text">
                         <p>City</p>
                         <input type="text">
-                        <p>Country</p>
-                        <select name="" id="">
-
-                        </select>
+                        <p>Zip Code</p>
+                        <input type="text">
                         <p>Phone Number</p>
                         <input type="text" name="" id="">
                     </div>
                     <div class="checkout products-total">
-                        <div class="checkout product-info">
-                            <img src="images/razer_gaming_mouse.jpg" width=60 heigth=60>
-                            <p>Razer sumt</p>
-                            <p>$$$</p>
+                        <div class="product-scroll-box">
+                            <div class="product box">
+                                <div class="checkout product-info">
+                                    <img src="images/razer_ornata_v3.jpg" width=100 heigth=100>
+                                    <p id="product-name-checkout">Razer Ornata V3</p>
+                                    <p id="product-price-checkout">$150</p>
+                                </div>
+                            </div>
+                            <div class="product box">
+                                <div class="checkout product-info">
+                                    <img src="images/razer_ornata_v3.jpg" width=100 heigth=100>
+                                    <p id="product-name-checkout">Razer Brandino V3</p>
+                                    <p id="product-price-checkout">$250</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="checkout total-sub">
-                            <p>Subtotal</p>
-                            <p>$$$</p>
+                            <p id="product-left-total">Subtotal:</p>
+                            <p id="product-right-money">$400</p>
                         </div>
                         <div class="checkout total-ship">
-                            <p>Shipping</p>
-                            <p>$$$$</p>
+                            <p id="product-left-total">Shipping:</p>
+                            <p id="product-right-money">Free</p>
                         </div>
                         <div class="checkout total-amt">
-                            <p>Total</p>
-                            <p>$$$</p>
+                            <p id="product-left-total">Total:</p>
+                            <p id="product-right-money">$400</p>
                         </div>
-                        <button type="submit" id="Place-Order">Place Order</button>
+                        <button type="submit" id="Place-Order">Proceed to Payment Details</button>
                     </div>
                 </form>
             </div>
