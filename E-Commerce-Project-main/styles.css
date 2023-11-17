@@ -802,3 +802,17 @@ footer {
     text-align:justify;
 }
 
+/* Payment Details */
+
+.payment-details {
+    min-height: 635px;
+}
+
+.payment-details input {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
