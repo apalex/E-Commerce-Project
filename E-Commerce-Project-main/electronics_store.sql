@@ -119,3 +119,11 @@ CREATE TABLE Discount
 	CONSTRAINT PK_DISCOUNT_DID PRIMARY KEY (Discount_ID),
 	CONSTRAINT FK_DISCOUNT_PID FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
 );
+
+
+INSERT INTO `product_info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES
+( 'Razer Ornata V3 TKL Gaming Keyboard', 150, 115, 'Razer Ornata V3 is a Gaming Keyboard...', 'Razer Ornata V3 is a Gaming Keyboard...', 3, 'Keyboard', 'images/razer_ornata_v3.jpg'),
+( 'RAZER ISKUR GAMING CHAIR', 1105.25, 775.5, 'When sitting for long periods, your back tends to slouch and lose some of its natural curvature due to fatigue. The Razer Iskur’s lumbar support is engineered to prop up your posture and take pressure off your back, so you can maintain a form that allows you to game on, and on, and on.', '', 2, 'Accessories', 'images/razer_iskur_gaming_chair.jpg'),
+( 'Razer BlackWidow Chroma V2', 200, 115.5, ' Razer BlackWidow Chroma V2, this wrist rest features ergonomics, that ensure, that no matter how intense your gaming marathons are, you are always comfortable.', '', 1, 'Keyboard', 'images/razer_blackwidow_chroma_v2.jpg'),
+( 'Razer - Kraken Analog Gaming Headset ', 120, 75.5, ' Razer Kraken has built a reputation as a cult classic within the gaming community. It made its mark as a staple at countless gaming events, conventions, and tournaments.', '', 1, 'Headset', 'images/razer_kraken_analog_headset.jpg'),
+( 'Razer Gaming Mouse Computer Accessory Games Playing Using Wired', 80, 30.5, 'The mouse comes with a compact size, which is more appropriate for gamers who have smaller hands and offers more comfortable grip.', '', 1, 'Mouse', 'images/razer_gaming_mouse.jpg');
