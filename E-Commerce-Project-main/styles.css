@@ -795,6 +795,11 @@ footer {
     margin-bottom: 10px;
 }
 
+.product.box img {
+    width: 100px;
+    height: 100px;
+}
+
 .product-scroll-box {
     height: 150px;
     overflow-x: hidden;
