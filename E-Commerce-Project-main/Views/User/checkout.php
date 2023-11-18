@@ -75,14 +75,14 @@
                         <div class="product-scroll-box">
                             <div class="product box">
                                 <div class="checkout product-info">
-                                    <img src="images/razer_ornata_v3.jpg" width=100 heigth=100>
+                                    <img src="images/razer_ornata_v3.jpg">
                                     <p id="product-name-checkout">Razer Ornata V3</p>
                                     <p id="product-price-checkout">$150</p>
                                 </div>
                             </div>
                             <div class="product box">
                                 <div class="checkout product-info">
-                                    <img src="images/razer_ornata_v3.jpg" width=100 heigth=100>
+                                    <img src="images/razer_ornata_v3.jpg">
                                     <p id="product-name-checkout">Razer Brandino V3</p>
                                     <p id="product-price-checkout">$250</p>
                                 </div>
