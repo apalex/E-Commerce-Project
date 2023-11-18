@@ -25,10 +25,36 @@
                     <p>Subtotal</p>
                 </div>
                 <div class="cart products">
-                    <img src="" alt="">
-                    <p>1600$</p>
-                    <select name="" id="testt">
-                    </select>
+                    <div>
+                        <img src="images/razer_ornata_v3.jpg" alt="">
+                    </div>
+                    <div>
+                        <p>1600$</p>
+                    </div>
+                    <div>
+                        <select name="">
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>1600$</p>
+                    </div>
+                </div>
+                <div class="cart products">
+                    <div>
+                        <img src="images/razer_ornata_v3.jpg" alt="">
+                    </div>
+                    <div>
+                        <p>1600$</p>
+                    </div>
+                    <div>
+                        <select name="">
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>1600$</p>
+                    </div>
                 </div>
                 <button>Return To Shop</button>
             </div>
