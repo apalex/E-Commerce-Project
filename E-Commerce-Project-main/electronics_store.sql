@@ -43,7 +43,6 @@ CREATE TABLE User_Address
 (
 	U_ID INT NOT NULL,
 	Address_1 VARCHAR(255),
-	Address_2 VARCHAR(255),
 	City VARCHAR(255),
 	Zip_Code VARCHAR(255),
 	Country VARCHAR(255),
