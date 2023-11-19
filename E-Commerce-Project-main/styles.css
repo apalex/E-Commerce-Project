@@ -842,3 +842,138 @@ footer {
     justify-content: center;
 }
 
+/* Order Details */
+
+.container.order-details {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.order-confirmation-box, .order-box {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    padding-top: 20px;
+}
+
+.order-confirmation-box {
+    left: 0;
+}
+
+.order-box {
+    right: 0;
+}
+
+/* Order Details Left */
+
+.order-confirmation-box > p {
+    margin-left: 67px;
+    font-size: x-large;
+}
+
+.order-confirmation-box > h1 {
+    margin-left: 67px;
+    font-family: none;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.order-details {
+    width: 60%;
+    border: 1px solid black;
+    margin-left: 67px;
+}
+
+.order-details-first p, .order-details-second p {
+    font-size: medium;
+}
+
+.order-details > h1 {
+    font-size: xx-large;
+    border-bottom: 1px solid black;
+}
+
+.order-details-first {
+    display: inline-block;
+    margin: 12px;
+}
+
+.order-details-second {
+    display: inline-block;
+    margin: 12px;
+    float: right;
+}
+.order-confirmation-box button {
+    margin-left: 67px;
+}
+
+/* Order Details Right */
+
+.order-box {
+    background-color: #e8f3f6;
+    border-left: 1px solid lightgray;
+}
+
+.order-box img {
+    height: 90px;
+    width: 90px;
+}
+
+.order-product-info {
+    width: 45%;
+    margin-left: 35px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.order-product-info p {
+    font-size: 17px;
+}
+
+.order-product-info p {
+    display: block;
+    flex: 0 1 auto;
+    list-style-type: none;
+    margin-top: 25px;
+}
+
+.order-sub-ship {
+    border-top: 1px solid black;
+    margin-top: 35px;
+    margin-left: 35px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 45%;
+    border-bottom: 1px solid black;
+}
+
+.order-sub p, .order-ship p, .order-total p {
+    display: inline-block;
+    font-size: 18px;
+}
+
+.order-sub, .order-ship {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.order-sub p, .order-ship p {
+    display: block;
+    flex: 0 1 auto;
+    list-style-type: none;
+}
+
+.order-total {
+    margin-top: 35px;
+    margin-left: 35px;
+    width: 45;
+}
+
