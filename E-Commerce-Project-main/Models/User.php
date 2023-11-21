@@ -12,10 +12,11 @@ class User {
     public $Phone_Num;
     public $Created_On;
     public $Modified_On;
-
+    public $address_list;
     function __construct($id = -1) {
         global $conn;
 
+        
         $this -> U_ID = $id;
         if ($id < 0) {
             $this -> Role_ID = 0;
@@ -41,6 +42,8 @@ class User {
             $this -> Phone_Num = $data['Phone_Num'];
             $this -> Created_On = $data['Created_On'];
             $this -> Modified_On = $data['Modified_On'];
+            $AU = new User_Address($id);
+            $this -> address_list = $AU -> listAddress($id);
         }
     }
 
@@ -197,6 +200,89 @@ class User {
 
         var_dump($conn -> $error);
     }
+
+    function updateAddress($AU,$address,$city,$zipcode,$country){
+        global $conn;
+        $U_ID = $this -> U_ID;
+        
+        $sql = "UPDATE `User_address` SET 
+        `Address_1` = '$address', 
+        `City` = '$city', 
+        `Zip_Code` = '$zipcode', 
+        `country` = '$country'
+         WHERE `UA_ID` = $AU;";
+
+         $conn -> query($sql);
+          header('Location: ?controller=user&action=editAddress&id=' . $U_ID);
+         if($conn -> connect_error) {
+            die("Connection failed: " . $conn -> connect_error);
+        }
+       
+    }
+
 }
+
+   
+
+
+
+
+    class User_Address{
+        public $UA_ID;
+        public $U_ID;
+        public $address;
+        public $city;
+        public $postal;
+        public $country;
+
+        function __construct($id = -1){
+            global $conn;
+
+            $this -> U_ID = $id;
+            if($id < 0){
+                $this -> UA_ID = 0;
+                $this -> address = 0;
+                $this -> city = "";
+                $this -> postal = "";
+                $this -> country = "";
+            }else{
+              $sql = "SELECT * FROM `user_address` WHERE `U_ID` = " . $id;
+                $result = $conn -> query($sql);
+
+                $data = $result -> fetch_assoc();
+                $this -> UA_ID = $data["UA_ID"];
+                $this -> U_ID = $id;
+                $this -> address = $data["Address_1"];
+                $this -> City = $data["City"];
+                $this -> Zip_Code = $data["Zip_Code"];
+                $this -> country = $data["Country"];
+
+            }
+
+        }
+
+        public static function listAddress($id) {
+            global $conn;
+            $list = array();
+            
+            $sql = "SELECT * FROM `user_address` WHERE `U_ID` = " . $id;
+            $result = $conn -> query($sql);
+    
+            while ($row = $result -> fetch_assoc()) {
+                $user_add = new User_Address($id);
+                $user_add -> UA_ID = $row["UA_ID"];
+                $user_add -> U_ID = $row['U_ID'];
+                $user_add -> address = $row["Address_1"];
+                $user_add -> city = $row["City"];
+                $user_add -> postal = $row["Zip_Code"];
+                $user_add -> country = $row["Country"];
+    
+                array_push($list, $user_add);
+            }
+            return $list;
+        }
+
+
+    }
 
 ?>
