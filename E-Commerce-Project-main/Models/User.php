@@ -220,6 +220,32 @@ class User {
        
     }
 
+    function addAddress(){
+        global $conn;
+        $U_ID = $this -> U_ID;
+
+        $sql="INSERT INTO User_address (U_ID) VALUES ('$U_ID')";
+        $conn -> query($sql);
+
+        header('Location: ?controller=user&action=editAddress&id=' . $U_ID);
+        if($conn -> connect_error) {
+           die("Connection failed: " . $conn -> connect_error);
+       }
+    }
+
+    function deleteAddress($UA_ID){
+        global $conn;
+        $U_ID = $this -> U_ID;
+
+        $sql = "DELETE FROM User_address WHERE UA_ID = $UA_ID";
+        $conn -> query($sql);
+
+        header('Location: ?controller=user&action=editAddress&id=' . $U_ID);
+        if($conn -> connect_error) {
+           die("Connection failed: " . $conn -> connect_error);
+       }
+    }
+
 }
 
    
