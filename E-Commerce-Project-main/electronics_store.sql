@@ -33,16 +33,16 @@ CREATE TABLE User_Info
 
 
 ALTER TABLE User_Info
-ADD CONSTRAINT FK_UINFO_RID FOREIGN KEY (Role_ID) REFERENCES User_Groups_Perms(Role_ID);
+ADD CONSTRAINT FK_UINFO_RID FOREIGN KEY (Role_ID) REFERENCES User_Groups_Perms(Role_ID) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
 ALTER TABLE User_Groups_Perms
-ADD CONSTRAINT FK_UGP_UID FOREIGN KEY (U_ID) REFERENCES User_Info(U_ID);
+ADD CONSTRAINT FK_UGP_UID FOREIGN KEY (U_ID) REFERENCES User_Info(U_ID) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
 CREATE TABLE User_Address
 (
-	UA_ID INT NOT NULL AUTO_INCREMENT,
+	UA_ID INT NOT  NULL AUTO_INCREMENT,
 	U_ID INT NOT NULL,
 	Address_1 VARCHAR(255),
 	City VARCHAR(255),
@@ -130,7 +130,7 @@ CREATE TABLE Discount
 );
 
 
-INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES
+INSERT INTO `product_info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES
 ( 'Razer Ornata V3 TKL Gaming Keyboard', 150, 115, 'Razer Ornata V3 is a Gaming Keyboard...', 'Razer Ornata V3 is a Gaming Keyboard...', 3, 'Keyboard', 'images/razer_ornata_v3.jpg'),
 ( 'RAZER ISKUR GAMING CHAIR', 1105.25, 775.5, 'When sitting for long periods, your back tends to slouch and lose some of its natural curvature due to fatigue. The Razer Iskur’s lumbar support is engineered to prop up your posture and take pressure off your back, so you can maintain a form that allows you to game on, and on, and on.', '', 2, 'Accessories', 'images/razer_iskur_gaming_chair.jpg'),
 ( 'Razer BlackWidow Chroma V2', 200, 115.5, ' Razer BlackWidow Chroma V2, this wrist rest features ergonomics, that ensure, that no matter how intense your gaming marathons are, you are always comfortable.', '', 1, 'Keyboard', 'images/razer_blackwidow_chroma_v2.jpg'),
