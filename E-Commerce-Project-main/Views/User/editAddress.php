@@ -23,6 +23,18 @@
        }
     }
   
+    if(isset($_POST['addButton'])){
+        $user -> addAddress();
+   
+    }
+
+    if(isset($_POST['delete-address'])){
+        if(count($addList) == 1){
+            echo"<script>alert('Must have at least one Address')</script>";
+        }else{
+        $user -> deleteAddress($_POST['AU_ID']);
+        }
+    }
 
 
 
@@ -103,10 +115,12 @@
                     <a href="">My Cancellations</a>
                 </div>
             </div>
+            <div class="account address">
+            <h3>Edit Your Address</h3>
             <?php
                 foreach($addList as $au){
-           echo '<div class="account address">
-                <h3>Edit Your Address</h3>
+           echo '
+                
                 <form action="" method="POST">
                     <p id="Address_One">Address</p>
                     <p id="city_1">City</p>
@@ -134,11 +148,17 @@
                     </div>
                     <button type="submit" id="cancel-profile">Cancel</button>
                     <button type="submit" id="save-profile" name="submit">Save Changes</button>
+                    <button type="submit id="delete-address" name="delete-address">Delete</button>
                     <input name="AU_ID" type="hidden" value="'. $au -> UA_ID .'"></input>
                 </form>
-            </div>';
+            ';
                 }
+                
             ?>
+            <form action="" method="POST">
+            <input type="submit" name="addButton" value="Add Address">
+            </form>
+            </div>
         </div>
         <div class="push">
         </div>
