@@ -15,8 +15,9 @@ header {
 }
 
 .section-left button {
-    display: none;
-    background-color: black;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 /* Navigation Bar */
