@@ -1,3 +1,28 @@
+<?php
+
+include "mysqldatabase.php";
+session_start();
+$log_path;
+$cart_path;
+$button;
+if(isset($_SESSION["id"])){
+    $log_path = "myaccount&id=". $_SESSION['id']. "";
+    $cart_path = "cart";
+    $button = "<button type='submit' name='log_sub'>Log out</button>";
+}else{
+    $log_path = "login";
+    $cart_path= "login";
+    $button = "";
+}
+
+
+
+if(isset($_POST['log_sub'])){
+    unset($_SESSION['id']);
+    header('Location: ?controller=home&action=index');
+}
+?>
+<html>
 <header>
         <div class="page-content-inner">
             <div class="header-inner top">
@@ -26,10 +51,12 @@
                         <a href="?controller=home&action=index" id="logo">ABD Game Store</a>
                     </div>
                     <div class="header-nav search-bar">
-                        <form action="">
-                            <input type="text" placeholder="What are you looking for?" id="searchbox">
-                            <button type="submit" id="searchbtn"><img src="images/search.png" width="28" height="28"></button>
-                        </form>
+                       <form action="?controller=home&action=results" method="POST">
+                            <input type="search" placeholder="Search" id="searchbox" name="search"></input>
+                         
+                            <button id="searchbtn" type="submit">
+                         <img src="images/search.png" alt="Search" width="28" height="28">
+                            </button>
                     </div>
                 </div>
                 <div class="section-right">
@@ -93,3 +120,4 @@
             </div>
         </div>
     </header>
+</html>
