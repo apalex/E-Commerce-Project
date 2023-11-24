@@ -129,6 +129,17 @@ CREATE TABLE Discount
 	CONSTRAINT FK_DISCOUNT_PID FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
 );
 
+INSERT INTO `User_Info` (`U_Email`, `U_Pass`, `F_Name`, `L_Name`, `Phone_Num`) VALUES 
+('6ixgod@gmail.com', 'drakeToronto1!', 'Jean-Francois', 'Lariviere', '5141112222'),
+('johntimothy@gmail.com', 'Gymothy123!', 'John', 'Tim', '5141231234'),
+('trenman1@gmail.com', 'Runnerman1?', 'Brandon', 'Paulozio', '1234567890'),
+('denisthemenace@gmail.com', 'Iamnotamenace123!', 'Denice', 'Plaziba', '4181231234'),
+('alexthegreat@gmail.com', 'greekGOD418!', 'Alex', 'Great', '5144116932'),
+('kimberleyyy@gmail.com', 'TommyONLY2022', 'Kimberly', 'Tommy', '5145145145'),
+('munchospice@gmail.com', 'Iceforspice??3', 'Cornelius', 'Robert', '1231231234'),
+('mangolovareal@gmail.com', 'Manmustgo4sure!', 'Manji', 'Stallion', '5140325892'),
+('barbacardi@gmail.com', 'booleanCard32!', 'Bardi', 'Park', '5148924512'),
+('sousaport@gmail.com', 'SIUNaldo7!', 'Mike', 'Sousa', '4187773287');
 
 INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES
 ( 'Razer Ornata V3 TKL Gaming Keyboard', 150, 115, 'Razer Ornata V3 is a Gaming Keyboard...', 'Razer Ornata V3 is a Gaming Keyboard...', 3, 'Keyboard', 'images/razer_ornata_v3.jpg'),
