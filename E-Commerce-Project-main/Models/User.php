@@ -246,6 +246,34 @@ class User {
        }
     }
 
+    function searchUser($search) {
+        global $conn;
+        $list = array();
+
+
+        if (is_numeric($search)) {
+            $num = (int)$search;
+            $sql = "SELECT * FROM `User_Info` WHERE U_ID = $num;";
+        } else {
+            $sql = "SELECT * FROM `User_Info` WHERE U_Email = '$search';";
+        }
+
+        $result = $conn -> query($sql);
+        $row = $result -> fetch_assoc();
+        $user = new User();
+        $user -> U_ID = $row['U_ID'];
+        $user -> Role_ID = $row['Role_ID'];
+        $user -> U_Email = $row['U_Email'];
+        $user -> U_Pass = $row['U_Pass'];
+        $user -> F_Name = $row['F_Name'];
+        $user -> L_Name = $row['L_Name'];
+        $user -> Phone_Num = $row['Phone_Num'];
+        $user -> Created_On = $row['Created_On'];
+        $user -> Modified_On = $row['Modified_On'];
+
+        return $user;
+    }
+
 }
 
    
