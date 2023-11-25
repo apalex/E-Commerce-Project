@@ -107,13 +107,13 @@ if(isset($_POST['log_sub'])){
                                 </div>
                             </div>
                             <div class="header-nav services">
-                                <a href="services.html">
-                                    Services
+                                <a href="?controller=home&action=about">
+                                    About
                                 </a>
                             </div>
                             <div class="header-nav store-locator">
-                                <a href="store_locator.html">
-                                    Store Locator
+                                <a href="?controller=home&action=contact">
+                                    Contact Us
                                 </a>
                             </div>
                         </div>
