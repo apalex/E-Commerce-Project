@@ -162,3 +162,25 @@ INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer
 ('onn. 24-inch Class 1080p Full HD Gaming Monitor', 240, 140, 'onn. monitors are designed for versatility and high definition performance.', '', 0, 'Monitor', 'images/onn._24in_monitor.jpg'),
 ('Samsung Odyssey G5 34 inch 165Hz Curved, 3440 x 1440, Gaming Monitor', 700, 380, 'Boasting an ultra-wide 1000R curved display with WQHD resolution, it presents every moment of action in stunning and immersive picture quality.', '', 2, 'Monitor', 'images/samsung_odyssey_monitor.jpg'),
 ('LG 32GN600 32Inch 165Hz Monitor', 450, 250, '2560 x 1440 QHD resolution at 165 Hz with a 5 ms response time that can be enhanced to 1 ms using Motion Blur Reduction (MBR) technology for liquid smooth graphics during high action games.', '', 1, 'Monitor', 'images/lg_32gn600_monitor.jpg');
+
+INSERT INTO `Store_Info` (`Prod_ID`, `Store_Name`) VALUES
+(1, 'Razer'),
+(2, 'Razer'),
+(3, 'Razer'),
+(4, 'Razer'),
+(5, 'Razer'),
+(6, 'Logitech'),
+(7, 'ASUS'),
+(8, 'ENHANCE'),
+(9, 'Razer'),
+(10, 'Blue Yeti'),
+(11, 'Tomshine'),
+(12, 'Adesso'),
+(13, 'Vivitar'),
+(14, 'NERDI'),
+(15, 'PDP'),
+(16, 'Turtle Beach'),
+(17, 'HyperX'),
+(18, 'onn.'),
+(19, 'Samsung'),
+(20, 'LG');
