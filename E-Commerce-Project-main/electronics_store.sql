@@ -185,3 +185,8 @@ INSERT INTO `Store_Info` (`Store_ID`, `Prod_ID`, `Store_Name`) VALUES
 (13, 18, 'onn.'),
 (14, 19, 'Samsung'),
 (15, 20, 'LG');
+
+INSERT INTO `Discount` (`Discount_ID`, `Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES 
+(1, 5, 0.15, 5),
+(2, 20, 0.1, 10),
+(3, 12, 0.2, 20);
