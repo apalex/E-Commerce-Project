@@ -169,10 +169,10 @@ class Discount {
         return $list;
     }
 
-    function insertDiscount($Prod_ID, $Discount_Percentage, $Discount_Usage) {
+    function insertDiscount($id, $Prod_ID, $Discount_Percentage, $Discount_Usage) {
         global $conn;
         
-        $sql = "INSERT INTO `Discount` (`Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES (`$Prod_ID`, `$Discount_Percentage`, `$Discount_Usage`);";
+        $sql = "INSERT INTO `Discount` (`Discount_ID`, `Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES (`$id`, `$Prod_ID`, `$Discount_Percentage`, `$Discount_Usage`);";
         $conn = query($sql);
 
         var_dump($conn -> $error);
