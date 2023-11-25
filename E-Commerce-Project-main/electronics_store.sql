@@ -113,7 +113,7 @@ CREATE TABLE Order_Details
 
 CREATE TABLE Store_Info
 (
-	S_ID INT NOT NULL AUTO_INCREMENT,
+	Store_ID INT NOT NULL,
 	Prod_ID INT NOT NULL,
 	Store_Name VARCHAR(255) NOT NULL,
 	CONSTRAINT PK_SINFO_SID PRIMARY KEY (S_ID),
@@ -122,7 +122,7 @@ CREATE TABLE Store_Info
 
 CREATE TABLE Discount
 (
-	Discount_ID INT NOT NULL AUTO_INCREMENT,
+	Discount_ID INT NOT NULL,
 	Prod_ID INT NOT NULL,
 	Discount_Percentage FLOAT NOT NULL,
 	Discount_Usage INT,
@@ -164,24 +164,24 @@ INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer
 ('Samsung Odyssey G5 34 inch 165Hz Curved, 3440 x 1440, Gaming Monitor', 700, 380, 'Boasting an ultra-wide 1000R curved display with WQHD resolution, it presents every moment of action in stunning and immersive picture quality.', '', 2, 'Monitor', 'images/samsung_odyssey_monitor.jpg'),
 ('LG 32GN600 32Inch 165Hz Monitor', 450, 250, '2560 x 1440 QHD resolution at 165 Hz with a 5 ms response time that can be enhanced to 1 ms using Motion Blur Reduction (MBR) technology for liquid smooth graphics during high action games.', '', 1, 'Monitor', 'images/lg_32gn600_monitor.jpg');
 
-INSERT INTO `Store_Info` (`Prod_ID`, `Store_Name`) VALUES
-(1, 'Razer'),
-(2, 'Razer'),
-(3, 'Razer'),
-(4, 'Razer'),
-(5, 'Razer'),
-(6, 'Logitech'),
-(7, 'ASUS'),
-(8, 'ENHANCE'),
-(9, 'Razer'),
-(10, 'Blue Yeti'),
-(11, 'Tomshine'),
-(12, 'Adesso'),
-(13, 'Vivitar'),
-(14, 'NERDI'),
-(15, 'PDP'),
-(16, 'Turtle Beach'),
-(17, 'HyperX'),
-(18, 'onn.'),
-(19, 'Samsung'),
-(20, 'LG');
+INSERT INTO `Store_Info` (`Store_ID`, `Prod_ID`, `Store_Name`) VALUES
+(1, 1, 'Razer'),
+(1, 2, 'Razer'),
+(1, 3, 'Razer'),
+(1, 4, 'Razer'),
+(1, 5, 'Razer'),
+(2, 6, 'Logitech'),
+(3, 7, 'ASUS'),
+(4, 8, 'ENHANCE'),
+(1, 9, 'Razer'),
+(5, 10, 'Blue Yeti'),
+(6, 11, 'Tomshine'),
+(7, 12, 'Adesso'),
+(8, 13, 'Vivitar'),
+(9, 14, 'NERDI'),
+(10, 15, 'PDP'),
+(11, 16, 'Turtle Beach'),
+(12, 17, 'HyperX'),
+(13, 18, 'onn.'),
+(14, 19, 'Samsung'),
+(15, 20, 'LG');
