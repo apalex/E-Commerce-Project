@@ -121,4 +121,101 @@ class Product {
 
 }
 
+class Discount {
+    public $Discount_ID;
+    public $Prod_ID;
+    public $Discount_Percentage;
+    public $Discount_Usage;
+
+    function __construct($id = -1) {
+        global $conn;
+
+        $this -> Discount_ID = $id;
+
+        if ($id < 0) {
+            $this -> Prod_ID = 0;
+            $this -> Discount_Eliglibility = false;
+            $this -> Discount_Percentage = 0;
+            $this -> Discount_Usage = 0;
+        } else {
+            $sql = "SELECT * FROM `Discount` WHERE `Discount_ID` = " . $id;
+            $result = $conn -> query($sql);
+
+            $data = $result -> fetch_assoc();
+
+            $this -> Discount_ID = $id;
+            $this -> Prod_ID = $data['Prod_ID'];
+            $this -> Discount_Percentage = $data['Discount_Percentage'];
+            $this -> Discount_Usage = $data['Discount_Usage'];
+        }
+    }
+
+    function listDiscounts() {
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT * FROM `Discount`";
+        $result = $conn -> query($sql);
+
+        while ($row = $result -> fetch_assoc()) {
+            $discount = new Discount();
+            $discount -> Discount_ID = $row['Discount_ID'];
+            $discount -> Prod_ID = $row['Prod_ID'];
+            $discount -> Discount_Percentage = $row['Discount_Percentage'];
+            $discount -> Discount_Usage = $row['Discount_Usage'];
+
+            array_push($list, $discount);
+        }
+        return $list;
+    }
+
+    function insertDiscount($Prod_ID, $Discount_Percentage, $Discount_Usage) {
+        global $conn;
+        
+        $sql = "INSERT INTO `Discount` (`Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES (`$Prod_ID`, `$Discount_Percentage`, `$Discount_Usage`);";
+        $conn = query($sql);
+
+        var_dump($conn -> $error);
+    }
+
+    function updateDiscount($Prod_ID, $Discount_Percentage, $Discount_Usage) {
+        global $conn;
+    
+        $sql = "UPDATE `Discount` SET `Prod_ID` = `$Prod_ID`, `Discount_Percentage` = `$Discount_Percentage`, `Discount_Usage` = `$Discount_Usage`;";
+        $conn =  query($sql);
+
+        var_dump($conn -> $error);
+    }
+
+    function deleteDiscount($id) {
+        global $conn;
+    
+        $sql = "DELETE FROM `Discount` WHERE `Discount_ID` = `$id`;";
+
+        $conn = query($sql);
+
+        var_dump($conn -> $error);
+    }
+
+    function searchDiscount($search){
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT * FROM `Discount` WHERE Discount_ID = '$search';";
+        $result = $conn -> query($sql);
+
+        $row = $result -> fetch_assoc() 
+        $discount = new Discount();
+        $discount -> Discount_ID = $row['Discount_ID'];
+        $discount -> Prod_ID = $row['Prod_ID'];
+        $discount -> Discount_Percentage = $row['Discount_Percentage'];
+        $discount -> Discount_Usage = $row['Discount_Usage'];
+
+        array_push($list, $discount);
+
+        return $list;
+    }
+
+}
+
 ?>
