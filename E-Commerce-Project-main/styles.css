@@ -121,9 +121,9 @@ header {
     float: right;
 }
 
-/* .header-nav.countries {
+.header-nav.languages {
     float: right;
-} */
+}
 
 .header-nav.cart {
     width: 53px;
@@ -136,10 +136,6 @@ header {
     height: 44px;
     float: right;
 }
-
-/* #countries {
-    width: 100px;
-} */
 
 /* Bottom Header */
 
