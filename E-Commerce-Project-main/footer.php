@@ -21,7 +21,7 @@
             <tr>
                 <td><input type="text" id="c_email" name="c_name" placeholder="Enter your email"><button></button></td>
                 <td><a href="tel:123-456-7890">123-456-7890</a></td>
-                <td><a href="" class="footerLinkStyle">Cart</a></td>
+                <td><a href="?controller=user&action=cart" class="footerLinkStyle">Cart</a></td>
                 <td><a href="?controller=home&action=faq" class="footerLinkStyle">FAQ</a></td>
             </tr>
             <tr>
