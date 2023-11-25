@@ -115,7 +115,7 @@ CREATE TABLE Store_Info
 (
 	Store_ID INT NOT NULL,
 	Store_Name VARCHAR(255) NOT NULL,
-	Location VARCHAR(64),
+	Store_Location VARCHAR(64),
 	CONSTRAINT PK_SINFO_SID PRIMARY KEY (Store_ID),
 	
 );
