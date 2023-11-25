@@ -29,9 +29,9 @@ if(isset($_POST['log_sub'])){
                 <div class="section-left">
                     <div class="header-nav side-bar" id="sidenav">
                         <a href="javascript:void(0)" onclick="closeNav()" id="closeNavBar"><img src="images/x.png" width="21" height="21"></a>
-                        <a href="newarrivals.html">New Arrivals</a>
-                        <a href="bestsellers.html">Best Sellers</a>
-                        <a href="allsellers.html">All Sellers</a>
+                        <a href="?controller=product&action=newarrivals">New Arrivals</a>
+                        <a href="?controller=product&action=bestsellers">Best Sellers</a>
+                        <a href="?controller=product&action=allsellers">All Sellers</a>
                         <a href="?controller=home&action=about">About</a>
                         <a href="?controller=home&action=contact">Contact</a>
                         
@@ -60,9 +60,11 @@ if(isset($_POST['log_sub'])){
                     </div>
                 </div>
                 <div class="section-right">
-                    <div class="header-nav countries">
-                        <select id="countries">
-                            <option disabled selected>Countries</option>
+                    <div class="header-nav languages">
+                        <select id="languages">
+                            <option disabled selected>Languages</option>
+                            <option>English</option>
+                            <option>French</option>
                         </select>
                     </div>
                     <div class="header-nav cart">
