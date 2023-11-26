@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 header {
@@ -190,6 +190,7 @@ header {
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     background-color: #FFFFFF;
+    overflow-x: hidden;
 }
 
 .cat_dropdown:hover .dropdown_content{
