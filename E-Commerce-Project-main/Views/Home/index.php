@@ -44,7 +44,6 @@ $pList = $prod -> listProducts();
     ?>
 
     <div class="wrapper">
-        content
         <div class="push">
         </div>
     </div>
