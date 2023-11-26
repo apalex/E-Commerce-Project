@@ -5,6 +5,10 @@ html, body {
     margin: 0;
 }
 
+body {
+    overflow-x:hidden;
+}
+
 header {
     width: 100vw;
     height: 130px;
