@@ -130,11 +130,9 @@ CREATE TABLE Discount
 );
 
 CREATE TABLE Store_Products (
+	SP_ID INT NOT NULL AUTO_INCREMENT,
 	Store_ID INT,
 	Prod_ID INT,
-	PRIMARY KEY (Store_ID, Prod_ID),
-	FOREIGN KEY (Store_ID) REFERENCES Store_Info(Store_ID),
-	FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
 );
 
 INSERT INTO `User_Info` (`U_Email`, `U_Pass`, `F_Name`, `L_Name`, `Phone_Num`) VALUES 
