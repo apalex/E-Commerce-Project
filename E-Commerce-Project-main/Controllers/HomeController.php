@@ -2,7 +2,7 @@
 
 include_once 'Models/Product.php';
 include_once "Models/User.php";
-//alex has a small penis
+
 class HomeController {
 
     function route() {
