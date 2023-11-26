@@ -1,15 +1,38 @@
 
 <?php
-    //include "mysqldatabase.php";
+include "mysqldatabase.php";
     session_start();
+   
     $log_path;
+    $product = $data[0];
+
     if(isset($_SESSION["id"])){
         $uid = $_SESSION['id'];
         $log_path = "myaccount&id=" . $uid;
+
+
+        
+ 
+
     }else{
-        $log_path = "login";
+        $log_path = "login"; 
+       
     }
- $product = $data[0];
+
+    if(isset($_POST["cart-submit"])){
+
+        if(isset($_SESSION["id"])){
+        $quan = $_POST["quantity"];
+        $p_id = $product -> Prod_ID;
+        $_SESSION["cart"]["$p_id"] = $quan;
+        var_dump($_SESSION["cart"]);
+
+        }else{
+            header('Location: ?controller=user&action=login');
+        }
+        
+        
+    }
 
 ?>
 
@@ -62,14 +85,16 @@
                     </div>
                     <div class="product add">
                         <div class="product qty-buy-heart">
-                            <form action="">
-                            <select name="" id="">
-                                <option value="" placeholder="Select a Quantity">Select a Quantity</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
+                         <form action="" method="POST">
+                            <select name="quantity" id="">
+                                <option value="" placeholder="Select a Quantity" disabled>Select a Quantity</option>
+                                <?php
+                                for($i = 1; $i<= $product -> Prod_Stock; $i++){
+                                    echo"<option value='$i'>$i</option>";
+                                }
+                                ?>
                             </select>
-                                <button id="add-to-cart">Add to Cart</button>
+                                <button id="add-to-cart" type="submit" name="cart-submit">Add to Cart</button>
                             </form>
                         </div>
                         <div class="product delivery">
