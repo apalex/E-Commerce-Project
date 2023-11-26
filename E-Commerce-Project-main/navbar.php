@@ -1,18 +1,18 @@
 <?php
 
 include "mysqldatabase.php";
-session_start();
+if (session_status() === PHP_SESSION_NONE){session_start();}
 $log_path;
 $cart_path;
-$button;
+$log_out_button;
 if(isset($_SESSION["id"])) {
     $log_path = "myaccount&id=". $_SESSION['id']. "";
     $cart_path = "cart";
-    $button = "<button type='submit' name='log_sub'>Log out</button>";
+    $log_out_button = "<button type='submit' name='log_sub'>Log out</button>";
 } else {
     $log_path = "login";
     $cart_path= "login";
-    $button = "";
+    $log_out_button = "";
 }
 
 if(isset($_POST['log_sub'])){
@@ -33,7 +33,7 @@ if(isset($_POST['log_sub'])){
                         <a href="?controller=home&action=contact">Contact</a>
                         
                             <form action="" method="POST">
-                           <?php echo $button ?>
+                           <?php echo $log_out_button ?>
                             </form>
                     
                     </div>
@@ -54,6 +54,7 @@ if(isset($_POST['log_sub'])){
                             <button id="searchbtn" type="submit">
                          <img src="images/search.png" alt="Search" width="28" height="28">
                             </button>
+                            </form>
                     </div>
                 </div>
                 <div class="section-right">
