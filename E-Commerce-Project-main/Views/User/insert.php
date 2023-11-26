@@ -51,12 +51,12 @@ if($conn -> connect_error) {
         $sql = "SET @role_id = LAST_INSERT_ID()";
         $conn ->query($sql);
 
-        $sql ="
-        UPDATE user_info
-        SET Role_ID = @role_id
-        WHERE U_ID = @u_id;
-        ";
-        $conn ->query($sql);
+        // $sql ="
+        // UPDATE user_info
+        // SET Role_ID = @role_id
+        // WHERE U_ID = @u_id;
+        // ";
+        // $conn ->query($sql);
         if($conn -> connect_error) {
             die("Connection failed: " . $conn -> connect_error);
         }
