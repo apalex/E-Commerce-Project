@@ -12,7 +12,6 @@ body {
 header {
     width: 100vw;
     height: 130px;
-    position: absolute;
     left: 0px;
     top: 0px;
     right: 0px;
@@ -291,7 +290,6 @@ footer {
     border-radius: 35px;
     width: 75%;
     height: 50%;
-    margin-top: 250px;
 }
 
 .container.about h1 {
@@ -306,14 +304,12 @@ footer {
 
 .container.FAQ {
     width: 75%;
-    margin-top: 250px;
 }
 
 /* Terms Of Use */
 
 .container.TOU {
     width: 75%;
-    margin-top: 250px;
 }
 
 /* Contact Section */
@@ -323,7 +319,6 @@ footer {
     border-radius: 35px;
     width: 75%;
     height: 50%;
-    margin-top: 250px;
 }
 
 .container.contact h1 {
@@ -352,7 +347,6 @@ footer {
 .container.registration, .container.login {
     width: 35%;
     height: 600px;
-    margin-top: 250px;
 }
 
 .container.registration form, .container.login form {
@@ -426,7 +420,6 @@ footer {
 /* Cart Section */
 
 .container.cart {
-    margin-top: 150px;
     min-height: 650px;
 }
 
@@ -561,7 +554,6 @@ footer {
 /* Product View Section */
 
 .product.container {
-    margin-top: 150px;
     min-height: 650px;
 }
 
@@ -588,7 +580,6 @@ footer {
 /* My Account */
 
 .container.account {
-    margin-top: 150px;
     min-height: 650px;
 }
 
@@ -674,7 +665,6 @@ footer {
 /* Admin Panel */
 
 .container.admin {
-    margin-top: 150px;
     min-height: 650px;
 }
 
@@ -705,7 +695,6 @@ footer {
 
 .container.error {
     height: 100%;
-    margin-top: 150px;
 }
 
 .container.error-center {
@@ -735,7 +724,6 @@ footer {
 /* Checkout Page */
 
 .container.checkout {
-    margin-top: 150px;
     margin-bottom: 100px;
     height: 100%;
 }
