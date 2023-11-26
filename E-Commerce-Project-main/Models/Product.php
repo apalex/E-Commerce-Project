@@ -204,7 +204,7 @@ class Discount {
         $sql = "SELECT * FROM `Discount` WHERE Discount_ID = '$search';";
         $result = $conn -> query($sql);
 
-        $row = $result -> fetch_assoc() 
+        $row = $result -> fetch_assoc();
         $discount = new Discount();
         $discount -> Discount_ID = $row['Discount_ID'];
         $discount -> Prod_ID = $row['Prod_ID'];
