@@ -115,9 +115,8 @@ CREATE TABLE Store_Info
 (
 	Store_ID INT NOT NULL,
 	Store_Name VARCHAR(255) NOT NULL,
-	Store_Location VARCHAR(64),
+	Store_Location VARCHAR(255),
 	CONSTRAINT PK_SINFO_SID PRIMARY KEY (Store_ID),
-	
 );
 
 CREATE TABLE Discount
@@ -131,11 +130,11 @@ CREATE TABLE Discount
 );
 
 CREATE TABLE Store_Products (
-    store_id INT,
-    product_id INT,
-    PRIMARY KEY (store_id, product_id),
-    FOREIGN KEY (store_id) REFERENCES Store_Info(Store_ID),
-    FOREIGN KEY (product_id) REFERENCES Product_Info(Prod_ID)
+	Store_ID INT,
+	Prod_ID INT,
+	PRIMARY KEY (Store_ID, Prod_ID),
+	FOREIGN KEY (Store_ID) REFERENCES Store_Info(Store_ID),
+	FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
 );
 
 INSERT INTO `User_Info` (`U_Email`, `U_Pass`, `F_Name`, `L_Name`, `Phone_Num`) VALUES 
