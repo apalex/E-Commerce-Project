@@ -5,17 +5,15 @@ session_start();
 $log_path;
 $cart_path;
 $button;
-if(isset($_SESSION["id"])){
+if(isset($_SESSION["id"])) {
     $log_path = "myaccount&id=". $_SESSION['id']. "";
     $cart_path = "cart";
     $button = "<button type='submit' name='log_sub'>Log out</button>";
-}else{
+} else {
     $log_path = "login";
     $cart_path= "login";
     $button = "";
 }
-
-
 
 if(isset($_POST['log_sub'])){
     unset($_SESSION['id']);
@@ -30,7 +28,6 @@ if(isset($_POST['log_sub'])){
                     <div class="header-nav side-bar" id="sidenav">
                         <a href="javascript:void(0)" onclick="closeNav()" id="closeNavBar"><img src="images/x.png" width="21" height="21"></a>
                         <a href="?controller=product&action=newarrivals">New Arrivals</a>
-                        <a href="?controller=product&action=bestsellers">Best Sellers</a>
                         <a href="?controller=product&action=allsellers">All Sellers</a>
                         <a href="?controller=home&action=about">About</a>
                         <a href="?controller=home&action=contact">Contact</a>
@@ -53,7 +50,7 @@ if(isset($_POST['log_sub'])){
                     <div class="header-nav search-bar">
                        <form action="?controller=home&action=results" method="POST">
                             <input type="search" placeholder="Search" id="searchbox" name="search"></input>
-                         
+
                             <button id="searchbtn" type="submit">
                          <img src="images/search.png" alt="Search" width="28" height="28">
                             </button>
@@ -98,11 +95,11 @@ if(isset($_POST['log_sub'])){
                                         </i>
                                     </a>
                                     <div class="dropdown_content">
-                                        <a href="">PC Parts</a>
-                                        <a href="">Accessories</a>
-                                        <a href="">Laptops</a>
-                                        <a href="">Consoles</a>
-                                        <a href="">Monitors</a>
+                                        <a href="?controller=product&action=headset">Headphones</a>
+                                        <a href="?controller=product&action=microphone">Microphones</a>
+                                        <a href="?controller=product&action=keyboard">Keyboards</a>
+                                        <a href="?controller=product&action=mouse">Mouses</a>
+                                        <a href="?controller=product&action=monitor">Monitors</a>
                                     </div>
                                 </div>
                             </div>
