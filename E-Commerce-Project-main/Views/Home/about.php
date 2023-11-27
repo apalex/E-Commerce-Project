@@ -16,13 +16,11 @@
         <div class="container about">
             <h1>ABOUT US</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                anim id est laborum.
+                ABD Game Store is a retailer who sells eletronic goods! It is founded
+                in Montreal, Quebec, Canada in Q4 of the year 2023 by 3 technology enthusiast. 
+                It's aim is to bring happiness to everyone in needs of electronic 
+                gadgets such as keyboards, monitors, mouses, and more! Right now we are just a
+                small business and have a single store but plan on branching out in the future.
             </p>
         </div>
         <div class="push">

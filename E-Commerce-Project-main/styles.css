@@ -287,6 +287,7 @@ footer {
 /* About Section */
 
 .container.about {
+    margin-top: 100px;
     border: 1px solid;
     border-radius: 35px;
     width: 75%;
@@ -299,6 +300,7 @@ footer {
 
 .container.about p {
     font-size: 30px;
+    letter-spacing: 1px;
 }
 
 /* FAQ section */
@@ -316,6 +318,7 @@ footer {
 /* Contact Section */
 
 .container.contact {
+    margin-top: 20px;
     border: 1px solid;
     border-radius: 35px;
     width: 75%;
@@ -344,6 +347,14 @@ footer {
 }
 
 /* Registration Section and Login Section */
+
+.container.login {
+    margin-top: 150px;
+}
+
+.container.registration {
+    margin-top: 50px;
+}
 
 .container.registration, .container.login {
     width: 35%;
@@ -564,24 +575,57 @@ footer {
 }
 
 .product.image.top {
-    width: 100%;
-    height: 80%;
+    width: 90%;
+    height: 70%;
 }
 
 .product.image.top img {
     width: 100%;
+    height: 100%;
 }
 
 .product.info {
+    margin-top: 20px;
     width: 50%;
     display: inline-block;
     float: right;
+}
+
+.product.delivery {
+    margin-top: 30px;
+    width: 50%;
+    border: 1px solid black;
+}
+
+.product.delivery img {
+    width: 40px;
+    height: 40px;
+}
+
+.product.delivery p {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#add-to-cart {
+    background-color: #ff4343;
+    border: none;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#add-to-cart:hover {
+    color: white;
 }
 
 /* My Account */
 
 .container.account {
     min-height: 650px;
+    margin-top: 70px;
 }
 
 .account.info {
@@ -696,6 +740,7 @@ footer {
 
 .container.error {
     height: 100%;
+    margin-top: 200px;
 }
 
 .container.error-center {
@@ -705,7 +750,7 @@ footer {
 }
 
 .container.error h1 {
-    font-size: 85px;
+    font-size: 110px;
     letter-spacing: 15px;
 }
 
@@ -802,11 +847,11 @@ footer {
     font-size: small;
 }
 
-.product.box {
+.product.checkout.box {
     margin-bottom: 10px;
 }
 
-.product.box img {
+.product.checkout.box img {
     width: 100px;
     height: 100px;
 }
@@ -904,6 +949,10 @@ footer {
 .order-box {
     background-color: #e8f3f6;
     border-left: 1px solid lightgray;
+}
+
+.order-box-container {
+    margin-top: 50px;
 }
 
 .order-box img {

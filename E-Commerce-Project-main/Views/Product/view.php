@@ -9,14 +9,8 @@ include "mysqldatabase.php";
     if(isset($_SESSION["id"])){
         $uid = $_SESSION['id'];
         $log_path = "myaccount&id=" . $uid;
-
-
-        
- 
-
     }else{
         $log_path = "login"; 
-       
     }
 
     if(isset($_POST["cart-submit"])){
@@ -30,7 +24,6 @@ include "mysqldatabase.php";
         }else{
             header('Location: ?controller=user&action=login');
         }
-        
         
     }
 
@@ -56,16 +49,12 @@ include "mysqldatabase.php";
     <div class="wrapper">
         <div class="product container">
             <div class="product location">
-                <!-- Instead of hard coding product name here, pull from SQL table product_name -->
                 <p>Home / Product / <?php echo $product-> Prod_Category?> / <b><?php echo $product -> Prod_Name ?></b></p>
             </div>
             <div class="product box">
                 <div class="product image">
                     <div class="product image top">
                         <img src= <?php echo $product -> Prod_Image_Path?> alt="">
-                    </div>
-                    <div class="product image bottom">
-                        <!-- Make a carousel here -->
                     </div>
                 </div>
                 <div class="product info">
@@ -98,10 +87,12 @@ include "mysqldatabase.php";
                             </form>
                         </div>
                         <div class="product delivery">
-                            <div class="product delivery free">
+                            <div class="product free">
+                                <img src="images/freedelivery.png">
                                 <p>Free Delivery</p>
                             </div>
-                            <div class="product delivery return">
+                            <div class="product return">
+                                <img src="images/returndelivery.jpg">
                                 <p>Return Delivery</p>
                             </div>
                         </div>
