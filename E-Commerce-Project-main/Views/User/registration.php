@@ -24,7 +24,7 @@
                     <input type="password" name="PASSWD" id="" placeholder="Password" required><br><br>
                     <input type="password" name="C_PASSWD" id="" placeholder="Confirm Password" required><br><br><br>
                     <button type="submit">Create Account</button>
-                    <p>Already have an account? <a href="login.html">Login In</a></p>
+                    <p>Already have an account? <a href="?controller=user&action=login">Login In</a></p>
                 </form>
             </div>
         </div>
