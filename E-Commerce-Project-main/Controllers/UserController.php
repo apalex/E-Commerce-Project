@@ -27,7 +27,11 @@ class UserController {
     function render($view, $data = []) {
         extract($data);
 
-      include_once "Views/User/$view.php";
+        if (file_exists("Views/User/$view.php")) {
+            include_once "Views/User/$view.php";
+        } else {
+            Header("Location: ?controller=home&action=error");
+        }
     }
 
 }

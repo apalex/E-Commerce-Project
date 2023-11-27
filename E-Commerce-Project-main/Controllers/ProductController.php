@@ -20,7 +20,11 @@ class ProductController {
     function render($view, $data = []) {
         extract($data);
 
-        include "Views/Product/$view.php";
+        if(file_exists("Views/Product/$view.php")) {
+            include "Views/Product/$view.php";
+        } else {
+            Header("Location: ?controller=home&action=error");
+        }
     }
 
 }

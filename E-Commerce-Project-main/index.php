@@ -6,8 +6,12 @@ $id = (isset($_GET['Id'])) ? intval($_GET['Id']) : -1;
 
 $controllerName = ucfirst($controller) . "Controller";
 
-include_once "Controllers/$controllerName.php";
-$contr = new $controllerName();
-$contr -> route();
+if (file_exists("Controllers/$controllerName.php")) {
+    include_once "Controllers/$controllerName.php";
+    $contr = new $controllerName();
+    $contr -> route();
+} else {
+    Header("Location: ?controller=home&action=error");
+}
 
 ?>

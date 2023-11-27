@@ -13,7 +13,11 @@ class HomeController {
     }
 
     function render($view) {
-        include "Views/Home/$view.php";
+        if (file_exists("Views/Home/$view.php")) {
+            include "Views/Home/$view.php";
+        } else {
+            Header("Location: ?controller=home&action=error");
+        }
     }
 }
 
