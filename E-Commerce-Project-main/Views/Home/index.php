@@ -16,7 +16,6 @@ if(isset($_SESSION["id"])){
 }
 
 
-
 if(isset($_POST['log_sub'])){
     unset($_SESSION['id']);
     header('Location: ?controller=home&action=index');

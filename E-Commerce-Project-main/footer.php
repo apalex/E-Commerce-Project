@@ -1,7 +1,7 @@
 <?php
 
 include "mysqldatabase.php";
-session_start();
+if (session_status() === PHP_SESSION_NONE){session_start();}
 $log_path;
 $cart_path;
 if(isset($_SESSION["id"])) {
