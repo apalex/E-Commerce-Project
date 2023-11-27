@@ -11,7 +11,7 @@
 
     <div class="container order-details">
         <div class="order-confirmation-box">
-            <h1><a href="">ABD Store</a></h1>
+            <h1><a href="?controller=home&action=index">ABD Store</a></h1>
             <p>Order #1</p>
             <h1>Thank you, Brandon!</h1>
             <div class="order-tracking">
@@ -41,8 +41,8 @@
                     <p>5141231234</p>
                 </div>
             </div>
-            <p>Need help? <a href="">Contact Us</a></p>
-            <button>Continue Shopping</button>
+            <p>Need help? <a href="?controller=home&action=contact">Contact Us</a></p>
+            <button><a href="?controller=home&action=index">Continue Shopping</a></button>
         </div>
         <div class="order-box">
             <div class="order-box-container">

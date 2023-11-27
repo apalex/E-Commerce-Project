@@ -36,24 +36,19 @@
             <div class="account info">
                 <h4>Manage my Account</h4>
                 <div class="stack 1">
-                    <a href="">My Profile</a>
-                    <a href="">Address Book</a>
-                    <a href="">My Payment Options</a>
+                    <a href="?controller=user&action=myaccount">My Profile</a>
+                    <a href="?controller=user&action=editAddress">Address Book</a>
+                    <a href="?controller=user&action=editPayment">My Payment Options</a>
                 </div>
                 <h4>My Orders</h4>
                 <div class="stack 2">
-                    <a href="">My Returns</a>
-                    <a href="">My Cancellations</a> 
+                    <a href="?controller=user&action=myreturns">My Returns</a>
+                    <a href="?controller=user7action=mycancel">My Cancellations</a> 
                 </div>
             </div>
             <div class="account edit">
                 <h3>Edit Your Profile</h3>
                 <form action="" method="POST">
-                    <!-- If value of input for Fname, Lname, Email, Phone Number 
-                    is == to the value in database, means no changes made,
-                    however if != then means its different. For the Password,
-                    its if is current pass, new pass, and confirm pass are not empty,
-                    and are correct field. -->
                     <p id="first_name">First Name</p>
                     <p id="last_name">Last Name</p>
                     <div class="stack-input first">

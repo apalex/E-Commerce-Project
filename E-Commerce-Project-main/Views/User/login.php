@@ -47,10 +47,10 @@ if($result->num_rows ==1){
             <h5>Enter your details below</h5><br>
             <div class="login form">
                 <form action="" method="POST">
-                    <input type="text" name="EMAIL" id="" placeholder="Email" required><br><br>
-                    <input type="password" name="PASSWD" id="" placeholder="Password" required><br><br>
+                    <input type="text" name="EMAIL" placeholder="Email" required><br><br>
+                    <input type="password" name="PASSWD" placeholder="Password" required><br><br>
                     <button name = 'submit' type="submit">Log in</button>
-                    <a href="faq.html">Forgot Password?</a>
+                    <a href="?controller=home&action=contact">Forgot Password?</a>
                     <br>
                     <a href="?controller=user&action=registration">Dont have an account?</a>
                 </form>
