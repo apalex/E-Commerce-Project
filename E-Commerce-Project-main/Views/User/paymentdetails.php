@@ -40,7 +40,9 @@
 </head>
 <body>
 
-    
+    <?php
+    include_once 'navbar.php';
+    ?>
 
     <div class="wrapper">
         <div class="container checkout">
@@ -108,7 +110,9 @@
         }
                     ?> -->
             
-
+        <?php
+        include_once 'footer.php';
+        ?>
 
 <script src="app.js"></script>
 
