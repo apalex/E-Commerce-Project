@@ -19,7 +19,7 @@ include "mysqldatabase.php";
         $quan = $_POST["quantity"];
         $p_id = $product -> Prod_ID;
         $_SESSION["cart"]["$p_id"] = $quan;
-        var_dump($_SESSION["cart"]);
+        //var_dump($_SESSION["cart"]);
 
         }else{
             header('Location: ?controller=user&action=login');

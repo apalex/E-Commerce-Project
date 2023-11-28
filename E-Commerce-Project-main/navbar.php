@@ -66,7 +66,7 @@ if(isset($_POST['log_sub'])){
                         </select>
                     </div>
                     <div class="header-nav cart">
-                        <a href="?controller=user&action=<?php echo $cart_path ?>" id="shopping-cart">
+                        <a href="?controller=product&action=<?php echo $cart_path ?>" id="shopping-cart">
                             <img src="images/shopping-cart.png" alt="Shopping Cart" width="30" height="40">
                         </a>
                     </div>
