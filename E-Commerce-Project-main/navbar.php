@@ -7,11 +7,11 @@ $cart_path;
 $log_out_button;
 if(isset($_SESSION["id"])) {
     $log_path = "myaccount&id=". $_SESSION['id']. "";
-    $cart_path = "cart";
+    $cart_path = "?controller=product&action=cart";
     $log_out_button = "<button type='submit' name='log_sub'>Log out</button>";
 } else {
     $log_path = "login";
-    $cart_path= "login";
+    $cart_path= "?controller=user&action=login";
     $log_out_button = "";
 }
 
@@ -66,7 +66,7 @@ if(isset($_POST['log_sub'])){
                         </select>
                     </div>
                     <div class="header-nav cart">
-                        <a href="?controller=product&action=<?php echo $cart_path ?>" id="shopping-cart">
+                        <a href="<?php echo $cart_path ?>" id="shopping-cart">
                             <img src="images/shopping-cart.png" alt="Shopping Cart" width="30" height="40">
                         </a>
                     </div>

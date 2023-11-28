@@ -121,13 +121,20 @@ class Product {
 
 
     function cartQuan(){
-        $cartQuan = $_SESSION["cart"];
+        $cartQuan = array();
+        if(isset($_SESSION["cart"])){
+            $cartQuan = $_SESSION["cart"];
+        }
         
         return $cartQuan;
     }
 
     function listCart($cartQuan){
+        $cartList = array();
+        if(isset($_SESSION["cart"])){
+         
         
+
         $cartKeys = array_keys($_SESSION["cart"]);
         
         $cartList = array();
@@ -151,6 +158,7 @@ class Product {
 
             array_push($cartList, $product);
         }
+    }
         return $cartList;
     }
 
