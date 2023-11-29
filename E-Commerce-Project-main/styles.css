@@ -1273,10 +1273,10 @@ ol, ul {
 .collection:nth-child(3){
     grid-column: span 2;
     margin-bottom: 10px;
-=======
+}
+
 /* Results */
 
 .container.results h1 {
     text-decoration: underline;
->>>>>>> 20a7e68e0e3c2eef0b720e6f1443a5279c59d89a
 }
