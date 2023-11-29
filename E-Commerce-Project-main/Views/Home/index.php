@@ -43,6 +43,172 @@ $pList = $prod -> listProducts();
     ?>
 
     <div class="wrapper">
+    <section class="slide-container">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img id="slide-1" src="images/razer_ornata_v3.jpg">
+                    <img id="slide-2" src="images/razer_iskur_gaming_chair.jpg">
+                    <img id="slide-3" src="images/razer_gaming_mouse.jpg">
+                </div>
+                <div class="slider-nav">
+                    <a href="#slide-1"></a>
+                    <a href="#slide-2"></a>
+                    <a href="#slide-3"></a>
+                </div>
+            </div>
+        </section>
+
+    <section class="carousselProduct">
+        <h2 class="productCategory">Flash Deals</h2>
+        <button class="preBtn"><img src="images/next.png" alt=""></button>
+        <button class="nxtBtn"><img src="images/next.png" alt=""></button>
+        <div class="productContainer">
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+            <div class="productCard">
+                <div class="productImage">
+                    <span class="discountTag">50% off</span>
+                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <button class="cardBtn">add to cart</button>
+                </div>
+                <div class="productInfo">
+                    <h2 class="productBrand">Brand</h2>
+                    <p class="productShortDescription">short desription</p>
+                    <span class="price">$20</span><span class="actualPrice">40</span>
+                </div>
+            </div>
+        </div>
+    </section>
         <div class="push">
         </div>
     </div>
