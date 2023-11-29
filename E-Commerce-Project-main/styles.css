@@ -711,6 +711,7 @@ footer {
 
 .container.admin {
     min-height: 650px;
+    margin-top: 85px;
 }
 
 .admin.categories {
