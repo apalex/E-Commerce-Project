@@ -473,7 +473,7 @@ footer {
     height: 75px;
 }
 
-.cart.box button {
+#return-to-shop {
     background-color: white;
     font-weight: bold;
     border: 1px solid black;
@@ -482,8 +482,19 @@ footer {
     margin-top: 50px;
 }
 
-.cart.box button:hover {
+#return-to-shop:hover {
     color: gray;
+}
+
+.cart-subtotal-x {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.cart-subtotal.remove {
+    display: inline-block;
+    float: right;
+    margin-right: 30px;
 }
 
 /* Cart Section Bottom Part */
@@ -1017,3 +1028,47 @@ footer {
     width: 45;
 }
 
+
+/* New Arrivals */
+
+.container.new-arrivals {
+    margin-top: 25px;
+}
+
+.title-new-arrivals h1 {
+    width: 50%;
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.title-new-arrivals select {
+    display: inline-block;
+    width: 10%;
+    float: right;
+}
+
+ol, ul {
+    padding: 0;
+}
+
+.ol-product-case {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 5px;
+    min-width: 1200px;
+}
+
+.li-product-item {
+    flex-basis: 25%;
+}
+
+.product-inside-list {
+    display: block;
+    margin-top: 48px;
+    position: relative;
+}
+
+.product-inside-list img {
+    width: 90%;
+}
