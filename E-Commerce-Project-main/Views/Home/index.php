@@ -225,6 +225,6 @@ $pList = $prod -> listProducts();
     ?>
 
 <script src="app.js"></script>
-
+<script src='caroussel.js'></script>
 </body>
 </html>
