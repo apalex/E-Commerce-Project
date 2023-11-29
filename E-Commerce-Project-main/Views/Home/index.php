@@ -78,7 +78,7 @@ $pList = $prod -> listProducts();
             <div class="productCard">
                 <div class="productImage">
                     <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <img src="images/adesso_xtream_microphone.jpg" class="productThumb" alt="">
                     <button class="cardBtn">add to cart</button>
                 </div>
                 <div class="productInfo">
@@ -90,7 +90,7 @@ $pList = $prod -> listProducts();
             <div class="productCard">
                 <div class="productImage">
                     <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <img src="images/asus_rog_azoth75.jpg" class="productThumb" alt="">
                     <button class="cardBtn">add to cart</button>
                 </div>
                 <div class="productInfo">
@@ -102,7 +102,7 @@ $pList = $prod -> listProducts();
             <div class="productCard">
                 <div class="productImage">
                     <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <img src="images/blue_yeti_microphone.jpg" class="productThumb" alt="">
                     <button class="cardBtn">add to cart</button>
                 </div>
                 <div class="productInfo">
@@ -114,7 +114,7 @@ $pList = $prod -> listProducts();
             <div class="productCard">
                 <div class="productImage">
                     <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <img src="images/enhance_gaming_keyboard.jpg" class="productThumb" alt="">
                     <button class="cardBtn">add to cart</button>
                 </div>
                 <div class="productInfo">
@@ -126,7 +126,7 @@ $pList = $prod -> listProducts();
             <div class="productCard">
                 <div class="productImage">
                     <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <img src="images/hyperx_cloudalpha_headset.jpg" class="productThumb" alt="">
                     <button class="cardBtn">add to cart</button>
                 </div>
                 <div class="productInfo">
@@ -138,7 +138,7 @@ $pList = $prod -> listProducts();
             <div class="productCard">
                 <div class="productImage">
                     <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <img src="images/lg_32gn600_monitor.jpg" class="productThumb" alt="">
                     <button class="cardBtn">add to cart</button>
                 </div>
                 <div class="productInfo">
@@ -150,7 +150,7 @@ $pList = $prod -> listProducts();
             <div class="productCard">
                 <div class="productImage">
                     <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <img src="images/logitech_g314_keyboard.jpg" class="productThumb" alt="">
                     <button class="cardBtn">add to cart</button>
                 </div>
                 <div class="productInfo">
@@ -162,7 +162,7 @@ $pList = $prod -> listProducts();
             <div class="productCard">
                 <div class="productImage">
                     <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
+                    <img src="images/nerdi_stereo_headset.jpg" class="productThumb" alt="">
                     <button class="cardBtn">add to cart</button>
                 </div>
                 <div class="productInfo">
