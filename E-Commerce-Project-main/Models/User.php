@@ -13,6 +13,7 @@ class User {
     public $Created_On;
     public $Modified_On;
     public $address_list;
+
     function __construct($id = -1) {
         global $conn;
 
@@ -274,69 +275,81 @@ class User {
         return $user;
     }
 
+    function searchUserRole($search) {
+        global $conn;
+        $sql = "SELECT P.Role_Name FROM `User_Info` U JOIN `User_Groups_Perms` P ON U.$search = P.Role_ID;";
+
+        $result = $conn -> query($sql);
+
+        return $result;
+    }
+
 }
 
-   
+class User_Address {
+    public $UA_ID;
+    public $U_ID;
+    public $address;
+    public $city;
+    public $postal;
+    public $country;
 
+    function __construct($id = -1){
+        global $conn;
 
-
-
-    class User_Address{
-        public $UA_ID;
-        public $U_ID;
-        public $address;
-        public $city;
-        public $postal;
-        public $country;
-
-        function __construct($id = -1){
-            global $conn;
-
-            $this -> U_ID = $id;
-            if($id < 0){
-                $this -> UA_ID = 0;
-                $this -> address = 0;
-                $this -> city = "";
-                $this -> postal = "";
-                $this -> country = "";
-            }else{
-              $sql = "SELECT * FROM `user_address` WHERE `U_ID` = " . $id;
-                $result = $conn -> query($sql);
-
-                $data = $result -> fetch_assoc();
-                $this -> UA_ID = $data["UA_ID"];
-                $this -> U_ID = $id;
-                $this -> address = $data["Address_1"];
-                $this -> City = $data["City"];
-                $this -> Zip_Code = $data["Zip_Code"];
-                $this -> country = $data["Country"];
-
-            }
-
-        }
-
-        public static function listAddress($id) {
-            global $conn;
-            $list = array();
-            
+        $this -> U_ID = $id;
+        if($id < 0){
+            $this -> UA_ID = 0;
+            $this -> address = 0;
+            $this -> city = "";
+            $this -> postal = "";
+            $this -> country = "";
+        } else {
             $sql = "SELECT * FROM `user_address` WHERE `U_ID` = " . $id;
             $result = $conn -> query($sql);
-    
-            while ($row = $result -> fetch_assoc()) {
-                $user_add = new User_Address($id);
-                $user_add -> UA_ID = $row["UA_ID"];
-                $user_add -> U_ID = $row['U_ID'];
-                $user_add -> address = $row["Address_1"];
-                $user_add -> city = $row["City"];
-                $user_add -> postal = $row["Zip_Code"];
-                $user_add -> country = $row["Country"];
-    
-                array_push($list, $user_add);
-            }
-            return $list;
+
+            $data = $result -> fetch_assoc();
+            $this -> UA_ID = $data["UA_ID"];
+            $this -> U_ID = $id;
+            $this -> address = $data["Address_1"];
+            $this -> City = $data["City"];
+            $this -> Zip_Code = $data["Zip_Code"];
+            $this -> country = $data["Country"];
         }
-
-
     }
+
+    public static function listAddress($id) {
+        global $conn;
+        $list = array();
+            
+        $sql = "SELECT * FROM `user_address` WHERE `U_ID` = " . $id;
+        $result = $conn -> query($sql);
+    
+        while ($row = $result -> fetch_assoc()) {
+            $user_add = new User_Address($id);
+            $user_add -> UA_ID = $row["UA_ID"];
+            $user_add -> U_ID = $row['U_ID'];
+            $user_add -> address = $row["Address_1"];
+            $user_add -> city = $row["City"];
+            $user_add -> postal = $row["Zip_Code"];
+            $user_add -> country = $row["Country"];
+    
+            array_push($list, $user_add);
+        }
+        return $list;
+    }
+
+
+}
+
+class User_Groups_Perms {
+    public $Role_ID;
+    public $Role_Name;
+
+    // public __construct($id = -1) {
+    //     global $conn;
+    // }
+
+}
 
 ?>

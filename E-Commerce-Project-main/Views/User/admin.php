@@ -4,10 +4,12 @@ include "mysqldatabase.php";
 session_start();
 
 $user = new User();
+$userPerms = new User_Groups_Perms();
 
 if(isset($_POST['search_button'])) {
-    $query = $_POST['search'];
+    $query = $_POST['searchUser'];
     $userList = $user -> searchUser($query);
+    $userRole = $user -> searchUserRole($query);
 }
 
 ?>
@@ -36,7 +38,7 @@ if(isset($_POST['search_button'])) {
             <h3>Search User</h3>
             <form action="" method="POST">
                 <p id="first_name">User or Email</p>
-                <input type="search" name="search">
+                <input type="search" name="searchUser">
                 <button type="submit" id="search" name="search_button">Search</button>
             </form>
             <h3>Result</h3>
@@ -44,26 +46,26 @@ if(isset($_POST['search_button'])) {
                 <p id="first_name">First Name</p>
                 <p id="last_name">Last Name</p>
                 <div class="stack-input first">
-                    <input type="text" name="F_Name" id="F_Name" value="<?php echo $userList -> F_Name ?>">
+                    <input type="text" name="F_Name" id="F_Name" value="<?php echo (isset($userList -> F_Name)) ? $userList -> F_Name : ''; ?>">
                 </div>
                 <div class="stack-input second">
-                    <input type="text" name="L_Name" id="L_Name" value="<?php echo $userList -> L_Name ?>">
+                    <input type="text" name="L_Name" id="L_Name" value="<?php echo (isset($userList -> L_Name)) ? $userList -> L_Name : ''; ?>">
                 </div>
                 <p id="email">Email</p>
                 <p id="phone">Phone</p>
                 <div class="stack-input third">
-                    <input type="text" name="U_Email" id="U_Email" value="<?php echo $userList -> U_Email?>">
+                    <input type="text" name="U_Email" id="U_Email" value="<?php echo (isset($userList -> U_Email)) ? $userList -> U_Email : ''; ?>">
                 </div>
                 <div class="stack-input fourth">
-                    <input type="text" name="Phone_Num" id="Phone_Num" value="<?php echo $userList -> Phone_Num?>">
+                    <input type="text" name="Phone_Num" id="Phone_Num" value="<?php echo (isset($userList -> Phone_Num)) ? $userList -> Phone_Num : ''; ?>">
                 </div>
                 <p>Password</p>
-                <input type="text" name="U_Pass" id="U_Pass" value="<?php echo $userList -> U_Pass?>"><br>
+                <input type="text" name="U_Pass" id="U_Pass" value="<?php echo (isset($userList -> U_Pass)) ? $userList -> U_Pass : ''; ?>"><br>
                 <p>User ID</p>
-                <input type="text" name="U_ID" id="U_ID" value="<?php echo $userList -> U_ID ?>" readonly>
+                <input type="text" name="U_ID" id="U_ID" value="<?php echo (isset($userList -> U_ID)) ? $userList -> U_ID : ''; ?>" readonly>
                 <h3>Permissions</h3>
                 <p>Role</p>
-                <input type="text" name="Role_Name" id="Role_name" value="<?php echo $userList -> Role_ID?>">
+                <input type="text" name="Role_Name" id="Role_name" value="<?php echo (isset($userRole -> Role_Name)) ? $userRole -> Role_Name : ''; ?>">
                 <button type="submit" id="save-changes">Save</button>
             </form>
         </div>
