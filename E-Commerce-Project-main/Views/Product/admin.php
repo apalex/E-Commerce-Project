@@ -58,20 +58,21 @@ if(isset($_POST['search_admin_products'])) {
                         <th>Image Path</th>
                     </tr>
                     <?php
-                    foreach($product as $p) {
-                        echo '<tr>
-                            <td><img src="'. $p -> Prod_Image_Path .'" width=100 heigth=100></td>
-                            <td width=100 heigth=100><input type="text" value="'. $p -> Prod_ID .'"></td>
-                            <td width=100 heigth=100><input type="text" value="'. $p -> Prod_Name .'"></td>
-                            <td><input type="text" value="'. $p -> Prod_Client_Price .'"></td>
-                            <td><input type="text" value="'. $p -> Prod_Manufacturer_Price .'"></td>
-                            <td><input type="text" value="'. $p -> Prod_Details .'"></td>
-                            <td><input type="text" value="'. $p -> Prod_Comments .'"></td>
-                            <td><input type="text" value="'. $p -> Prod_Stock .'"></td>
-                            <td><input type="text" value="'. $p -> Prod_Category .'"></td>
-                            <td><input type="text" value="'. $p -> Prod_Image_Path .'"></td>
-                        </tr>';
-                    }
+                    // FIX THIS PART @BRANDINO
+                    // foreach($product as $p) {
+                    //     echo '<tr>
+                    //         <td><img src="'. $p -> Prod_Image_Path .'" width=100 heigth=100></td>
+                    //         <td width=100 heigth=100><input type="text" value="'. $p -> Prod_ID .'"></td>
+                    //         <td width=100 heigth=100><input type="text" value="'. $p -> Prod_Name .'"></td>
+                    //         <td><input type="text" value="'. $p -> Prod_Client_Price .'"></td>
+                    //         <td><input type="text" value="'. $p -> Prod_Manufacturer_Price .'"></td>
+                    //         <td><input type="text" value="'. $p -> Prod_Details .'"></td>
+                    //         <td><input type="text" value="'. $p -> Prod_Comments .'"></td>
+                    //         <td><input type="text" value="'. $p -> Prod_Stock .'"></td>
+                    //         <td><input type="text" value="'. $p -> Prod_Category .'"></td>
+                    //         <td><input type="text" value="'. $p -> Prod_Image_Path .'"></td>
+                    //     </tr>';
+                    // }
                     ?>
                 </table>
                 <button type="submit" id="save-changes">Save</button>
