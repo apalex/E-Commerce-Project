@@ -33,6 +33,9 @@ $product = $product -> listNewArrivals();
                     <select name="orderby" id="">
                         <option value="newest" selected >Newest</option>
                         <option value="oldest">Oldest</option>
+                        <option value="a-z">By Brand: A-Z</option>
+                        <option value="high">Pricing: High to Low</option>
+                        <option value="low">Pricing: Low to High</option>
                     </select>
                 </form>
             </div>
@@ -42,7 +45,7 @@ $product = $product -> listNewArrivals();
                     echo 
                     '<li class="li-product-item">
                         <div class="product-inside-list">
-                            <a href="">
+                            <a href="?controller=product&action=view&id='. $p -> Prod_ID .'">
                                 <img src="'. $p -> Prod_Image_Path .'">
                             </a>
                             <div class="li-product-bottom">
