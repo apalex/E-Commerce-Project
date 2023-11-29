@@ -38,3 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         selectProd.appendChild(opt);
     }
 });
+
+// Remove Product in Cart
+function removeProduct() {
+    document.getElementsByClassName("cart products").remove();
+}

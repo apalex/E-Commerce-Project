@@ -89,7 +89,8 @@ $cartList = $prod ->listCart($cartQuan);
                    <p>'. $quantity .'</p>
                 </div>
                 <div>
-                    <p>$'.$subTotal.'</p>
+                    <p id="cart-subtotal-x">$'.$subTotal.'</p>
+                    <button id="cart-subtotal-remove" onclick="removeProduct();">X</button>
                 </div>
                 </div>';
                 }
@@ -97,7 +98,7 @@ $cartList = $prod ->listCart($cartQuan);
                 ?>
                    
                 
-                <button>Return To Shop</button>
+                <button id="return-to-shop" onclick="window.location = '?controller=home&action=index';">Return To Shop</button>
             </div>
             <div class="cart discount">
                 <div class="cart discount left">
