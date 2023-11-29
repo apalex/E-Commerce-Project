@@ -5,15 +5,10 @@ USE electronics_store;
 
 CREATE TABLE User_Groups_Perms
 (
-	Role_ID INT NOT NULL AUTO_INCREMENT,
-	U_ID INT NOT NULL,
+	Role_ID INT NOT NULL DEFAULT 1,
 	Role_Name VARCHAR(255) NOT NULL,
 	CONSTRAINT PK_UGP_RID PRIMARY KEY (Role_ID)
-	
 );
-
-
-
 
 CREATE TABLE User_Info
 (
@@ -26,19 +21,10 @@ CREATE TABLE User_Info
 	Phone_Num VARCHAR(32),
 	Created_On TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	Modified_On DATE,
-	CONSTRAINT PK_UINFO_UID PRIMARY KEY (U_ID)
+	CONSTRAINT PK_UINFO_UID PRIMARY KEY (U_ID),
+	CONSTRAINT FK_UINFO_RID FOREIGN KEY (Role_ID) REFERENCES User_Groups_Perms(Role_ID)
 	
 );
-
-
-
-ALTER TABLE User_Info
-ADD CONSTRAINT FK_UINFO_RID FOREIGN KEY (Role_ID) REFERENCES User_Groups_Perms(Role_ID) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-
-ALTER TABLE User_Groups_Perms
-ADD CONSTRAINT FK_UGP_UID FOREIGN KEY (U_ID) REFERENCES User_Info(U_ID) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
 
 CREATE TABLE User_Address
 (
@@ -51,8 +37,6 @@ CREATE TABLE User_Address
 	CONSTRAINT PK_U_ADDRESS_UAID PRIMARY KEY (UA_ID),
 	CONSTRAINT FK_UADD_UID FOREIGN KEY (U_ID) REFERENCES User_Info(U_ID)
 );
-
-
 
 CREATE TABLE User_Payment
 (
@@ -133,19 +117,24 @@ CREATE TABLE Store_Products (
 	SP_ID INT NOT NULL AUTO_INCREMENT,
 	Store_ID INT,
 	Prod_ID INT,
+	CONSTRAINT PK_SP_SPID PRIMARY KEY (SP_ID),
+	CONSTRAINT FK_SP_SID FOREIGN KEY (Store_ID) REFERENCES Store_Info(Store_ID),
+	CONSTRAINT FK_SP_PROID FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
 );
 
-INSERT INTO `User_Info` (`U_Email`, `U_Pass`, `F_Name`, `L_Name`, `Phone_Num`) VALUES 
-('6ixgod@gmail.com', 'drakeToronto1!', 'Jean-Francois', 'Lariviere', '5141112222'),
-('johntimothy@gmail.com', 'Gymothy123!', 'John', 'Tim', '5141231234'),
-('trenman1@gmail.com', 'Runnerman1?', 'Brandon', 'Paulozio', '1234567890'),
-('denisthemenace@gmail.com', 'Iamnotamenace123!', 'Denice', 'Plaziba', '4181231234'),
-('alexthegreat@gmail.com', 'greekGOD418!', 'Alex', 'Great', '5144116932'),
-('kimberleyyy@gmail.com', 'TommyONLY2022', 'Kimberly', 'Tommy', '5145145145'),
-('munchospice@gmail.com', 'Iceforspice??3', 'Cornelius', 'Robert', '1231231234'),
-('mangolovareal@gmail.com', 'Manmustgo4sure!', 'Manji', 'Stallion', '5140325892'),
-('barbacardi@gmail.com', 'booleanCard32!', 'Bardi', 'Park', '5148924512'),
-('sousaport@gmail.com', 'SIUNaldo7!', 'Mike', 'Sousa', '4187773287');
+INSERT INTO User_Groups_Perms VALUES (1, 'User'), (2, 'Admin');
+
+INSERT INTO `User_Info` (`Role_ID`, `U_Email`, `U_Pass`, `F_Name`, `L_Name`, `Phone_Num`) VALUES 
+(1, '6ixgod@gmail.com', 'drakeToronto1!', 'Jean-Francois', 'Lariviere', '5141112222'),
+(1, 'johntimothy@gmail.com', 'Gymothy123!', 'John', 'Tim', '5141231234'),
+(1, 'trenman1@gmail.com', 'Runnerman1?', 'Brandon', 'Paulozio', '1234567890'),
+(1, 'denisthemenace@gmail.com', 'Iamnotamenace123!', 'Denice', 'Plaziba', '4181231234'),
+(1, 'alexthegreat@gmail.com', 'greekGOD418!', 'Alex', 'Great', '5144116932'),
+(1, 'kimberleyyy@gmail.com', 'TommyONLY2022', 'Kimberly', 'Tommy', '5145145145'),
+(1, 'munchospice@gmail.com', 'Iceforspice??3', 'Cornelius', 'Robert', '1231231234'),
+(1, 'mangolovareal@gmail.com', 'Manmustgo4sure!', 'Manji', 'Stallion', '5140325892'),
+(1, 'barbacardi@gmail.com', 'booleanCard32!', 'Bardi', 'Park', '5148924512'),
+(1, 'sousaport@gmail.com', 'SIUNaldo7!', 'Mike', 'Sousa', '4187773287');
 
 INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES
 ( 'Razer Ornata V3 TKL Gaming Keyboard', 150, 115, 'Razer Ornata V3 is a Gaming Keyboard', '', 3, 'Keyboard', 'images/razer_ornata_v3.jpg'),
@@ -169,29 +158,29 @@ INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer
 ('Samsung Odyssey G5 34 inch 165Hz Curved, 3440 x 1440, Gaming Monitor', 700, 380, 'Boasting an ultra-wide 1000R curved display with WQHD resolution, it presents every moment of action in stunning and immersive picture quality.', '', 2, 'Monitor', 'images/samsung_odyssey_monitor.jpg'),
 ('LG 32GN600 32Inch 165Hz Monitor', 450, 250, '2560 x 1440 QHD resolution at 165 Hz with a 5 ms response time that can be enhanced to 1 ms using Motion Blur Reduction (MBR) technology for liquid smooth graphics during high action games.', '', 1, 'Monitor', 'images/lg_32gn600_monitor.jpg');
 
-INSERT INTO `Store_Info` (`Store_ID`, `Prod_ID`, `Store_Name`) VALUES
-(1, 1, 'Razer'),
-(1, 2, 'Razer'),
-(1, 3, 'Razer'),
-(1, 4, 'Razer'),
-(1, 5, 'Razer'),
-(2, 6, 'Logitech'),
-(3, 7, 'ASUS'),
-(4, 8, 'ENHANCE'),
-(1, 9, 'Razer'),
-(5, 10, 'Blue Yeti'),
-(6, 11, 'Tomshine'),
-(7, 12, 'Adesso'),
-(8, 13, 'Vivitar'),
-(9, 14, 'NERDI'),
-(10, 15, 'PDP'),
-(11, 16, 'Turtle Beach'),
-(12, 17, 'HyperX'),
-(13, 18, 'onn.'),
-(14, 19, 'Samsung'),
-(15, 20, 'LG');
+-- INSERT INTO `Store_Info` (`Store_ID`, `Prod_ID`, `Store_Name`) VALUES
+-- (1, 1, 'Razer'),
+-- (1, 2, 'Razer'),
+-- (1, 3, 'Razer'),
+-- (1, 4, 'Razer'),
+-- (1, 5, 'Razer'),
+-- (2, 6, 'Logitech'),
+-- (3, 7, 'ASUS'),
+-- (4, 8, 'ENHANCE'),
+-- (1, 9, 'Razer'),
+-- (5, 10, 'Blue Yeti'),
+-- (6, 11, 'Tomshine'),
+-- (7, 12, 'Adesso'),
+-- (8, 13, 'Vivitar'),
+-- (9, 14, 'NERDI'),
+-- (10, 15, 'PDP'),
+-- (11, 16, 'Turtle Beach'),
+-- (12, 17, 'HyperX'),
+-- (13, 18, 'onn.'),
+-- (14, 19, 'Samsung'),
+-- (15, 20, 'LG');
 
-INSERT INTO `Discount` (`Discount_ID`, `Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES 
-(1, 5, 0.15, 5),
-(2, 20, 0.1, 10),
-(3, 12, 0.2, 20);
+-- INSERT INTO `Discount` (`Discount_ID`, `Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES 
+-- (1, 5, 0.15, 5),
+-- (2, 20, 0.1, 10),
+-- (3, 12, 0.2, 20);
