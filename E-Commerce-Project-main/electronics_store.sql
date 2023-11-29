@@ -6,18 +6,18 @@ USE electronics_store;
 CREATE TABLE User_Groups_Perms
 (
 	Role_ID INT NOT NULL DEFAULT 1,
-	Role_Name VARCHAR(255) NOT NULL,
+	Role_Name VARCHAR(255) NOT NULL DEFAULT 'Customer',
 	CONSTRAINT PK_UGP_RID PRIMARY KEY (Role_ID)
 );
 
 CREATE TABLE User_Info
 (
 	U_ID INT NOT NULL AUTO_INCREMENT,
-	Role_ID INT,
+	Role_ID INT NOT NULL,
 	U_Email VARCHAR(255) NOT NULL UNIQUE,
 	U_Pass VARCHAR(255) NOT NULL,
-	F_Name VARCHAR(255) NOT NULL,
-	L_Name VARCHAR(255) NOT NULL,
+	F_Name VARCHAR(255),
+	L_Name VARCHAR(255),
 	Phone_Num VARCHAR(32),
 	Created_On TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	Modified_On DATE,
@@ -122,7 +122,7 @@ CREATE TABLE Store_Products (
 	CONSTRAINT FK_SP_PROID FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
 );
 
-INSERT INTO User_Groups_Perms VALUES (1, 'User'), (2, 'Admin');
+INSERT INTO User_Groups_Perms VALUES (1, 'Customer'), (2, 'Admin');
 
 INSERT INTO `User_Info` (`Role_ID`, `U_Email`, `U_Pass`, `F_Name`, `L_Name`, `Phone_Num`) VALUES 
 (1, '6ixgod@gmail.com', 'drakeToronto1!', 'Jean-Francois', 'Lariviere', '5141112222'),
