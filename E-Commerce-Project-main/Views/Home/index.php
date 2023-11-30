@@ -212,14 +212,7 @@ $pList = $prod -> listProducts();
         <div class="push">
         </div>
     </div>
-
-            <?php
-                       
-        foreach($pList as $d){
-        echo"<a href='?controller=product&action=view&id=". $d-> Prod_ID."'>" . $d-> Prod_Name . "</a> <br>";
-        }
-                    ?>
-            
+           
     <?php
     include_once 'footer.php';
     ?>
