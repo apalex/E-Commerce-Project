@@ -315,6 +315,13 @@ footer {
     width: 75%;
 }
 
+/* privacy policy */
+
+.containerPP {
+    margin: 10%;
+    width: 75%;
+}
+
 /* Contact Section */
 
 .container.contact {
