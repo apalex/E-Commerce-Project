@@ -728,7 +728,8 @@ footer {
 /* Admin Panel */
 
 .container.admin {
-    min-height: 650px;
+    min-height: 100%;
+    min-width: 100%;
     margin-top: 85px;
 }
 
@@ -1286,4 +1287,31 @@ ol, ul {
 
 .container.results h1 {
     text-decoration: underline;
+}
+
+/* Categories */
+
+.container.categories {
+    min-width: 100%;
+}
+
+.product-categories * {
+    float: left; 
+    clear: left;
+    margin-top: 15px;
+}
+
+.product-categories h1 {
+    font-size: 33px;
+}
+
+.product-categories a {
+    color: black;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.product-categories a:hover {
+    color: gray;
+    text-decoration: none;
 }
