@@ -1,8 +1,10 @@
 <?php
     session_start();
     $user = $data[0];
+   
     $uID = $_SESSION['id'];
     $addList = $user -> address_list;
+    
     
     
     if(isset($_POST['submit'])){
@@ -72,6 +74,7 @@
             <div class="account address">
             <h3>Edit Your Address</h3>
             <?php
+            if(isset($addList)){
                 foreach($addList as $au){
            echo '
                 
@@ -107,7 +110,7 @@
                 </form>
             ';
                 }
-                
+            }
             ?>
             <form action="" method="POST">
             <input type="submit" name="addButton" value="Add Address">
