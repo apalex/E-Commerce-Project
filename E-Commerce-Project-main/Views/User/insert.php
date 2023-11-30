@@ -26,7 +26,7 @@ if($conn -> connect_error) {
        header('Location: ?controller=user&action=registration');
     }
     else{
-        $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$PASSWD')";
+        $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`,`Role_ID`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$PASSWD','1')";
         $conn -> query($sql);
 
         $lastInsertedID = mysqli_insert_id($conn);
@@ -34,22 +34,21 @@ if($conn -> connect_error) {
         $sql = "SET @u_id = LAST_INSERT_ID()";
         $conn -> query($sql);
 
-        // $sql ="
-        // UPDATE User_Info
-        // SET Role_ID = @u_id
-        // WHERE U_ID = @u_id;
-        // ";
+    //     $sql ="
+    //     UPDATE User_Info
+    //     SET Role_ID = @u_id
+    //     WHERE U_ID = @u_id;
+    //     ";
 
-       // $conn -> query($sql);
+    //    $conn -> query($sql);
 
-        $sql= "INSERT INTO User_Groups_Perms (U_ID, Role_Name) VALUES (@u_id, 'User');";
-        $conn ->query($sql);
+       
 
         $sql = "INSERT INTO user_address (U_ID) VALUES (@u_id);";
         $conn ->query($sql);
 
-        $sql = "SET @role_id = LAST_INSERT_ID()";
-        $conn ->query($sql);
+        // $sql = "SET @role_id = LAST_INSERT_ID()";
+        // $conn ->query($sql);
 
         // $sql ="
         // UPDATE user_info

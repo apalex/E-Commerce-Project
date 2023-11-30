@@ -191,6 +191,7 @@ header {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     background-color: #FFFFFF;
     overflow-x: hidden;
+    z-index: 9;
 }
 
 .cat_dropdown:hover .dropdown_content{
@@ -312,6 +313,13 @@ footer {
 /* Terms Of Use */
 
 .container.TOU {
+    width: 75%;
+}
+
+/* privacy policy */
+
+.containerPP {
+    margin: 10%;
     width: 75%;
 }
 
@@ -1080,6 +1088,7 @@ ol, ul {
 .slide-container {
     width: 100%;
     padding: 2rem;
+    z-index: 0;
 }
 
 .slider-wrapper {
