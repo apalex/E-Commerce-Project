@@ -147,78 +147,12 @@ $pList = $prod -> listProducts();
                     <span class="price">$20</span><span class="actualPrice">40</span>
                 </div>
             </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/logitech_g314_keyboard.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/nerdi_stereo_headset.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
         </div>
     </section>
         <div class="push">
         </div>
     </div>
 
-            <?php
-                       
-        foreach($pList as $d){
-        echo"<a href='?controller=product&action=view&id=". $d-> Prod_ID."'>" . $d-> Prod_Name . "</a> <br>";
-        }
-                    ?>
             
     <?php
     include_once 'footer.php';
