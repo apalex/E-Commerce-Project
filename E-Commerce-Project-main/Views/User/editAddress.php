@@ -26,14 +26,19 @@
     }
   
     if(isset($_POST['addButton'])){
-        $user -> addAddress();
-   
+         if(count($addList) == 3){
+            echo"<script>alert('Cannot have more then 3 addresses')</script>";
+        }else{
+            $user -> addAddress();
+        }
     }
 
     if(isset($_POST['delete-address'])){
         if(count($addList) == 1){
             echo"<script>alert('Must have at least one Address')</script>";
-        }else{
+        
+        }
+        else{
         $user -> deleteAddress($_POST['AU_ID']);
         }
     }
