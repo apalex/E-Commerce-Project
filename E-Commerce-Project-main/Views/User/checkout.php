@@ -83,7 +83,7 @@
                             <div class="product checkout box">
                                 <div class="checkout product-info">
                                     <img src="images/razer_ornata_v3.jpg">
-                                    <p id="product-name-checkout">Razer Brandino V3</p>
+                                    <p id="product-name-checkout">Razer Ornato V3</p>
                                     <p id="product-price-checkout">$250</p>
                                 </div>
                             </div>
