@@ -51,7 +51,7 @@
             <div class="checkout box">
                 <form action="">
                     <div class="checkout details">
-                        <h1>Billing Details</h1>
+                        <h1>Shipping Details</h1>
                         <p>First Name</p>
                         <input type="text">
                         <p>Last Name</p>
