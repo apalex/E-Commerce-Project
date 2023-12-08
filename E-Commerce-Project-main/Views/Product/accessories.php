@@ -26,6 +26,7 @@ $accessories = $accessories -> searchAccessories();
     <?php include_once "navbar.php"; ?>
 
     <div class="wrapper">
+        <p><a href="?controller=product&action=newarrivals">Products</a> / <b>Accessories</b></p>
         <div class="container categories">
             <div class="product-categories">
                 <h1>Categories</h1>

@@ -26,6 +26,7 @@ $headsets = $headsets -> searchHeadsets();
     <?php include_once "navbar.php"; ?>
 
     <div class="wrapper">
+        <p><a href="?controller=product&action=newarrivals">Products</a> / <b>Headsets</b></p>
         <div class="container categories">
             <div class="product-categories">
                 <h1>Categories</h1>

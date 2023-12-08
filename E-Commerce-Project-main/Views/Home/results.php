@@ -23,6 +23,7 @@ $product = $prod -> searchProducts($search);
     <?php include_once "navbar.php"; ?>
 
     <div class="wrapper">
+        <p><a href="?controller=home&action=index">Home</a> / <b>Results</b></p>
         <div class="container results">
             <h1>Result(s)</h1>
             <ol class="ol-product-case">

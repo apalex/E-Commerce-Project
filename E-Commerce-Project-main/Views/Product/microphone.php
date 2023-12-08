@@ -26,6 +26,7 @@ $microphones = $microphones -> searchMicrophones();
     <?php include_once "navbar.php"; ?>
 
     <div class="wrapper">
+        <p><a href="?controller=product&action=newarrivals">Products</a> / <b>Microphones</b></p>
         <div class="container categories">
             <div class="product-categories">
                 <h1>Categories</h1>
