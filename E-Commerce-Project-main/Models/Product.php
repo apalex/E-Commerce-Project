@@ -346,6 +346,29 @@ class Product {
         return $list;
     }
 
+    function randomProduct() {
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT * FROM `Product_Info` ORDER BY RAND() LIMIT 1;";
+        $result = $conn -> query($sql);
+        $row = $result -> fetch_assoc();
+        $product = new Product();
+        $product -> Prod_ID = $row['Prod_ID'];
+        $product -> Prod_Name = $row['Prod_Name'];
+        $product -> Prod_Client_Price = $row['Prod_Client_Price'];
+        $product -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
+        $product -> Prod_Details = $row['Prod_Details'];
+        $product -> Prod_Comments = $row['Prod_Comments'];
+        $product -> Prod_Stock = $row['Prod_Stock'];
+        $product -> Prod_Category = $row['Prod_Category'];
+        $product -> Prod_Image_Path = $row['Prod_Image_Path'];
+
+        array_push($list, $product);
+
+        return $list;
+    }
+
 }
 
 class Discount {

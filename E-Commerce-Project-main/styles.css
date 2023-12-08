@@ -588,6 +588,11 @@ footer {
     min-height: 650px;
 }
 
+.product.box {
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
 .product.image {
     width: 50%;
     display: inline-block;
