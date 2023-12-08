@@ -1,8 +1,5 @@
-
-
 <?php
 session_start();
-
 
 $servername = "localhost";
 $username = "root";
@@ -11,21 +8,20 @@ $database = "electronics_store";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-if($conn -> connect_error) {
+if ($conn -> connect_error) {
     die("Connection failed: " . $conn -> connect_error);
-}else{
-
+} else {
     $F_NAME = $_POST['F_NAME'];
     $L_NAME = $_POST['L_NAME'];
     $EMAIL = $_POST['EMAIL'];
     $PASSWD = $_POST['PASSWD'];
     $C_PASSWD = $_POST['C_PASSWD'];
 
-    if($PASSWD != $C_PASSWD){
+    if ($PASSWD != $C_PASSWD) {
         echo "Passwords do not match";
-       header('Location: ?controller=user&action=registration');
-    }
-    else{
+        header('Location: ?controller=user&action=registration');
+    } else {
+        // $hash = password_hash($PASSWD, PASSWORD_DEFAULT);
         $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`,`Role_ID`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$PASSWD','1')";
         $conn -> query($sql);
 
