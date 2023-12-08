@@ -54,7 +54,6 @@ if(isset($_POST['search_admin_products'])) {
                     <th>Client Price</th>
                     <th>Manufacturer Price</th>
                     <th>Details</th>
-                    <th>Comments</th>
                     <th>Stock</th>
                     <th>Category</th>
                     <th>Image Path</th>
@@ -70,7 +69,6 @@ if(isset($_POST['search_admin_products'])) {
                         <td><input type="text" value="'. $p -> Prod_Client_Price .'"></td>
                         <td><input type="text" value="'. $p -> Prod_Manufacturer_Price .'"></td>
                         <td><input type="text" value="'. $p -> Prod_Details .'"></td>
-                        <td><input type="text" value="'. $p -> Prod_Comments .'"></td>
                         <td><input type="text" value="'. $p -> Prod_Stock .'"></td>
                         <td><input type="text" value="'. $p -> Prod_Category .'"></td>
                         <td><input type="text" value="'. $p -> Prod_Image_Path .'"></td>

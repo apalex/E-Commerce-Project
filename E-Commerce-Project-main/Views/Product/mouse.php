@@ -67,5 +67,7 @@ $mouses = $mouses -> searchMouses();
 
     <?php include_once "footer.php"; ?>
 
+<script src="app.js"></script>
+
 </body>
 </html>

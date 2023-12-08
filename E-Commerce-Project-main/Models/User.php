@@ -222,31 +222,6 @@ class User {
     }
 
 
-    // function addAddress() {
-    //     global $conn;
-    //     $U_ID = $this->U_ID;
-    
-    //     // Using prepared statements to prevent SQL injection
-    //     $sql = "INSERT INTO User_address (U_ID) VALUES (?)";
-    //     $stmt = $conn->prepare($sql);
-        
-    //     // Bind parameters
-    //     $stmt->bind_param("i", $U_ID);
-    
-    //     // Execute the statement
-    //     $stmt->execute();
-    
-    //     // Check for errors
-    //     if ($stmt->errno) {
-    //         echo "Error: " . $stmt->error;
-    //         // You might want to handle the error more gracefully, like logging it.
-    //     } else {
-    //         header('Location: ?controller=user&action=editAddress&id=' . $U_ID);
-    //     }
-    
-    //     // Close the statement
-    //     $stmt->close();
-    // }
 
     function addAddress(){
         global $conn;

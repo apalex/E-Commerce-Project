@@ -1,26 +1,26 @@
 
 
 <?php
-session_start();
-include "mysqldatabase.php";
+// session_start();
+// include "mysqldatabase.php";
 
-if(isset($_POST['submit'])){
+// if(isset($_POST['submit'])){
 
-$email = $_POST['EMAIL'];
-$passwd = $_POST['PASSWD'];
+// $email = $_POST['EMAIL'];
+// $passwd = $_POST['PASSWD'];
 
-$sql = "SELECT * FROM User_Info WHERE U_Email = '$email' AND U_Pass = '$passwd'";
+// $sql = "SELECT * FROM User_Info WHERE U_Email = '$email' AND U_Pass = '$passwd'";
 
-$result = $conn ->query($sql);
+// $result = $conn ->query($sql);
 
-if($result->num_rows ==1){
-    $row = $result->fetch_assoc();
-    $_SESSION['id'] = $row['U_ID'];
-    header('Location: ?controller=home&action=index&id=' . $_SESSION['id']);
-}else{
-    echo"account does not exist";
-}
-}
+// if($result->num_rows ==1){
+//     $row = $result->fetch_assoc();
+//     $_SESSION['id'] = $row['U_ID'];
+//     header('Location: ?controller=home&action=index&id=' . $_SESSION['id']);
+// }else{
+//     echo"account does not exist";
+// }
+// }
 
 ?>
 
@@ -46,7 +46,7 @@ if($result->num_rows ==1){
             <h1>Login in</h1><br>
             <h5>Enter your details below</h5><br>
             <div class="login form">
-                <form action="" method="POST">
+                <form action="?controller=user&action=logged" method="POST">
                     <input type="text" name="EMAIL" placeholder="Email" required><br><br>
                     <input type="password" name="PASSWD" placeholder="Password" required><br><br>
                     <button name = 'submit' type="submit">Log in</button>

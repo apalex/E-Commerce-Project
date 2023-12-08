@@ -48,12 +48,12 @@
             <div class="order-box-container">
                 <div class="order-product-info">
                     <img src="images/razer_ornata_v3.jpg">
-                    <p>Razer Brandino V3</p>
+                    <p>Razer Ornata V3</p>
                     <p>$150</p>
                 </div>
                 <div class="order-product-info">
                     <img src="images/razer_ornata_v3.jpg">
-                    <p>Razer Brandino V3</p>
+                    <p>Razer Ornata V3</p>
                     <p>$150</p>
                 </div>
                 <div class="order-sub-ship">

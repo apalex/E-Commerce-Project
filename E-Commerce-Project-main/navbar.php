@@ -101,6 +101,7 @@ if(isset($_POST['log_sub'])){
                                         <a href="?controller=product&action=keyboard">Keyboards</a>
                                         <a href="?controller=product&action=mouse">Mouses</a>
                                         <a href="?controller=product&action=monitor">Monitors</a>
+                                        <a href="?controller=product&action=accessories"></a>
                                     </div>
                                 </div>
                             </div>
