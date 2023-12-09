@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    if (session_status() === PHP_SESSION_NONE){session_start();}
     $user = $data[0];
    
     $uID = $_SESSION['id'];
