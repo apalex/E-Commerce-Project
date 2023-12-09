@@ -3,9 +3,7 @@
 include "mysqldatabase.php";
 
 $prod = new Product();
-
 $search = $_POST['search'];
-
 $product = $prod -> searchProducts($search);
 
 ?>
@@ -42,6 +40,10 @@ $product = $prod -> searchProducts($search);
                         </div>
                     </li>
                     ';
+                }
+                if (count($product) === 0) {
+                    echo "<br>";
+                    echo "No matching query were found";
                 }
                 ?>
             </ol>
