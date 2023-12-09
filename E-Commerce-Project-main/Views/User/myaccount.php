@@ -36,7 +36,7 @@
             <div class="account info">
                 <h4>Manage my Account</h4>
                 <div class="stack 1">
-                    <a href="?controller=user&action=myaccount">My Profile</a>
+                    <a href="?controller=user&action=myaccount&id=<?php echo $uID?>">My Profile</a>
                     <a href="?controller=user&action=editAddress&id=<?php echo $uID ?>">Address Book</a>
                     <a href="?controller=user&action=editPayment">My Payment Options</a>
                 </div>
