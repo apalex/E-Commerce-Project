@@ -15,6 +15,7 @@
 
 
     <div class="wrapper">
+        <p><a href="?controller=home&action=index">Home</a> / <b>FAQ</b></p>
         <div class="container FAQ">
             <h1>FAQ</h1>
             <h2>General Questions</h2>

@@ -99,6 +99,32 @@ include "mysqldatabase.php";
                     </div>
                 </div>
             </div>
+        <div class="more-products">
+            <h3>More Products</h3>
+            <ol class="ol-product-case">
+                <?php
+                for ($i = 0; $i < 4; $i++) {
+                    $randomProd = new Product();
+                    $randomProd = $randomProd -> randomProduct();
+                    foreach($randomProd as $random) {
+                        echo 
+                        '<li class="li-product-item">
+                            <div class="product-inside-list">
+                                <a href="?controller=product&action=view&id='. $random -> Prod_ID .'">
+                                    <img src="'. $random -> Prod_Image_Path .'">
+                                </a>
+                                <div class="li-product-bottom">
+                                    <p id="list-product-name">'. $random -> Prod_Name .'</p>
+                                    <p id="list-product-price">'. $random -> Prod_Client_Price .'$</p>
+                                </div>
+                            </div>
+                        </li>
+                        ';
+                    }
+                }
+                ?>
+            </ol>
+         </div>
         </div>
         <div class="push">
         </div>

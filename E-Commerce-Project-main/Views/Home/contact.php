@@ -13,6 +13,7 @@
     ?>
 
     <div class="wrapper">
+        <p><a href="?controller=home&action=home">Home</a> / <b>Contact Us</b></p>
         <div class="container contact">
             <h1>Contact Us</h1>
             <address>

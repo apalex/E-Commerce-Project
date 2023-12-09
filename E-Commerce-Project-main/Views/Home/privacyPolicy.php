@@ -41,6 +41,7 @@ $pList = $prod -> listProducts();
     include_once 'navbar.php';
     ?>
     <div class="wrapper">
+        <p><a href="?controller=home&action=index">Home</a> / <b>Privacy Policy</b></p>
         <div class="containerPP">
             <h3>Privacy Policy</h3>
             <p><strong>Who are we?</strong></p>

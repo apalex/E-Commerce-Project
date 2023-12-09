@@ -13,6 +13,7 @@
     ?>
 
     <div class="wrapper">
+        <p><a href="?controller=home&action=index">Home</a> / <b>Terms of Use</b></p>
         <div class="container TOU">
             <h3>Terms Of Use</h3>
             <p><strong>1. Introduction</strong></p>

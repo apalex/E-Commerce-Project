@@ -13,6 +13,7 @@
     ?>
 
     <div class="wrapper">
+        <p><a href="?controller=home&action=index">Home</a> / <b>Error</b></p>
         <div class="container error">
             <div class="container error-center 1">
                 <h1>
