@@ -31,7 +31,7 @@ if(isset($_POST['search_button'])) {
             <div class="admin categories selection">
                 <a href="?controller=user&action=admin">Users</a>
                 <a href="?controller=product&action=admin">Products</a>
-                <a href="?controller=store&action=admin">Stores</a>
+                <a href="?controller=product&action=admin">Stores</a>
             </div>
         </div>
         <div class="admin user">

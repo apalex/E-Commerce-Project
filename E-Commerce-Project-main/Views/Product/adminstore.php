@@ -45,7 +45,7 @@ if(isset($_POST['search_admin_products'])) {
         </div>
         <h3>Result</h3>
 
-<form action="" method="POST">
+        <form action="" method="POST">
             <table>
                 <tr>
                     <th>Image</th>
