@@ -3,10 +3,22 @@
 include 'mysqldatabase.php';
 
 $product = new Product;
-
-
-// $selectOption = "newest";
 $product = $product -> listNewArrivals();
+// Tried doing the criteria select option, doesn't work
+// if (isset($_POST['orderby'])) {
+//     $option = $_POST['orderby'];
+//     if ($option == "newest") {
+//         $product = $product -> listNewArrivals();
+//     } elseif ($option == "oldest") {
+//         $product = $product -> listOldest();
+//     } elseif ($option == "a-z") {
+//         $product = $product -> listAlphabetical();
+//     } elseif ($option == "high") {
+//         $product = $product -> listHightoLow();
+//     } elseif ($option == "low") {
+//         $product = $product -> listLowtoHigh();
+//     }
+// }
 
 ?>
 
@@ -30,8 +42,8 @@ $product = $product -> listNewArrivals();
             <div class="title-new-arrivals">
                 <h1>New Arrivals</h1>
                 <form action="" method="POST">
-                    <select name="orderby" id="">
-                        <option value="newest" selected >Newest</option>
+                    <select name="orderby">
+                        <option value="newest" >Newest</option>
                         <option value="oldest">Oldest</option>
                         <option value="a-z">By Brand: A-Z</option>
                         <option value="high">Pricing: High to Low</option>
