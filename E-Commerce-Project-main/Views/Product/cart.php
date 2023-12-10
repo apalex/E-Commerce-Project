@@ -7,6 +7,8 @@ $prod = new Product();
 $cartQuan = $prod ->cartQuan();
 $cartList = $prod ->listCart($cartQuan);
 
+if (isset($_POST['']))
+
 // $cartKeys = array_keys($_SESSION["cart"]);
 // $cartQuan = $_SESSION["cart"];
 
@@ -71,32 +73,35 @@ $cartList = $prod ->listCart($cartQuan);
                 <?php 
                 $subTotal = 0;
                 
-                foreach($cartList as $cl){
+                foreach($cartList as $cl) {
                     $quantity = $cartQuan[$cl ->Prod_ID];
                     $price = $cl -> Prod_Client_Price;
                     $price *= $quantity; 
                     $subTotal += $price; 
                     
-                    echo '   <div class="cart products">
-                    <div>
-                    <img src="'. $cl -> Prod_Image_Path .'" alt="">
-                    <h6>'. $cl -> Prod_Name .'</h6>
-                </div>
-                <div>
-                    <p>$'.$cl -> Prod_Client_Price .'</p>
-                </div>
-                <div>
-                   <p>'. $quantity .'</p>
-                </div>
-                <div>
-                    <p id="cart-subtotal-x">$'.$subTotal.'</p>
-                    <button id="cart-subtotal-remove" onclick="removeProduct();">X</button>
-                </div>
-                </div>';
+                    echo '
+                    <form action="" method="POST">
+                        <div class="cart products">
+                            <div>
+                                <img src="'. $cl -> Prod_Image_Path .'" alt="">
+                                <h6>'. $cl -> Prod_Name .'</h6>
+                            </div>
+                        <div>
+                            <p>$'.$cl -> Prod_Client_Price .'</p>
+                        </div>
+                        <div>
+                            <p>'. $quantity .'</p>
+                        </div>
+                        <div>
+                            <p id="cart-subtotal-x">$'.$subTotal.'</p>
+                            <input type="button" id="cart-subtotal-remove">
+                        </div>
+                        </div>
+                    </form>
+                    ';
                 }
                 
                 ?>
-                   
                 
                 <button id="return-to-shop" onclick="window.location = '?controller=home&action=index';">Return To Shop</button>
             </div>
