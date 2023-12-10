@@ -162,11 +162,11 @@ class Product {
         return $cartList;
     }
 
-    function listNewArrivals() {
+    function listNewArrivals($start, $rows) {
         global $conn;
         $list = array();
 
-        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_ID` DESC;";
+        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_ID` DESC LIMIT $start, $rows;";
         $result = $conn -> query($sql);
         while ($row = $result -> fetch_assoc()) {
             $product = new Product();
