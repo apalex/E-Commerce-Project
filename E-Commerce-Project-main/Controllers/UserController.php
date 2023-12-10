@@ -22,16 +22,21 @@ class UserController {
             $email = $_POST['EMAIL'];
             $passwd = $_POST['PASSWD'];
             
-            $sql = "SELECT * FROM User_Info WHERE U_Email = '$email' AND U_Pass = '$passwd'";
+            $sql = "SELECT * FROM User_Info WHERE U_Email = '$email'";
             
             $result = $conn ->query($sql);
             
-            if($result->num_rows ==1){
-                $row = $result->fetch_assoc();
-                $_SESSION['id'] = $row['U_ID'];
-                header('Location: ?controller=home&action=index&id=' . $_SESSION['id']);
+            if ($result -> num_rows == 1) {
+                $row = $result -> fetch_assoc();
+                $hash = $row['U_Pass'];
+                if (password_verify($passwd, $hash)) {
+                    $_SESSION['id'] = $row['U_ID'];
+                    header('Location: ?controller=home&action=index&id=' . $_SESSION['id']);
+                } else {
+                    echo "Wrong information!";
+                }
             }else{
-                echo"account does not exist";
+                echo "Wrong information!";
             }
             }
 

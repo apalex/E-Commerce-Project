@@ -66,7 +66,6 @@
                         <input type="text" name="Phone_Num" id="Phone_Num" placeholder="<?php echo $user->Phone_Num ?>">
                     </div>
                     <p>Change Password</p>
-                    <label for="">Current password: <?php echo $user->U_Pass ?></label><br>
                     <input type="password" name="new_pass" id="New_Pass" placeholder="New Password"><br>
                     <input type="password" name="c_new_pass" id="New_Pass_Conf" placeholder="Confirm New Password"><br>
                     <button type="submit" id="cancel-profile">Cancel</button>

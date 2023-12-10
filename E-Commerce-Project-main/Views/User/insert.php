@@ -21,8 +21,8 @@ if ($conn -> connect_error) {
         echo "Passwords do not match";
         header('Location: ?controller=user&action=registration');
     } else {
-        // $hash = password_hash($PASSWD, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`,`Role_ID`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$PASSWD','1')";
+        $hash = password_hash($PASSWD, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`,`Role_ID`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$hash','1')";
         $conn -> query($sql);
 
         $lastInsertedID = mysqli_insert_id($conn);
