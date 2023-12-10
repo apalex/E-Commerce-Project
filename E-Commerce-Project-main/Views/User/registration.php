@@ -18,12 +18,12 @@
             <h5>Enter your details below</h5><br>
             <div class="registration form">
                 <form action="?controller=user&action=insert" method="POST">
-                    <input type="text" name="F_NAME" id="" placeholder="First Name" required><br><br>
-                    <input type="text" name="L_NAME" id="" placeholder="Last Name" required><br><br>
-                    <input type="text" name="EMAIL" id="" placeholder="Email" required><br><br>
-                    <input type="password" name="PASSWD" id="" placeholder="Password" required><br><br>
-                    <input type="password" name="C_PASSWD" id="" placeholder="Confirm Password" required><br><br><br>
-                    <button type="submit">Create Account</button>
+                    <input type="text" name="F_NAME" id="f_nameRegister" placeholder="First Name"><br><br>
+                    <input type="text" name="L_NAME" id="l_nameRegister" placeholder="Last Name"><br><br>
+                    <input type="text" name="EMAIL" id="emailRegister" placeholder="Email"><br><br>
+                    <input type="password" name="PASSWD" id="passwdRegister" placeholder="Password"><br><br>
+                    <input type="password" name="C_PASSWD" id="" placeholder="Confirm Password"><br><br><br>
+                    <button type="submit" onclick="validateRegistration()">Create Account</button>
                     <p>Already have an account? <a href="?controller=user&action=login">Login In</a></p>
                 </form>
             </div>

@@ -43,7 +43,7 @@ $product = $prod -> searchProducts($search);
                 }
                 if (count($product) === 0) {
                     echo "<br>";
-                    echo "No matching query were found";
+                    echo "No matching results were found";
                 }
                 ?>
             </ol>
