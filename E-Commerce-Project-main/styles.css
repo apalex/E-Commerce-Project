@@ -500,10 +500,11 @@ footer {
 }
 
 .cart-subtotal.remove {
-    display: inline-block;
     float: right;
-    margin-right: 30px;
+    margin: -50px;
 }
+
+
 
 /* Cart Section Bottom Part */
 
@@ -545,7 +546,7 @@ footer {
     display: inline-block;
     border: 2px solid black;
     width: 35%;
-    height: 300px;
+    height: 350px;
     float: right;
 }
 

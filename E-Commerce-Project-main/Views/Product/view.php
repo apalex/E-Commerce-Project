@@ -1,7 +1,7 @@
 
 <?php
 include "mysqldatabase.php";
-    session_start();
+if (session_status() === PHP_SESSION_NONE){session_start();}
    
     $log_path;
     $product = $data[0];
@@ -49,7 +49,11 @@ include "mysqldatabase.php";
     <div class="wrapper">
         <div class="product container">
             <div class="product location">
+<<<<<<< HEAD
                 <p><a href="?controller=home&action=index">Home</a> / <a href="?controller=product&action=categories&page=1">Categories</a> / <a href="?controller=product&action=categories&category=<?php echo $product-> Prod_Category ?>&page=1"><?php echo $product-> Prod_Category?></a> / <b><?php echo $product -> Prod_Name ?></b></p>
+=======
+                <p><a href="?controller=home&action=index">Home</a> / <a href="?controller=product&action=<?php echo $product-> Prod_Category?>"><?php echo $product-> Prod_Category?></a> / <b><?php echo $product -> Prod_Name ?></b></p>
+>>>>>>> 6f4938b54502f15bbc99c898ca006a21e3cbd908
             </div>
             <div class="product box">
                 <div class="product image">
