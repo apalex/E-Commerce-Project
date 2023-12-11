@@ -11,33 +11,6 @@ if (isset($_POST[''])){
 
 }
 
-// $cartKeys = array_keys($_SESSION["cart"]);
-// $cartQuan = $_SESSION["cart"];
-
-
-// $cartList = array();
-
-
-//     global $conn;
-
-// foreach($cartKeys as $k){
-//     $sql = "SELECT * FROM `Product_Info` WHERE `Prod_ID` = " . $k;
-//     $result = $conn -> query($sql);
-//     $row = $result -> fetch_assoc();
-//     $product = new Product();
-//     $product -> Prod_ID = $row['Prod_ID'];
-//     $product -> Prod_Name = $row['Prod_Name'];
-//     $product -> Prod_Client_Price = $row['Prod_Client_Price'];
-//     $product -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
-//     $product -> Prod_Details = $row['Prod_Details'];
-//     $product -> Prod_Comments = $row['Prod_Comments'];
-//     $product -> Prod_Stock = $row['Prod_Stock'];
-//     $product -> Prod_Category = $row['Prod_Category'];
-//     $product -> Prod_Image_Path = $row['Prod_Image_Path'];
-
-//     array_push($cartList, $product);
-// }
-
 
 ?>
 
@@ -81,6 +54,8 @@ if (isset($_POST[''])){
                     $price = $cl -> Prod_Client_Price;
                     $price *= $quantity; 
                     $subTotal += $price; 
+                    $tax = $subTotal *.15;
+                    $total = $subTotal *1.15;
                     
                     echo '
                     <form action="?controller=product&action=remove-cart" method="POST">
@@ -127,9 +102,13 @@ if (isset($_POST[''])){
                         <label for="">Shipping</label>
                         <p>Free</p>
                     </div>
+                    <div class="shipping">
+                        <label for="">Tax</label>
+                        <p>$<?php echo $tax; ?></p>
+                    </div>
                     <div class="total">
                         <label for="">Total</label>
-                        <p>1600$</p>
+                        <p>$<?php echo $total; ?></p>
                     </div>
                     <div class="checkout-btn">
                         <button type="submit">Proceed to checkout</button>
