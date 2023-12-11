@@ -1,13 +1,15 @@
 <?php
 
-session_start();
+if (session_status() === PHP_SESSION_NONE){session_start();}
 
 $prod = new Product();
 
 $cartQuan = $prod ->cartQuan();
 $cartList = $prod ->listCart($cartQuan);
 
-if (isset($_POST['']))
+if (isset($_POST[''])){
+
+}
 
 // $cartKeys = array_keys($_SESSION["cart"]);
 // $cartQuan = $_SESSION["cart"];
@@ -50,6 +52,7 @@ if (isset($_POST['']))
     <title>Shop all your electronic needs and save big! | ABDGameStore.com</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <?php
@@ -80,7 +83,7 @@ if (isset($_POST['']))
                     $subTotal += $price; 
                     
                     echo '
-                    <form action="" method="POST">
+                    <form action="?controller=product&action=remove-cart" method="POST">
                         <div class="cart products">
                             <div>
                                 <img src="'. $cl -> Prod_Image_Path .'" alt="">
@@ -94,7 +97,9 @@ if (isset($_POST['']))
                         </div>
                         <div>
                             <p id="cart-subtotal-x">$'.$subTotal.'</p>
-                            <input type="button" id="cart-subtotal-remove">
+                            <input type="hidden" name="p_id" value='.$cl ->Prod_ID.'>
+                            <input type="submit" class="cart-subtotal remove" value="X">
+                           
                         </div>
                         </div>
                     </form>
