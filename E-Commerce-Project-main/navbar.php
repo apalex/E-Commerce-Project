@@ -76,7 +76,7 @@ if(isset($_POST['log_sub'])){
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> 
             
             <div class="header-inner bottom">
                 <div class="container">
