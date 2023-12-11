@@ -42,37 +42,78 @@ document.addEventListener('DOMContentLoaded', () => {
 // Remove Product in Cart
 function removeProduct() {
     document.getElementsByClassName("cart products").remove();
-}
+};
 
 // RegEx for Registration
-function validateRegistration() {
-    var f_name = document.getElementById("f_nameRegister").value;
-    var f_nameRGEX =  "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}+$";
-    var l_name = document.getElementById("l_nameRegister").value;
-    var l_nameRGEX = "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}+$";
-    var email = document.getElementById("emailRegister").value;
-    var emailRGEX = "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
-    var passwd = document.getElementById("passwdRegister").value;
-    var passwdRGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
+$(document).ready(function() {
+    $("#registrationForm").on(function(e) {
+        e.preventDefault();
 
-    if (!f_nameRGEX.test(f_name)) {
-        alert("Please enter a valid first name!");
-        return false;
-    }
-    if (!l_nameRGEX.test(l_name)) {
-        alert("Please enter a valid last name!");
-        return false;
-    }
-    if (!emailRGEX.test(email)) {
-        alert("Please enter a valid email!");
-        return false;
-    }
-    if (!passwdRGEX.test(passwd)) {
-        alert("Please enter a valid password\n(Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character)!");
-        return false;
-    }
-    return true;
-}
+        var formData = {
+            first_name: $("#f_nameRegister").val(),
+            last_name: $("#l_nameRegister").val(),
+            email: $("emailRegister").val(),
+            $password: $("#passwdRegister").val(),
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "?controller=user&action=insert",
+            data: formData,
+            dataType: "json",
+            contentType: false,
+            cache: false,
+            processData: false,
+        }).done(function(data) {
+            console.log(data);
+
+            if (!data.success) {
+                if (data.errors.first_name) {
+                    alert("first name error");
+                }
+                if (data.errors.last_name) {
+                    alert("last name error");
+
+                }
+                if (data.errors.email) {
+                    alert("email error");
+
+                }
+                if (data.errors.password) {
+                    alert("password error");
+                }
+            }
+        })
+    })
+});
+// function validateRegistration() {
+//     var f_name = document.getElementById("f_nameRegister").value;
+//     var f_nameRGEX =  "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}+$";
+//     var l_name = document.getElementById("l_nameRegister").value;
+//     var l_nameRGEX = "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}+$";
+//     var email = document.getElementById("emailRegister").value;
+//     var emailRGEX = "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
+//     var passwd = document.getElementById("passwdRegister").value;
+//     var passwdRGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
+
+//     if (!f_nameRGEX.test(f_name)) {
+//         alert("Please enter a valid first name!");
+//         return false;
+//     }
+//     if (!l_nameRGEX.test(l_name)) {
+//         alert("Please enter a valid last name!");
+//         return false;
+//     }
+//     if (!emailRGEX.test(email)) {
+//         alert("Please enter a valid email!");
+//         return false;
+//     }
+//     if (!passwdRGEX.test(passwd)) {
+//         alert("Please enter a valid password\n(Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character)!");
+//         return false;
+//     }
+//     return true;
+// }
 
 // Regex:
 // https://www.w3schools.com/php/php_form_url_email.asp
