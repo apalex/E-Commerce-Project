@@ -49,7 +49,7 @@ include "mysqldatabase.php";
     <div class="wrapper">
         <div class="product container">
             <div class="product location">
-                <p><a href="?controller=home&action=index">Home</a> / <a href="">Product</a> / <a href="?controller=product&action=<?php echo $product-> Prod_Category?>"><?php echo $product-> Prod_Category?></a> / <b><?php echo $product -> Prod_Name ?></b></p>
+                <p><a href="?controller=home&action=index">Home</a> / <a href="?controller=product&action=<?php echo $product-> Prod_Category?>"><?php echo $product-> Prod_Category?></a> / <b><?php echo $product -> Prod_Name ?></b></p>
             </div>
             <div class="product box">
                 <div class="product image">
