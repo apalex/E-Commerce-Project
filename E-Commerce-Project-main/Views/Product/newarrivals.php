@@ -52,6 +52,9 @@ $product = $product -> listNewArrivals($start, $rows_per_page);
     ?>
 
     <div class="wrapper">
+        <div class="product location">
+            <p><a href="?controller=home&action=index">Home</a> / New Arrivals</p>
+        </div>
         <div class="container new-arrivals">
             <div class="title-new-arrivals">
                 <h1>New Arrivals</h1>
