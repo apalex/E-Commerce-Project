@@ -43,7 +43,7 @@ if(isset($_GET['category'])) {
     <?php include_once "navbar.php"; ?>
 
     <div class="wrapper">
-        <p><a href="?controller=home&action=index">Home</a> / <a href="?controller=product&action=categories">Categories</a> / <b><?php 
+        <p><a href="?controller=home&action=index">Home</a> / <a href="?controller=product&action=categories&page=1">Categories</a> / <b><?php 
         if(isset($_GET['category'])) {
             $cat = ucfirst($_GET['category']);
             echo "{$cat}";
