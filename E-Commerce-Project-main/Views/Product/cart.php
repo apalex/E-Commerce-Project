@@ -7,11 +7,6 @@ $prod = new Product();
 $cartQuan = $prod ->cartQuan();
 $cartList = $prod ->listCart($cartQuan);
 
-if (isset($_POST[''])){
-
-}
-
-
 ?>
 
 
