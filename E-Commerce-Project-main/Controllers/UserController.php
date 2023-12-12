@@ -16,7 +16,8 @@ class UserController {
 
       if($action == "logged"){
             global $conn;
-            
+            $errors = array();
+
             if(isset($_POST['submit'])){
             
             $email = $_POST['EMAIL'];
@@ -33,10 +34,12 @@ class UserController {
                     $_SESSION['id'] = $row['U_ID'];
                     header('Location: ?controller=home&action=index&id=' . $_SESSION['id']);
                 } else {
-                    echo "Wrong information!";
+                   $errors['password'] = false;
+                   $this -> render("login",$errors);
                 }
             }else{
-                echo "Wrong information!";
+                $errors['email'] = false;                    
+                $this -> render("login",$errors);
             }
             }
 
