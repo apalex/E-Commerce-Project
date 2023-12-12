@@ -429,6 +429,7 @@ footer {
     border: 1px solid red;
     padding: 18px;
     border-radius: 5px;
+    display: block;
 }
 
 /* Login Section */
@@ -451,6 +452,23 @@ footer {
 
 .login.form a {
     float: right;
+}
+
+.login.form form input:valid {
+    border: 1px solid rgb(61, 215, 61);
+    padding: 18px;
+    border-radius: 5px;
+}
+
+.login.form form input:invalid {
+    border: 1px solid red;
+    padding: 18px;
+    border-radius: 5px;
+    display: block;
+}
+
+#error-login {
+    margin-top: 5px;
 }
 
 /* Cart Section */

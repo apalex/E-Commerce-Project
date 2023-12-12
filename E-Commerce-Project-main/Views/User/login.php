@@ -1,5 +1,3 @@
-
-
 <?php
 // session_start();
 // include "mysqldatabase.php";
@@ -24,9 +22,6 @@
 
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,8 +42,8 @@
             <h5>Enter your details below</h5><br>
             <div class="login form">
                 <form action="?controller=user&action=logged" method="POST">
-                    <input type="text" name="EMAIL" placeholder="Email" required><br><br>
-                    <input type="password" name="PASSWD" placeholder="Password" required><br><br>
+                    <input type="text" name="EMAIL" placeholder="Email" required><label id="error-login">ERROR HERE</label><br><br>
+                    <input type="password" name="PASSWD" placeholder="Password" required><label id="error-login">ERROR HERE</label><br><br>
                     <button name = 'submit' type="submit">Log in</button>
                     <a href="?controller=home&action=contact">Forgot Password?</a>
                     <br>
