@@ -87,3 +87,8 @@ function removeProduct() {
 // Regex:
 // https://www.w3schools.com/php/php_form_url_email.asp
 
+
+// Select Option User Criteria Search
+function status_update(value) {
+    window.location.href = "?controller=product&action=newarrivals&page=1&criteria=" + value;
+}

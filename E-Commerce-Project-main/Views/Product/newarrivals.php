@@ -16,23 +16,24 @@ if (isset($_GET['page'])) {
     $start = $page * $rows_per_page;
 }
 
-$product = $product -> listNewArrivals($start, $rows_per_page);
-
-// Tried doing the criteria select option, doesn't work
-// if (isset($_POST['orderby'])) {
-//     $option = $_POST['orderby'];
-//     if ($option == "newest") {
-//         $product = $product -> listNewArrivals();
-//     } elseif ($option == "oldest") {
-//         $product = $product -> listOldest();
-//     } elseif ($option == "a-z") {
-//         $product = $product -> listAlphabetical();
-//     } elseif ($option == "high") {
-//         $product = $product -> listHightoLow();
-//     } elseif ($option == "low") {
-//         $product = $product -> listLowtoHigh();
-//     }
-// }
+$criteria = $_GET['criteria'];
+switch($criteria) {
+    case "newest":
+        $product = $product -> listNewArrivals($start, $rows_per_page);
+        break;
+    case "oldest":
+        $product = $product -> listOldest($start, $rows_per_page);
+        break;
+    case "a-z":
+        $product = $product -> listAlphabetical($start, $rows_per_page);
+        break;
+    case "high":
+        $product = $product -> listHightoLow($start, $rows_per_page);
+        break;
+    case "low":
+        $product = $product -> listLowtoHigh($start, $rows_per_page);
+        break;
+}
 
 ?>
 
@@ -59,12 +60,12 @@ $product = $product -> listNewArrivals($start, $rows_per_page);
             <div class="title-new-arrivals">
                 <h1>New Arrivals</h1>
                 <form action="" method="POST">
-                    <select name="orderby">
-                        <option value="newest" >Newest</option>
-                        <option value="oldest">Oldest</option>
-                        <option value="a-z">By Brand: A-Z</option>
-                        <option value="high">Pricing: High to Low</option>
-                        <option value="low">Pricing: Low to High</option>
+                    <select name="orderby" onchange="status_update(this.options[this.selectedIndex].value)">
+                        <option value="newest" <?php if($criteria == "newest") {echo "selected";} ?>>Newest</option>
+                        <option value="oldest" <?php if($criteria == "oldest") {echo "selected";} ?>>Oldest</option>
+                        <option value="a-z" <?php if($criteria == "a-z") {echo "selected";} ?>>By Brand: A-Z</option>
+                        <option value="high" <?php if($criteria == "high") {echo "selected";} ?>>Pricing: High to Low</option>
+                        <option value="low" <?php if($criteria == "low") {echo "selected";} ?>>Pricing: Low to High</option>
                     </select>
                 </form>
             </div>
@@ -89,17 +90,17 @@ $product = $product -> listNewArrivals($start, $rows_per_page);
             </ol>
             <div class="pagination">
                 <p>Page <?php echo $page + 1 ?> of <?php echo $pages ?></p>
-                <a href="?controller=product&action=newarrivals&page=1">First</a>
+                <a href="?controller=product&action=newarrivals&page=1&criteria=<?php echo $criteria ?>">First</a>
                 <?php if(isset($_GET['page']) && $_GET['page'] > 1) {
                     $previous = $_GET['page'] - 1;
-                    echo "<a href='?controller=product&action=newarrivals&page={$previous}'>Previous</a>";
+                    echo "<a href='?controller=product&action=newarrivals&page={$previous}&criteria={$criteria}'>Previous</a>";
                 } else {
                     echo "Previous";
                 } ?>
                 <div class="page-numbers">
                     <?php
                     for ($i = 1; $i <= $pages; $i++) {
-                        echo "<a href='?controller=product&action=newarrivals&page={$i}'>$i</a>";
+                        echo "<a href='?controller=product&action=newarrivals&page={$i}&criteria={$criteria}'>$i</a>";
                     }
                     ?>
                 </div>
@@ -107,7 +108,7 @@ $product = $product -> listNewArrivals($start, $rows_per_page);
 
                 if (!isset($_GET['page'])) {
                     ?>
-                    <a href="?controller=product&action=newarrivals&page=2">Next</a>
+                    <a href="?controller=product&action=newarrivals&page=2&criteria=<?php echo $criteria ?>">Next</a>
                     <?php
                 } else {
                     if ($_GET['page'] >= $pages) {
@@ -116,12 +117,12 @@ $product = $product -> listNewArrivals($start, $rows_per_page);
                         <?php
                     } else {
                         $next = $_GET['page'] + 1;
-                        echo "<a href='?controller=product&action=newarrivals&page={$next}'>Next</a>";
+                        echo "<a href='?controller=product&action=newarrivals&page={$next}&criteria={$criteria}'>Next</a>";
                     }
                 }
 
                 ?>
-                <a href="?controller=product&action=newarrivals&page=<?php echo $pages ?>">Last</a>
+                <a href="?controller=product&action=newarrivals&page=<?php echo $pages ?>&criteria=<?php echo $criteria ?>">Last</a>
             </div>
         </div>
         <div class="push"></div>
