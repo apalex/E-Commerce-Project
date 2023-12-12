@@ -415,6 +415,22 @@ footer {
     margin: 10px;
 }
 
+.error-registration {
+    margin-top: 8px;
+}
+
+#registrationForm input:valid {
+    border: 1px solid rgb(61, 215, 61);
+    padding: 18px;
+    border-radius: 5px;
+}
+
+#registrationForm input:invalid {
+    border: 1px solid red;
+    padding: 18px;
+    border-radius: 5px;
+}
+
 /* Login Section */
 
 .login.form button {

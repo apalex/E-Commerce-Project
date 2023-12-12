@@ -19,11 +19,11 @@
             <h5>Enter your details below</h5><br>
             <div class="registration form">
                 <form action="?controller=user&action=insert" method="POST" id="registrationForm" autocomplete="off">
-                    <input type="text" name="F_NAME" id="f_nameRegister" placeholder="First Name"><br><br>
-                    <input type="text" name="L_NAME" id="l_nameRegister" placeholder="Last Name"><br><br>
-                    <input type="text" name="EMAIL" id="emailRegister" placeholder="Email"><br><br>
-                    <input type="password" name="PASSWD" id="passwdRegister" placeholder="Password"><br><br>
-                    <input type="password" name="C_PASSWD" id="" placeholder="Confirm Password"><br><br><br>
+                    <input type="text" name="F_NAME" id="f_nameRegister" placeholder="First Name" required><label class="error-registration">ERROR HERE</label><br><br>
+                    <input type="text" name="L_NAME" id="l_nameRegister" placeholder="Last Name" required><label class="error-registration">ERROR HERE</label><br><br>
+                    <input type="text" name="EMAIL" id="emailRegister" placeholder="Email" required><label class="error-registration">ERROR HERE</label><br><br>
+                    <input type="password" name="PASSWD" id="passwdRegister" placeholder="Password" required><label class="error-registration">ERROR HERE</label><br><br>
+                    <input type="password" name="C_PASSWD" id="" placeholder="Confirm Password" required><label class="error-registration">ERROR HERE</label><br><br><br>
                     <button type="submit">Create Account</button>
                     <p>Already have an account? <a href="?controller=user&action=login">Login In</a></p>
                 </form>
