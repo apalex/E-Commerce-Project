@@ -89,19 +89,19 @@ if(isset($_POST['log_sub'])){
                             </div>
                             <div class="header-nav categories">
                                 <div class="cat_dropdown">
-                                    <a>
+                                    <a href="?controller=product&action=categories&page=1">
                                         Categories
                                         <i>
                                             <img src="images/caret-down.png" width="20px" height="20px">
                                         </i>
                                     </a>
                                     <div class="dropdown_content">
-                                        <a href="?controller=product&action=headset">Headphones</a>
-                                        <a href="?controller=product&action=microphone">Microphones</a>
-                                        <a href="?controller=product&action=keyboard">Keyboards</a>
-                                        <a href="?controller=product&action=mouse">Mouses</a>
-                                        <a href="?controller=product&action=monitor">Monitors</a>
-                                        <a href="?controller=product&action=accessories"></a>
+                                        <a href="?controller=product&action=categories&category=headset&page=1">Headphones</a>
+                                        <a href="?controller=product&action=categories&category=microphone&page=1">Microphones</a>
+                                        <a href="?controller=product&action=categories&category=keyboard&page=1">Keyboards</a>
+                                        <a href="?controller=product&action=categories&category=mouse&page=1">Mouses</a>
+                                        <a href="?controller=product&action=categories&category=headset&page=1">Monitors</a>
+                                        <a href="?controller=product&action=categories&category=accessories&page=1">Accessories</a>
                                     </div>
                                 </div>
                             </div>

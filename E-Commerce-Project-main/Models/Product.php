@@ -289,6 +289,29 @@ class Product {
         return $list;
     }
 
+    function listAllCategories($start, $rows) {
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_Category` LIMIT $start, $rows;";
+        $result = $conn -> query($sql);
+        while ($row = $result -> fetch_assoc()) {
+            $product = new Product();
+            $product -> Prod_ID = $row['Prod_ID'];
+            $product -> Prod_Name = $row['Prod_Name'];
+            $product -> Prod_Client_Price = $row['Prod_Client_Price'];
+            $product -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
+            $product -> Prod_Details = $row['Prod_Details'];
+            $product -> Prod_Comments = $row['Prod_Comments'];
+            $product -> Prod_Stock = $row['Prod_Stock'];
+            $product -> Prod_Category = $row['Prod_Category'];
+            $product -> Prod_Image_Path = $row['Prod_Image_Path'];
+
+            array_push($list, $product);
+        }
+        return $list;
+    }
+
     function searchCategories() {
         global $conn;
         $list = array();
@@ -312,126 +335,11 @@ class Product {
         return $list;
     }
 
-    function searchKeyboards() {
+    function searchCategory($category, $start, $rows) {
         global $conn;
         $list = array();
 
-        $sql = "SELECT * FROM `Product_Info` WHERE `Prod_Category` = 'Keyboard';";
-        $result = $conn -> query($sql);
-        while ($row = $result -> fetch_assoc()) {
-            $product = new Product();
-            $product -> Prod_ID = $row['Prod_ID'];
-            $product -> Prod_Name = $row['Prod_Name'];
-            $product -> Prod_Client_Price = $row['Prod_Client_Price'];
-            $product -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
-            $product -> Prod_Details = $row['Prod_Details'];
-            $product -> Prod_Comments = $row['Prod_Comments'];
-            $product -> Prod_Stock = $row['Prod_Stock'];
-            $product -> Prod_Category = $row['Prod_Category'];
-            $product -> Prod_Image_Path = $row['Prod_Image_Path'];
-
-            array_push($list, $product);
-        }
-        return $list;
-    }
-
-    function searchAccessories() {
-        global $conn;
-        $list = array();
-
-        $sql = "SELECT * FROM `Product_Info` WHERE `Prod_Category` = 'Accessories';";
-        $result = $conn -> query($sql);
-        while ($row = $result -> fetch_assoc()) {
-            $product = new Product();
-            $product -> Prod_ID = $row['Prod_ID'];
-            $product -> Prod_Name = $row['Prod_Name'];
-            $product -> Prod_Client_Price = $row['Prod_Client_Price'];
-            $product -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
-            $product -> Prod_Details = $row['Prod_Details'];
-            $product -> Prod_Comments = $row['Prod_Comments'];
-            $product -> Prod_Stock = $row['Prod_Stock'];
-            $product -> Prod_Category = $row['Prod_Category'];
-            $product -> Prod_Image_Path = $row['Prod_Image_Path'];
-
-            array_push($list, $product);
-        }
-        return $list;
-    }
-
-    function searchHeadsets() {
-        global $conn;
-        $list = array();
-
-        $sql = "SELECT * FROM `Product_Info` WHERE `Prod_Category` = 'Headset';";
-        $result = $conn -> query($sql);
-        while ($row = $result -> fetch_assoc()) {
-            $product = new Product();
-            $product -> Prod_ID = $row['Prod_ID'];
-            $product -> Prod_Name = $row['Prod_Name'];
-            $product -> Prod_Client_Price = $row['Prod_Client_Price'];
-            $product -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
-            $product -> Prod_Details = $row['Prod_Details'];
-            $product -> Prod_Comments = $row['Prod_Comments'];
-            $product -> Prod_Stock = $row['Prod_Stock'];
-            $product -> Prod_Category = $row['Prod_Category'];
-            $product -> Prod_Image_Path = $row['Prod_Image_Path'];
-
-            array_push($list, $product);
-        }
-        return $list;
-    }
-
-    function searchMicrophones() {
-        global $conn;
-        $list = array();
-
-        $sql = "SELECT * FROM `Product_Info` WHERE `Prod_Category` = 'Microphone';";
-        $result = $conn -> query($sql);
-        while ($row = $result -> fetch_assoc()) {
-            $product = new Product();
-            $product -> Prod_ID = $row['Prod_ID'];
-            $product -> Prod_Name = $row['Prod_Name'];
-            $product -> Prod_Client_Price = $row['Prod_Client_Price'];
-            $product -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
-            $product -> Prod_Details = $row['Prod_Details'];
-            $product -> Prod_Comments = $row['Prod_Comments'];
-            $product -> Prod_Stock = $row['Prod_Stock'];
-            $product -> Prod_Category = $row['Prod_Category'];
-            $product -> Prod_Image_Path = $row['Prod_Image_Path'];
-
-            array_push($list, $product);
-        }
-        return $list;
-    }
-
-    function searchMonitors() {
-        global $conn;
-        $list = array();
-
-        $sql = "SELECT * FROM `Product_Info` WHERE `Prod_Category` = 'Monitor';";
-        $result = $conn -> query($sql);
-        while ($row = $result -> fetch_assoc()) {
-            $product = new Product();
-            $product -> Prod_ID = $row['Prod_ID'];
-            $product -> Prod_Name = $row['Prod_Name'];
-            $product -> Prod_Client_Price = $row['Prod_Client_Price'];
-            $product -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
-            $product -> Prod_Details = $row['Prod_Details'];
-            $product -> Prod_Comments = $row['Prod_Comments'];
-            $product -> Prod_Stock = $row['Prod_Stock'];
-            $product -> Prod_Category = $row['Prod_Category'];
-            $product -> Prod_Image_Path = $row['Prod_Image_Path'];
-
-            array_push($list, $product);
-        }
-        return $list;
-    }
-
-    function searchMouses() {
-        global $conn;
-        $list = array();
-
-        $sql = "SELECT * FROM `Product_Info` WHERE `Prod_Category` = 'Mouse';";
+        $sql = "SELECT * FROM `Product_Info` WHERE `Prod_Category` = '$category' LIMIT $start, $rows;";
         $result = $conn -> query($sql);
         while ($row = $result -> fetch_assoc()) {
             $product = new Product();
