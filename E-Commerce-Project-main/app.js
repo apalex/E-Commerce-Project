@@ -71,7 +71,20 @@ function validateRegistration() {
         alert("Please enter a valid password\n(Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character)!");
         return false;
     }
-    return true;
+    fetch('?controller=user&action=insert', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `F_NAME=${f_name}&L_NAME=${l_name}&EMAIL=${email}&PASSWD=${passwd}&C_PASSWD=${confirmPasswd}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Display the response from the server
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 // Regex:

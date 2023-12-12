@@ -1,5 +1,6 @@
 
 <?php
+include_once "Models/User.php";
 include "mysqldatabase.php";
 if (session_status() === PHP_SESSION_NONE){session_start();}
    
@@ -129,6 +130,37 @@ if (session_status() === PHP_SESSION_NONE){session_start();}
         <div class="push">
         </div>
     </div>
+
+
+
+    <div class="comment-container">
+        <h2>Comments</h2>
+        <ul class="comment-list" id="comments"></ul>
+        <?php
+
+
+        foreach($product -> Comments_List as $comment){
+            $user = new User($comment -> u_id);
+
+            echo $user -> F_Name . " " . $user ->L_Name . ": <br>";
+            echo $comment -> comment . "<br>";
+
+        }
+        
+    if(isset($_SESSION['id'])){
+        echo '
+        <h2>Add a Comment</h2>
+        <form class="comment-form" id="commentForm" action="?controller=product&action=addComment" method="POST">
+           
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name = "comment" required></textarea><br>
+            <input type="hidden" name="u_id" value="'. $_SESSION['id'] .'">
+            <input type="hidden" name="p_id" value="'. $product -> Prod_ID .'">
+           <input type="submit" value="Add comment">
+        </form>
+        ';
+    }
+        ?>
 
     <?php
     include_once 'footer.php';
