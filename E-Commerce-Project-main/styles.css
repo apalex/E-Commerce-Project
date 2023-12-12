@@ -469,6 +469,7 @@ footer {
 
 #error-login {
     margin-top: 5px;
+    display: none;
 }
 
 /* Cart Section */
