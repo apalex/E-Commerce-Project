@@ -12,6 +12,7 @@ class Product {
     public $Prod_Stock;
     public $Prod_Category;
     public $Prod_Image_Path;
+    public $Comments_List;
 
     function __construct($id = -1) {
         global $conn;
@@ -41,6 +42,8 @@ class Product {
             $this -> Prod_Stock = $data['Prod_Stock'];
             $this -> Prod_Category = $data['Prod_Category'];
             $this -> Prod_Image_Path = $data['Prod_Image_Path'];
+            $pc = new Comments();
+            $this -> Comments_List = $pc -> listProdComments($id);
         }
     }
 
@@ -81,7 +84,7 @@ class Product {
         global $conn;
         
         $sql = "INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES (`$Prod_Name`, `$Prod_Client_Price`, `$Prod_Manufacturer_Price`, `$Prod_Details`, `$Prod_Comments`, `$Prod_Stock`, `$Prod_Category`, `$Prod_Image_Path`);";
-        $conn = query($sql);
+        $conn -> query($sql);
 
         var_dump($conn -> $error);
     }
@@ -93,6 +96,15 @@ class Product {
         $conn = query($sql);
 
         var_dump($conn -> $error);
+    }
+
+    function addComment($p_id,$u_id,$comment){
+        global $conn;
+
+        $sql = "INSERT INTO `Product_Comments` (Prod_ID,U_ID,COMMENT) VALUES ('$p_id','$u_id','$comment');";
+        $conn -> query($sql);
+
+
     }
     
     function searchProducts($search){
@@ -467,5 +479,56 @@ class Discount {
     }
 
 }
+
+
+    class Comments{
+        public $prod_comment_id;
+        public $prod_id;
+        public $u_id;
+        public $comment;
+
+        function __construct($id = -1){
+            global $conn;
+
+            $this -> prod_comment_id = $id;
+            if($id<0){
+                $this -> prod_comment_id = 0;
+                $this -> prod_id = 0;
+                $this -> u_id = 0;
+                $this -> comment = "";
+            }else{
+            $sql = "SELECT * FROM Product_Comments WHERE `prod_comment_id` = $id";
+            
+            $result = $conn -> query($sql);
+            
+            $data = $result -> fetch_assoc();
+
+            $this -> prod_comment_id = $data['prod_comment_id'];
+            $this -> prod_id = $data['prod_id'];
+            $this -> u_id = $data['u_id'];
+            $this -> comment = $data['prod_comment_id'];
+            }
+        }
+
+        function listProdComments($prod_id){
+            global $conn;
+            $list = array();
+            $sql = "SELECT * FROM Product_Comments WHERE `Prod_id` = $prod_id";
+            
+            $result = $conn -> query($sql);
+            
+            while($row = $result -> fetch_assoc()){
+                $comm = new Comments();
+                
+                $comm -> prod_comment_id = $row['Prod_Comment_Id'];
+                $comm -> prod_id = $row['Prod_ID'];
+                $comm -> u_id = $row['U_ID'];
+                $comm -> comment = $row['COMMENT'];
+
+                array_push($list,$comm);
+            }
+            return $list;
+        }
+    }
 
 ?>

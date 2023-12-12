@@ -49,6 +49,39 @@ $(document).ready(function() {
     $("#registrationForm").on(function(e) {
         e.preventDefault();
 
+<<<<<<< HEAD
+    if (!f_nameRGEX.test(f_name)) {
+        alert("Please enter a valid first name!");
+        return false;
+    }
+    if (!l_nameRGEX.test(l_name)) {
+        alert("Please enter a valid last name!");
+        return false;
+    }
+    if (!emailRGEX.test(email)) {
+        alert("Please enter a valid email!");
+        return false;
+    }
+    if (!passwdRGEX.test(passwd)) {
+        alert("Please enter a valid password\n(Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character)!");
+        return false;
+    }
+    fetch('?controller=user&action=insert', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `F_NAME=${f_name}&L_NAME=${l_name}&EMAIL=${email}&PASSWD=${passwd}&C_PASSWD=${confirmPasswd}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Display the response from the server
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+=======
         var formData = {
             first_name: $("#f_nameRegister").val(),
             last_name: $("#l_nameRegister").val(),
@@ -114,6 +147,7 @@ $(document).ready(function() {
 //     }
 //     return true;
 // }
+>>>>>>> 433513ee3025d48fb5efe4767b10459043231abf
 
 // Regex:
 // https://www.w3schools.com/php/php_form_url_email.asp
