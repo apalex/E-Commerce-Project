@@ -366,7 +366,6 @@ footer {
 
 .container.registration, .container.login {
     width: 35%;
-    height: 600px;
 }
 
 .container.registration form, .container.login form {
@@ -417,6 +416,7 @@ footer {
 
 .error-registration {
     margin-top: 8px;
+    display: none;
 }
 
 #registrationForm input:valid {

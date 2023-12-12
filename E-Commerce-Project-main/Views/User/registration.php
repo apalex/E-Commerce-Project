@@ -22,10 +22,18 @@
                     <input type="text" name="F_NAME" id="f_nameRegister" placeholder="First Name" required><label class="error-registration">ERROR HERE</label><br><br>
                     <input type="text" name="L_NAME" id="l_nameRegister" placeholder="Last Name" required><label class="error-registration">ERROR HERE</label><br><br>
                     <input type="text" name="EMAIL" id="emailRegister" placeholder="Email" required><label class="error-registration">ERROR HERE</label><br><br>
-                    <input type="password" name="PASSWD" id="passwdRegister" placeholder="Password" required><label class="error-registration">ERROR HERE</label><br><br>
+                    <input type="password" name="PASSWD" id="passwdRegister" placeholder="Password" required><label display="true" class="error-registration">ERROR HERE</label><br><br>
                     <input type="password" name="C_PASSWD" id="" placeholder="Confirm Password" required><label class="error-registration">ERROR HERE</label><br><br><br>
+                    <?php 
+                    if(isset($_SESSION['errors'])){
+                        $errors = $_SESSION['errors'];
+                        foreach($errors as $e){
+                            echo"<p><FONT COLOR='RED'>$e</p>";
+                        }
+                    }
+                    ?>
                     <button type="submit">Create Account</button>
-                    <p>Already have an account? <a href="?controller=user&action=login">Login In</a></p>
+                    <p><FONT COLOR='BLACK'>Already have an account? <a href="?controller=user&action=login">Login In</a></p>
                 </form>
             </div>
         </div>
