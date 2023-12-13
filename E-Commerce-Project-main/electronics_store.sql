@@ -71,7 +71,7 @@ CREATE TABLE Product_Comments
 	Prod_ID INT,
 	U_ID INT,
 	COMMENT TEXT,
-	CONSTRAINT PK_Prod_Comment PRIMARY KEY (Prod_Comment)
+	CONSTRAINT PK_Prod_Comment PRIMARY KEY (Prod_Comment_Id)
 );
 
 
