@@ -1,5 +1,6 @@
-
 <?php
+include "mysqldatabase.php";
+
    if (session_status() === PHP_SESSION_NONE){session_start();}
     $user = $data[0];
     $uID = $_SESSION['id'];
@@ -16,7 +17,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +30,6 @@
     <?php
     include_once 'navbar.php';
     ?>
-
     <div class="wrapper">
         <div class="container account">
             <div class="account info">
@@ -47,37 +46,24 @@
                     <a href="?controller=user&action=cancellations">My Cancellations</a> 
                 </div>
             </div>
-            <div class="account edit">
-                <h3>Edit Your Profile</h3>
-                <form action="" method="POST">
-                    <p id="first_name">First Name</p>
-                    <p id="last_name">Last Name</p>
-                    <div class="stack-input first">
-                        <input type="text" name="F_Name" id="F_Name" placeholder="<?php echo $user->F_Name ?>">
-                    </div>
-                    <div class="stack-input second">
-                        <input type="text" name="L_Name" id="L_Name" placeholder="<?php echo $user->L_Name ?>">
-                    </div>
-                    <p id="email">Email</p>
-                    <p id="phone">Phone(Optional)</p>
-                    <div class="stack-input third">
-                        <input type="text" name="U_Email" id="U_Email" placeholder="<?php echo $user->U_Email ?>">
-                    </div>
-                    <div class="stack-input fourth">
-                        <input type="text" name="Phone_Num" id="Phone_Num" placeholder="<?php echo $user->Phone_Num ?>">
-                    </div>
-                    <p>Change Password</p>
-                    <input type="password" name="new_pass" id="New_Pass" placeholder="New Password"><br>
-                    <input type="password" name="c_new_pass" id="New_Pass_Conf" placeholder="Confirm New Password"><br>
-                    <button type="submit" id="cancel-profile">Cancel</button>
-                    <button type="submit" name="submit" id="save-profile">Save Changes</button>
-                </form>
-                <br><br>
-                <form action="" method="POST">
-                        <button type="submit" name="log_sub">Log out</button>
-                </form>
+            <div class="account cancellations">
+                <table class="orderTable">
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Product</th>
+                        <th>Date of Purchase</th>
+                        <th>Expected Delivery Date</th>
+                    </tr>
+                    <?php foreach ($order as $o): ?>
+                        <tr>
+                            <td><?= $o -> Order_ID ?></td>
+                            <td><?= $o -> Prod_ID ?></td>
+                            <td><?= $o -> Date_of_purchase ?></td>
+                            <td><?= $o -> Date_of_expected_delivery ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
             </div>
-        </div>
         <div class="push">
         </div>
     </div>
