@@ -54,7 +54,6 @@ if ($conn -> connect_error) {
     if(!empty($errors)) {
         $data['success'] = false;
         $data['errors'] = $errors;
-        $_SESSION['errors'] = $errors;
         header("Location: ?controller=user&action=registration");
     } else {
         $data['success'] = true;
