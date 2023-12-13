@@ -27,7 +27,7 @@ if(isset($_POST['log_sub'])){
                 <div class="section-left">
                     <div class="header-nav side-bar" id="sidenav">
                         <a href="javascript:void(0)" onclick="closeNav()" id="closeNavBar"><img src="images/x.png" width="21" height="21"></a>
-                        <a href="?controller=product&action=newarrivals&page=1">New Arrivals</a>
+                        <a href="?controller=product&action=newarrivals&page=1&criteria=newest">New Arrivals</a>
                         <a href="?controller=product&action=allsellers">All Sellers</a>
                         <a href="?controller=home&action=about">About</a>
                         <a href="?controller=home&action=contact">Contact</a>

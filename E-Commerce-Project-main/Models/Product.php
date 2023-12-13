@@ -197,11 +197,11 @@ class Product {
         return $list;
     }
 
-    function listOldest() {
+    function listOldest($start, $rows) {
         global $conn;
         $list = array();
 
-        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_ID` ASC;";
+        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_ID` ASC LIMIT $start, $rows;";
         $result = $conn -> query($sql);
         while ($row = $result -> fetch_assoc()) {
             $product = new Product();
@@ -220,11 +220,11 @@ class Product {
         return $list;
     }
 
-    function listAlphabetical() {
+    function listAlphabetical($start, $rows) {
         global $conn;
         $list = array();
 
-        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_Name` ASC;";
+        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_Name` ASC LIMIT $start, $rows;";
         $result = $conn -> query($sql);
         while ($row = $result -> fetch_assoc()) {
             $product = new Product();
@@ -243,11 +243,11 @@ class Product {
         return $list;
     }
 
-    function listHightoLow() {
+    function listHightoLow($start, $rows) {
         global $conn;
         $list = array();
 
-        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_Client_Price` DESC;";
+        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_Client_Price` DESC LIMIT $start, $rows;";
         $result = $conn -> query($sql);
         while ($row = $result -> fetch_assoc()) {
             $product = new Product();
@@ -266,11 +266,11 @@ class Product {
         return $list;
     }
 
-    function listLowtoHigh() {
+    function listLowtoHigh($start, $rows) {
         global $conn;
         $list = array();
 
-        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_Client_Price` ASC;";
+        $sql = "SELECT * FROM `Product_Info` ORDER BY `Prod_Client_Price` ASC LIMIT $start, $rows;";
         $result = $conn -> query($sql);
         while ($row = $result -> fetch_assoc()) {
             $product = new Product();
