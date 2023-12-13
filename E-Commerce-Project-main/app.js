@@ -1,3 +1,5 @@
+
+// Hamburger Open or Close Side Navigation Bar
 function openNav() {
     document.getElementById("sidenav").style.width = "250px";
 }

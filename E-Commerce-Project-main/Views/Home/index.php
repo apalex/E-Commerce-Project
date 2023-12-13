@@ -35,120 +35,86 @@ $pList = $prod -> listProducts();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop all your electronic needs and save big! | ABDGameStore.com</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <?php
     include_once 'navbar.php';
     ?>
 
-    <div class="wrapper">
-    <section class="slide-container">
-            <div class="slider-wrapper">
-                <div class="slider">
-                    <img id="slide-1" src="images/razer_ornata_v3.jpg">
-                    <img id="slide-2" src="images/razer_iskur_gaming_chair.jpg">
-                    <img id="slide-3" src="images/razer_gaming_mouse.jpg">
-                </div>
-                <div class="slider-nav">
-                    <a href="#slide-1"></a>
-                    <a href="#slide-2"></a>
-                    <a href="#slide-3"></a>
-                </div>
-            </div>
-        </section>
-
-    <section class="carousselProduct">
-        <h2 class="productCategory">Flash Deals</h2>
-        <button class="preBtn"><img src="images/next.png" alt=""></button>
-        <button class="nxtBtn"><img src="images/next.png" alt=""></button>
-        <div class="productContainer">
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/razer_gaming_mouse.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/adesso_xtream_microphone.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/asus_rog_azoth75.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/blue_yeti_microphone.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/enhance_gaming_keyboard.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/hyperx_cloudalpha_headset.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
-                </div>
-            </div>
-            <div class="productCard">
-                <div class="productImage">
-                    <span class="discountTag">50% off</span>
-                    <img src="images/lg_32gn600_monitor.jpg" class="productThumb" alt="">
-                    <button class="cardBtn">add to cart</button>
-                </div>
-                <div class="productInfo">
-                    <h2 class="productBrand">Brand</h2>
-                    <p class="productShortDescription">short desription</p>
-                    <span class="price">$20</span><span class="actualPrice">40</span>
+<div class="wrapper">
+        <div class="advert-section">
+            <div class="top-content">
+                <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+            
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carousel" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carousel" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carousel" data-bs-slide-to="2"></li>
+                        <li data-bs-target="#carousel" data-bs-slide-to="3"></li>
+                        <li data-bs-target="#carousel" data-bs-slide-to="4"></li>
+                        <li data-bs-target="#carousel" data-bs-slide-to="5"></li>
+                    </ol>
+            
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://i.ytimg.com/vi/MkH2D4f5_2s/maxresdefault.jpg" class="d-block w-100" alt="slide-img-1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://i.pinimg.com/originals/b6/8e/2c/b68e2cf6e46522ce889d84854014fab0.jpg" class="d-block w-100" alt="slide-img-2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/8b05f528503599.55c33cfbb9b16.png" class="d-block w-100" alt="slide-img-3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://i.ytimg.com/vi/Tk1HNPtIgUg/maxresdefault.jpg" class="d-block w-100" alt="slide-img-4">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://i5.walmartimages.ca/images/Enlarge/821/984/6000203821984.jpg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" class="d-block w-100" alt="slide-img-5">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://dlcdnwebimgs.asus.com/files/media/2C7F3DE4-F638-4ED3-8A25-83ABBBFF5F3F/v1/img/video/ROG-Azoth-product-video-thumbnail.jpg" class="d-block w-100" alt="slide-img-6">
+                        </div>
+                    </div>
+            
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="featured-products">
+            <h2>Featured Products</h2>
+            <ol class="ol-product-case">
+                <?php
+                for ($i = 0; $i < 4; $i++) {
+                    $randomProd = new Product();
+                    $randomProd = $randomProd -> randomProduct();
+                    foreach($randomProd as $random) {
+                        echo 
+                        '<li class="li-product-item">
+                            <div class="product-inside-list">
+                                <a href="?controller=product&action=view&id='. $random -> Prod_ID .'">
+                                    <img src="'. $random -> Prod_Image_Path .'">
+                                </a>
+                                <div class="li-product-bottom">
+                                    <p id="list-product-name">'. $random -> Prod_Name .'</p>
+                                    <p id="list-product-price">'. $random -> Prod_Client_Price .'$</p>
+                                </div>
+                            </div>
+                        </li>
+                        ';
+                    }
+                }
+                ?>
+            </ol>
+        </div>
         <div class="push">
         </div>
     </div>

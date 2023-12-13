@@ -21,7 +21,7 @@ if(isset($_POST['log_sub'])){
 }
 ?>
 <html>
-<header>
+    <header>
         <div class="page-content-inner">
             <div class="header-inner top">
                 <div class="section-left">
