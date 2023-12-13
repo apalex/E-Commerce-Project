@@ -42,7 +42,38 @@ class UserController {
                 $this -> render("login",$errors);
             }
             }
+//
+// Insert action
+//
+        }else if($action == "insert"){
+            global $conn;
+            $user = new User();
+            $test =  $user -> insertUser();
 
+            $F_NAME = $_POST['F_NAME'];
+            $L_NAME = $_POST['L_NAME'];
+            $EMAIL = $_POST['EMAIL'];
+            $PASSWD = $_POST['PASSWD'];
+            $C_PASSWD = $_POST['C_PASSWD'];
+
+            if($test['success']){
+                $hash = password_hash($PASSWD, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`,`Role_ID`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$hash','1')";
+                $conn -> query($sql);
+        
+                $lastInsertedID = mysqli_insert_id($conn);
+                $_SESSION['id'] = $lastInsertedID;
+                $sql = "SET @u_id = LAST_INSERT_ID()";
+                $conn -> query($sql);
+        
+                $sql = "INSERT INTO user_address (U_ID) VALUES (@u_id);";
+                $conn ->query($sql);
+        
+                header('Location: ?controller=home&action=index');
+                
+            }else{
+                $this -> render("registration",$test);
+            }
         }
         else{
             

@@ -184,13 +184,60 @@ class User {
 
     }
 
-    function insertUser($Role_ID, $U_Email, $U_Pass, $F_Name, $L_Name, $Phone_Num, $Created_On, $Modified_On) {
+    function insertUser() {
         global $conn;
-        
-        $sql = "INSERT INTO `User_Info` (`Role_ID`, `U_Email`, `U_Pass`, `F_Name`, `L_Name`, `Phone_Num`, `Created_On`, `Modified_On`) VALUES (`$Role_ID`, `$U_Email`, `$U_Pass`, `$F_Name`, `$L_Name`, `$Phone_Num`, `$Created_On`, `$Modified_On`);";
-        $conn = query($sql);
 
-        var_dump($conn -> $error);
+        $F_NAME = $_POST['F_NAME'];
+        $L_NAME = $_POST['L_NAME'];
+        $EMAIL = $_POST['EMAIL'];
+        $PASSWD = $_POST['PASSWD'];
+        $C_PASSWD = $_POST['C_PASSWD'];
+    
+        $errors = [];
+        $data = [];
+        // Checks if is empty and RegEx
+        if (empty($F_NAME)) {
+            $errors['first_name'] = "First Name is required";
+        } elseif (!preg_match("#^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}+$#", $F_NAME)) {
+            $errors['first_name'] = "2 Letters minimum required for first name";
+        }
+        if (empty($L_NAME)) {
+            $errors['last_name'] = "Last Name is required";
+        } elseif (!preg_match("#^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}+$#", $L_NAME)) {
+            $errors['last_name'] = "2 Letters minimum required last name";
+        }
+        if (empty($EMAIL)) {
+            $errors['email'] = "Email is required";
+        } elseif (!filter_var($EMAIL, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = "Invalid email format";
+        }
+        if (empty($PASSWD)) {
+            $errors['password'] = "Password is required";
+        }
+        if (empty($C_PASSWD)) {
+            $errors['check_password'] = "Password confirmation is required";
+        }
+        if(!empty($PASSWD) && !empty($C_PASSWD)) {
+            if (!preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $PASSWD)) {
+                $errors['password'] = "8 characters minimum, 1 uppercase letter, 1 lowercase letter, 1 special character required for password";
+            } elseif ($PASSWD != $C_PASSWD) {
+                $errors['check_password'] = "Passwords do not match";
+            }
+        }
+    
+        //
+    
+        if(!empty($errors)) {
+            $data['success'] = false;
+            $data['errors'] = $errors;
+            
+            return $data;
+        } else {
+           $data['success'] = true;
+           return $data;
+            
+        }
+    
     }
 
     function deleteUser($id) {

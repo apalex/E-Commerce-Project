@@ -67,11 +67,11 @@ CREATE TABLE Product_Info
 
 CREATE TABLE Product_Comments
 (
-Prod_Comment_Id INT NOT NULL AUTO_INCREMENT,
-Prod_ID INT,
-U_ID INT,
-COMMENT TEXT,
-CONSTRAINT PK_Prod_Comment PRIMARY KEY (Prod_Comment)
+	Prod_Comment_Id INT NOT NULL AUTO_INCREMENT,
+	Prod_ID INT,
+	U_ID INT,
+	COMMENT TEXT,
+	CONSTRAINT PK_Prod_Comment PRIMARY KEY (Prod_Comment_Id)
 );
 
 

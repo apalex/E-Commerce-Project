@@ -25,12 +25,12 @@
                     <input type="password" name="PASSWD" id="passwdRegister" placeholder="Password" required><label display="true" class="error-registration">ERROR HERE</label><br><br>
                     <input type="password" name="C_PASSWD" id="" placeholder="Confirm Password" required><label class="error-registration">ERROR HERE</label><br><br><br>
                     <?php 
-                    if(isset($_SESSION['errors'])){
-                        $errors = $_SESSION['errors'];
-                        foreach($errors as $e){
-                            echo"<p><FONT COLOR='RED'>$e</p>";
-                        }
+                 if(isset($data['errors'])){
+                    $errors = $data['errors'];
+                    foreach($errors as $e){
+                        echo "<p><FONT COLOR='RED'>$e</p>";
                     }
+                 }
                     ?>
                     <button type="submit">Create Account</button>
                     <p><FONT COLOR='BLACK'>Already have an account? <a href="?controller=user&action=login">Login In</a></p>
