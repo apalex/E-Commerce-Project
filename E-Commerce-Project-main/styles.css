@@ -716,7 +716,7 @@ footer {
     margin: 8px 0 8px 20px;
 }
 
-.account.edit, .account.address {
+.account.edit, .account.address, .account.hist {
     width: 70%;
     display: inline-block;
     float: right;
@@ -1404,4 +1404,16 @@ ol, ul {
 .product-categories a:hover {
     color: gray;
     text-decoration: none;
+}
+/*  order history  */
+.orderTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.orderTable th, .orderTable td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
