@@ -298,6 +298,30 @@ footer {
     text-align: center;
 }
 
+.category-parent {
+    display: flex;
+}
+
+.category-box {
+    flex: 1;
+    border: 1px solid gray;
+    text-align: center;
+    margin: 50px;
+    max-width: 15%;
+    min-height: 25px;
+    padding: 25px 0;
+}
+
+.category-box a {
+    text-decoration: none;
+    color: black;
+}
+
+.category-box a:hover {
+    text-decoration: none;
+    color: gray;
+}
+
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
     .section-left, .section-right {

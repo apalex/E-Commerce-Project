@@ -43,7 +43,7 @@ $pList = $prod -> listProducts();
     include_once 'navbar.php';
     ?>
 
-<div class="wrapper">
+    <div class="wrapper">
         <div class="advert-section">
             <div class="top-content">
                 <div id="carousel" class="carousel slide" data-bs-ride="carousel">
@@ -115,6 +115,25 @@ $pList = $prod -> listProducts();
                 ?>
             </ol>
         </div>
+        <div class="browse-categories">
+            <h3>Browse By Category</h3>
+            <div class="category-parent">
+                <?php
+
+                $categories = new Product();
+                $categories = $categories -> searchCategories();
+
+                foreach($categories as $c) {
+                    echo "
+                    <div class='category-box'>
+                        <a href='?controller=product&action=categories&page=1&category={$c -> Prod_Category}'>{$c -> Prod_Category}</a>
+                    </div>
+                    ";
+                }
+
+                 ?>
+            </div>
+        </div>
         <div class="push">
         </div>
     </div>
@@ -124,7 +143,6 @@ $pList = $prod -> listProducts();
     include_once 'footer.php';
     ?>
 
-<script src="app.js"></script>
-<script src='caroussel.js'></script>
+    <script src="app.js"></script>
 </body>
 </html>
