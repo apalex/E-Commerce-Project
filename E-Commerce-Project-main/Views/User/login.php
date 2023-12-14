@@ -22,11 +22,8 @@
                     <input type="password" name="PASSWD" placeholder="Password" required><label id="error-login">ERROR HERE</label><br><br>
                     <button name = 'submit' type="submit">Log in</button>
                     <?php                
-                    if(isset($data['email'])){
-                        echo "<p>Email is Invalid</p>";
-                    }
-                    if(isset($data['password'])){
-                        echo "<p>Password is Invalid</p>";
+                    if(isset($data['email']) || isset($data['password'])){
+                        echo "<p>Email or Password is Invalid</p>";
                     }
                     ?>
                     <a href="?controller=home&action=contact">Forgot Password?</a>

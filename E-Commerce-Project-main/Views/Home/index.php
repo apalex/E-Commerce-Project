@@ -143,10 +143,6 @@ $pList = $prod -> listProducts();
     include_once 'footer.php';
     ?>
 
-<<<<<<< HEAD
     <script src="app.js"></script>
-=======
-<script src="app.js"></script>
->>>>>>> eacaf48497c1c6c3551f4f0d7990b724dba9bc9d
 </body>
 </html>

@@ -59,14 +59,19 @@ if ($conn -> connect_error) {
         $data['success'] = true;
         $data['message'] = "Successfully made an account!";
 
+        // Password Hashing
         $hash = password_hash($PASSWD, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`,`Role_ID`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$hash','1')";
-            $conn -> query($sql);
+
+        // SQL Prepared Statement
+        $stmt = $conn -> prepare("INSERT INTO `User_Info` (`F_Name`, `L_Name`, `U_Email`,`U_Pass`,`Role_ID`) VALUES (?, ?, ?, ?, ?)");
+        $stmt -> bind_param("sss", $F_NAME, $L_NAME, $EMAIL, $hash, '1');
+        $stmt -> execute();
+        $stmt -> close();
     
-            $lastInsertedID = mysqli_insert_id($conn);
-            $_SESSION['id'] = $lastInsertedID;
-            $sql = "SET @u_id = LAST_INSERT_ID()";
-            $conn -> query($sql);
+        $lastInsertedID = mysqli_insert_id($conn);
+        $_SESSION['id'] = $lastInsertedID;
+        $sql = "SET @u_id = LAST_INSERT_ID()";
+        $conn -> query($sql);
     
         //     $sql ="
         //     UPDATE User_Info
