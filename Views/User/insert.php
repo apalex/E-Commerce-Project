@@ -3,7 +3,7 @@ USE PHPMailer\PHPMailer\PHPMailer;
 USE PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-include 'C:\xampp\htdocs\Clone\phpmailer\vendor\autoload.php';
+include 'C:\xampp\htdocs\Clone\E-Commerce-Project\phpmailer\vendor';
 
 if (session_status() === PHP_SESSION_NONE){session_start();}
 
