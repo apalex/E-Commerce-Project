@@ -782,7 +782,7 @@ footer {
     margin: 8px 0 8px 20px;
 }
 
-.account.edit, .account.address, .account.hist {
+.account.edit, .account.address, .account.hist, .account.return, .account.cancellations {
     width: 70%;
     display: inline-block;
     float: right;
