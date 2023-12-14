@@ -14,5 +14,3 @@ if (file_exists("Controllers/$controllerName.php")) {
 }
 
 ?>
-
-test
