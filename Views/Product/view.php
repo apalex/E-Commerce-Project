@@ -76,15 +76,19 @@ if (session_status() === PHP_SESSION_NONE){session_start();}
                     <div class="product add">
                         <div class="product qty-buy-heart">
                          <form action="" method="POST">
-                            <select name="quantity" id="">
-                                <option value="" placeholder="Select a Quantity" disabled>Select a Quantity</option>
                                 <?php
-                                for($i = 1; $i<= $product -> Prod_Stock; $i++){
-                                    echo"<option value='$i'>$i</option>";
+                                if ($product -> Prod_Stock > 0) {
+                                    echo '<select name="quantity">';
+                                    echo '<option value="" placeholder="Select a Quantity" disabled>Select a Quantity</option>';
+                                    for($i = 1; $i<= $product -> Prod_Stock; $i++){
+                                        echo"<option value='$i'>$i</option>";
+                                    }
+                                    echo '</select>';
+                                    echo '<button id="add-to-cart" type="submit" name="cart-submit">Add to Cart</button>';
+                                } else {
+                                    echo "<h4>OUT OF STOCK</h4>";
                                 }
                                 ?>
-                            </select>
-                                <button id="add-to-cart" type="submit" name="cart-submit">Add to Cart</button>
                             </form>
                         </div>
                         <div class="product delivery">
