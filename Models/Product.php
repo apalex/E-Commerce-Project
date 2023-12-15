@@ -71,13 +71,11 @@ class Product {
         return $list;
     }
 
-    function updateProduct($id, $Prod_Name, $Prod_Client_Price, $Prod_Manufacturer_Price, $Prod_Details, $Prod_Comments, $Prod_Stock, $Prod_Category, $Prod_Image_Path) {
+    function updateProduct($Prod_ID, $Prod_Name, $Prod_Client_Price, $Prod_Manufacturer_Price, $Prod_Details, $Prod_Comments, $Prod_Stock, $Prod_Category) {
         global $conn;
 
-        $sql = "UPDATE `Product_Info` SET `Prod_Name` = `$Prod_Name`, `Prod_Client_Price` = `$Prod_Client_Price`, `Prod_Manufacturer_Price` = `$Prod_Manufacturer_Price`, `Prod_Details` = `$Prod_Details`, `Prod_Comments` = `$Prod_Comments`, `Prod_Stock` = `$Prod_Stock`, `Prod_Category` = `$Prod_Category`, `Prod_Image_Path` = `$Prod_Image_Path` WHERE `Product_Info` . `Prod_ID` = $id;";
+        $sql = "UPDATE `Product_Info` SET `Prod_Name` = '$Prod_Name', `Prod_Client_Price` = $Prod_Client_Price, `Prod_Manufacturer_Price` = $Prod_Manufacturer_Price, `Prod_Details` = '$Prod_Details', `Prod_Comments` = '$Prod_Comments', `Prod_Stock` = $Prod_Stock, `Prod_Category` = '$Prod_Category' WHERE `Prod_ID` = $Prod_ID;";
         $conn = query($sql);
-
-        var_dump($conn -> $error);
     }
 
     function insertProduct($Prod_Name, $Prod_Client_Price, $Prod_Manufacturer_Price, $Prod_Details, $Prod_Comments, $Prod_Stock, $Prod_Category, $Prod_Image_Path) {
