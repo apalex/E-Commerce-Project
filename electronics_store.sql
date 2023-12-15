@@ -2,18 +2,9 @@ CREATE DATABASE electronics_store;
 
 USE electronics_store;
 
-
-CREATE TABLE User_Groups_Perms
-(
-	Role_ID INT NOT NULL DEFAULT 1,
-	Role_Name VARCHAR(255) NOT NULL DEFAULT 'Customer',
-	CONSTRAINT PK_UGP_RID PRIMARY KEY (Role_ID)
-);
-
 CREATE TABLE User_Info
 (
 	U_ID INT NOT NULL AUTO_INCREMENT,
-	Role_ID INT NOT NULL,
 	U_Email VARCHAR(255) NOT NULL UNIQUE,
 	U_Pass VARCHAR(255) NOT NULL,
 	F_Name VARCHAR(255),
@@ -21,9 +12,8 @@ CREATE TABLE User_Info
 	Phone_Num VARCHAR(32),
 	Created_On TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	Modified_On DATE,
+	Permissions VARCHAR(255) DEFAULT 'Customer',
 	CONSTRAINT PK_UINFO_UID PRIMARY KEY (U_ID)
-	
-	
 );
 
 CREATE TABLE User_Address
@@ -114,19 +104,8 @@ CREATE TABLE Store_Products (
 	CONSTRAINT FK_SP_PROID FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
 );
 
-INSERT INTO User_Groups_Perms VALUES (1, 'Customer'), (2, 'Admin');
-
-INSERT INTO `User_Info` (`Role_ID`, `U_Email`, `U_Pass`, `F_Name`, `L_Name`, `Phone_Num`) VALUES 
-(1, '6ixgod@gmail.com', 'drakeToronto1!', 'Jean-Francois', 'Lariviere', '5141112222'),
-(1, 'johntimothy@gmail.com', 'Gymothy123!', 'John', 'Tim', '5141231234'),
-(1, 'trenman1@gmail.com', 'Runnerman1?', 'Brandon', 'Paulozio', '1234567890'),
-(1, 'denisthemenace@gmail.com', 'Iamnotamenace123!', 'Denice', 'Plaziba', '4181231234'),
-(1, 'alexthegreat@gmail.com', 'greekGOD418!', 'Alex', 'Great', '5144116932'),
-(1, 'kimberleyyy@gmail.com', 'TommyONLY2022', 'Kimberly', 'Tommy', '5145145145'),
-(1, 'munchospice@gmail.com', 'Iceforspice??3', 'Cornelius', 'Robert', '1231231234'),
-(1, 'mangolovareal@gmail.com', 'Manmustgo4sure!', 'Manji', 'Stallion', '5140325892'),
-(1, 'barbacardi@gmail.com', 'booleanCard32!', 'Bardi', 'Park', '5148924512'),
-(1, 'sousaport@gmail.com', 'SIUNaldo7!', 'Mike', 'Sousa', '4187773287');
+INSERT INTO `User_Info` (`U_Email`, `U_Pass`, `Permissions`) VALUES ('admin@abdgamestore.com', 'admin', 'Admin');
+INSERT INTO `User_Address` (`U_ID`) VALUES (1);
 
 INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES
 ( 'Razer Ornata V3 TKL Gaming Keyboard', 150, 115, 'Razer Ornata V3 is a Gaming Keyboard', '', 3, 'Keyboard', 'images/razer_ornata_v3.jpg'),

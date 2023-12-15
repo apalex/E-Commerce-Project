@@ -8,17 +8,15 @@ class UserController {
 
     function route() {
        
-        $action = (isset($_GET['action'])) ? $_GET['action'] : "login";
-        $id = (isset($_GET['id'])) ? intval($_GET['id']) : -1;
-       
-           
+    $action = (isset($_GET['action'])) ? $_GET['action'] : "login";
+    $id = (isset($_GET['id'])) ? intval($_GET['id']) : -1;
        
 
-      if($action == "logged"){
+      if($action == "logged") {
             global $conn;
             $errors = array();
 
-            if(isset($_POST['submit'])){
+            if(isset($_POST['submit'])) {
             
             $email = $_POST['EMAIL'];
             $passwd = $_POST['PASSWD'];
@@ -26,22 +24,41 @@ class UserController {
             $sql = "SELECT * FROM User_Info WHERE U_Email = '$email'";
             
             $result = $conn ->query($sql);
-            
+
             if ($result -> num_rows == 1) {
+                // If is an Admin
                 $row = $result -> fetch_assoc();
                 $hash = $row['U_Pass'];
-                if (password_verify($passwd, $hash)) {
-                    $_SESSION['id'] = $row['U_ID'];
-                    header('Location: ?controller=home&action=index&id=' . $_SESSION['id']);
-                } else {
-                   $errors['password'] = false;
-                   $this -> render("login",$errors);
+                $permission = $row['Permissions'];
+                
+                switch($permission) {
+                    case "Admin":
+                        if (password_verify($passwd, $hash)) {
+                            $_SESSION['id'] = $row['U_ID'];
+                            header('Location: ?controller=user&action=admin&id=' . $_SESSION['id']);
+                        } elseif ($passwd == $hash) {
+                            $_SESSION['id'] = $row['U_ID'];
+                            header('Location: ?controller=user&action=admin&id=' . $_SESSION['id']);
+                        } else {
+                            $errors['password'] = false;
+                            $this -> render("login", $errors);
+                        }
+                        break;
+                    case "Customer":
+                        if (password_verify($passwd, $hash)) {
+                            $_SESSION['id'] = $row['U_ID'];
+                            header('Location: ?controller=home&action=index&id=' . $_SESSION['id']);
+                        } else {
+                           $errors['password'] = false;
+                           $this -> render("login",$errors);
+                        }
+                        break;
                 }
-            }else{
+            } else {
                 $errors['email'] = false;                    
-                $this -> render("login",$errors);
+                $this -> render("login", $errors);
             }
-            }
+        }
 //
 // Insert action
 //
@@ -58,7 +75,7 @@ class UserController {
 
             if($test['success']){
                 $hash = password_hash($PASSWD, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`,`Role_ID`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$hash','1')";
+                $sql = "INSERT INTO `user_info`(`F_Name`, `L_Name`, `U_Email`,`U_Pass`) VALUES ('$F_NAME','$L_NAME','$EMAIL','$hash')";
                 $conn -> query($sql);
         
                 $lastInsertedID = mysqli_insert_id($conn);

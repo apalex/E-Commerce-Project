@@ -1,15 +1,19 @@
 <?php
 include "mysqldatabase.php";
 
-session_start();
+if (session_status() === PHP_SESSION_NONE){session_start();}
 
 $product = new Product();
 
 if(isset($_POST['search_admin_products'])) {
     $query = $_POST['searchAdminProd'];
     $product = $product -> searchProducts($query);
+}
 
-
+$log_out_button = "<button type='submit' name='log_sub'>Log out</button>";
+if(isset($_POST['log_sub'])){
+    unset($_SESSION['id']);
+    header('Location: ?controller=home&action=index');
 }
 
 ?>
@@ -25,13 +29,16 @@ if(isset($_POST['search_admin_products'])) {
 </head>
 <body>
 
-
+    <a href="?controller=home&action=index">ABDGamestore.com</a>
     <div class="container admin">
         <div class="admin categories">
             <div class="admin categories selection">
                 <a href="?controller=user&action=admin">Users</a>
                 <a href="?controller=product&action=admin">Products</a>
                 <a href="?controller=product&action=admin">Stores</a>
+                <form action="" method="POST">
+                    <?php echo $log_out_button ?>
+                </form>
             </div>
             
         </div>

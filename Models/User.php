@@ -4,7 +4,6 @@ include "mysqldatabase.php";
 
 class User {
     public $U_ID;
-    public $Role_ID;
     public $U_Email;
     public $U_Pass;
     public $F_Name;
@@ -20,7 +19,6 @@ class User {
         
         $this -> U_ID = $id;
         if ($id < 0) {
-            $this -> Role_ID = 0;
             $this -> U_Email = "";
             $this -> U_Pass = "";
             $this -> F_Name = "";
@@ -28,6 +26,7 @@ class User {
             $this -> Phone_Num = 0;
             $this -> Created_On = null;
             $this -> Modified_On = null;
+            $this -> Permissions = "";
         } else {
             $sql = "SELECT * FROM `User_Info` WHERE `U_ID` = " . $id;
             $result = $conn -> query($sql);
@@ -35,7 +34,6 @@ class User {
             $data = $result -> fetch_assoc();
 
             $this -> U_ID = $id;
-            $this -> Role_ID = $data['Role_ID'];
             $this -> U_Email = $data['U_Email'];
             $this -> U_Pass = $data['U_Pass'];
             $this -> F_Name = $data['F_Name'];
@@ -43,6 +41,7 @@ class User {
             $this -> Phone_Num = $data['Phone_Num'];
             $this -> Created_On = $data['Created_On'];
             $this -> Modified_On = $data['Modified_On'];
+            $this -> Permissions = $data['Permissions'];
             $AU = new User_Address($id);
             $this -> address_list = $AU -> listAddress($id);
         }
@@ -58,7 +57,6 @@ class User {
         while ($row = $result -> fetch_assoc()) {
             $user = new User();
             $user -> U_ID = $row['U_ID'];
-            $user -> Role_ID = $row['Role_ID'];
             $user -> U_Email = $row['U_Email'];
             $user -> U_Pass = $row['U_Pass'];
             $user -> F_Name = $row['F_Name'];
@@ -66,7 +64,7 @@ class User {
             $user -> Phone_Num = $row['Phone_Num'];
             $user -> Created_On = $row['Created_On'];
             $user -> Modified_On = $row['Modified_On'];
-
+            $user -> Permissions = $row['Permissions'];
             array_push($list, $user);
         }
         return $list;
@@ -130,10 +128,10 @@ class User {
         }
     }
 
-    function updateUser($id, $Role_ID, $U_Email, $U_Pass, $F_Name, $L_Name, $Phone_Num, $Created_On, $Modified_On) {
+    function updateUser($id, $U_Email, $U_Pass, $F_Name, $L_Name, $Phone_Num, $Created_On, $Modified_On) {
         global $conn;
 
-        $sql = "UPDATE `User_Info` SET `Role_ID` = `$Role_ID`, `U_Email` = `$U_Email`, `U_Pass` = `$U_Pass`, `F_Name` = `$F_Name`, `L_Name` = `$L_Name`, `Phone_Num` = `$Phone_Num`, `Created_On` = `$Created_On`, `Modified_On` = `$Modified_On` WHERE `User_Info` . `U_ID` = $id;";
+        $sql = "UPDATE `User_Info` SET `U_Email` = `$U_Email`, `U_Pass` = `$U_Pass`, `F_Name` = `$F_Name`, `L_Name` = `$L_Name`, `Phone_Num` = `$Phone_Num`, `Created_On` = `$Created_On`, `Modified_On` = `$Modified_On` WHERE `User_Info` . `U_ID` = $id;";
         $conn = query($sql);
 
         var_dump($conn -> $error);
@@ -312,7 +310,6 @@ class User {
         $row = $result -> fetch_assoc();
         $user = new User();
         $user -> U_ID = $row['U_ID'];
-        $user -> Role_ID = $row['Role_ID'];
         $user -> U_Email = $row['U_Email'];
         $user -> U_Pass = $row['U_Pass'];
         $user -> F_Name = $row['F_Name'];
@@ -320,17 +317,17 @@ class User {
         $user -> Phone_Num = $row['Phone_Num'];
         $user -> Created_On = $row['Created_On'];
         $user -> Modified_On = $row['Modified_On'];
+        $user -> Permissions = $row['Permissions'];
 
         return $user;
     }
 
-    function searchUserRole($search) {
+    function saveChanges($U_ID, $F_NAME, $L_NAME, $EMAIL, $PHONE, $PASSWORD, $PERMISSIONS) {
         global $conn;
-        $sql = "SELECT P.Role_Name FROM `User_Info` U JOIN `User_Groups_Perms` P ON U.$search = P.Role_ID;";
 
-        $result = $conn -> query($sql);
-
-        return $result;
+        $sql = "UPDATE `User_Info` SET `F_NAME` = '$F_NAME', `L_NAME` = '$L_NAME', `U_EMAIL` = '$EMAIL', `Phone_Num` = '$PHONE', `U_PASS` = '$PASSWORD', `Permissions` = '$PERMISSIONS' WHERE `U_ID` = $U_ID'";
+        
+        $conn -> query($sql);
     }
 
 }
@@ -388,16 +385,6 @@ class User_Address {
         return $list;
     }
 
-
-}
-
-class User_Groups_Perms {
-    public $Role_ID;
-    public $Role_Name;
-
-    // public __construct($id = -1) {
-    //     global $conn;
-    // }
 
 }
 

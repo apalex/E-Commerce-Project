@@ -119,7 +119,7 @@ if ($conn -> connect_error) {
            
     
             $sql = "INSERT INTO user_address (U_ID) VALUES (@u_id);";
-            $conn ->query($sql);
+            $conn -> query($sql);
     
             // $sql = "SET @role_id = LAST_INSERT_ID()";
             // $conn ->query($sql);

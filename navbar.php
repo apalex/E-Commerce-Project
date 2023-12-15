@@ -6,7 +6,15 @@ $log_path;
 $cart_path;
 $log_out_button;
 if(isset($_SESSION["id"])) {
-    $log_path = "myaccount&id=". $_SESSION['id']. "";
+    global $conn;
+    $sql = "SELECT * FROM `User_Info` WHERE U_ID = {$_SESSION['id']}";
+    $result = $conn -> query($sql);
+    $row = $result -> fetch_assoc();
+    if ($row['Permissions'] == 'Admin') {
+        $log_path = "admin&id=". $_SESSION['id']. "";
+    } else {
+        $log_path = "myaccount&id=". $_SESSION['id']. "";
+    }
     $cart_path = "?controller=product&action=cart";
     $log_out_button = "<button type='submit' name='log_sub'>Log out</button>";
 } else {
