@@ -11,15 +11,14 @@ if(isset($_POST['search_button'])) {
 }
 
 if (isset($_POST['save-userchange-admin'])) {
-    // NEED TO FIX SAVE CHANGES
-    // $U_ID = $userList -> U_ID;
-    // $F_NAME = $userList -> F_Name;
-    // $L_NAME = $userList -> L_Name;
-    // $EMAIL = $userList -> U_Email;
-    // $PHONE = $userList -> Phone_Num;
-    // $PASSWORD = $userList -> U_Pass;
-    // $PERMISSIONS = $userList -> Permissions;
-    // $userChange = $user -> saveChanges($U_ID, $F_NAME, $L_NAME, $EMAIL, $PHONE, $PASSWORD, $PERMISSIONS);
+    $U_ID = $_POST['U_ID'];
+    $F_NAME = $_POST['F_Name'];
+    $L_NAME = $_POST['L_Name'];
+    $EMAIL = $_POST['U_Email'];
+    $PHONE = $_POST['Phone_Num'];
+    $PASSWORD = $_POST['U_Pass'];
+    $PERMISSIONS = $_POST['Role_Name'];
+    $userChange = $user -> saveChanges($U_ID, $F_NAME, $L_NAME, $EMAIL, $PHONE, $PASSWORD, $PERMISSIONS);
 }
 
 $log_out_button = "<button type='submit' name='log_sub'>Log out</button>";

@@ -153,7 +153,8 @@ class User {
             if($newpass != $cnfrm){
                 echo "<script>alert('Confirm password does not match')</script>";
             }else{
-                $u-> updatePassword($uID,$newpass);
+                $hash = password_hash($newpass, PASSWORD_DEFAULT);
+                $u-> updatePassword($uID,$hash);
                 header('Location: ?controller=user&action=myaccount&id=' . $uID);
             }
 
@@ -325,7 +326,8 @@ class User {
     function saveChanges($U_ID, $F_NAME, $L_NAME, $EMAIL, $PHONE, $PASSWORD, $PERMISSIONS) {
         global $conn;
 
-        $sql = "UPDATE `User_Info` SET `F_NAME` = '$F_NAME', `L_NAME` = '$L_NAME', `U_EMAIL` = '$EMAIL', `Phone_Num` = '$PHONE', `U_PASS` = '$PASSWORD', `Permissions` = '$PERMISSIONS' WHERE `U_ID` = $U_ID'";
+        $hash = password_hash($PASSWORD, PASSWORD_DEFAULT);
+        $sql = "UPDATE `user_info` SET `U_Email` = '$EMAIL', `U_Pass` = '$hash', `F_Name` = '$F_NAME', `L_Name` = '$L_NAME', `Permissions` = '$PERMISSIONS' WHERE `user_info`.`U_ID` = $U_ID;";
         
         $conn -> query($sql);
     }
