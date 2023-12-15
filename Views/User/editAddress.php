@@ -72,8 +72,9 @@
                 </div>
                 <h4>My Orders</h4>
                 <div class="stack 2">
-                    <a href="?controller=user&action=myreturns">My Returns</a>
-                    <a href="?controller=user&action=mycancel">My Cancellations</a>
+                    <a href="?controller=user&action=orderHist">My Orders</a>
+                    <a href="?controller=user&action=returns">My Returns</a>
+                    <a href="?controller=user&action=cancellations">My Cancellations</a> 
                 </div>
             </div>
             <div class="account address">
