@@ -44,8 +44,8 @@ if(isset($_POST['log_sub'])){
     <div class="container admin">
         <div class="admin categories">
             <div class="admin categories selection">
-                <a href="?controller=user&action=admin&id=<?php echo $_SESSION['id'] ?>">Users</a>
-                <a href="?controller=product&action=admin&id=<?php echo $_SESSION['id'] ?>">Products</a>
+                <a href="?controller=user&action=admin">Users</a>
+                <a href="?controller=product&action=admin">Products</a>
                 <a href="?controller=product&action=admin">Stores</a>
                 <form action="" method="POST">
                     <?php echo $log_out_button ?>
@@ -81,6 +81,7 @@ if(isset($_POST['log_sub'])){
                 <input type="text" name="U_ID" id="U_ID" value="<?php echo (isset($userList -> U_ID)) ? $userList -> U_ID : ''; ?>" readonly>
                 <p>Permissions</p>
                 <input type="text" name="Role_Name" id="Role_name" value="<?php echo (isset($userList -> Permissions)) ? $userList -> Permissions : ''; ?>">
+                <p>P.S: IF YOU SAVE, YOU WILL NEED TO ASSIGN A NEW PASSWORD BECAUSE OF PASSWORD HASHING</p>
                 <button type="submit" id="save-changes" name="save-userchange-admin">Save</button>
             </form>
         </div>

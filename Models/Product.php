@@ -82,11 +82,8 @@ class Product {
 
     function insertProduct($Prod_Name, $Prod_Client_Price, $Prod_Manufacturer_Price, $Prod_Details, $Prod_Comments, $Prod_Stock, $Prod_Category, $Prod_Image_Path) {
         global $conn;
-        
-        $sql = "INSERT INTO `Product_Info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES (`$Prod_Name`, `$Prod_Client_Price`, `$Prod_Manufacturer_Price`, `$Prod_Details`, `$Prod_Comments`, `$Prod_Stock`, `$Prod_Category`, `$Prod_Image_Path`);";
+        $sql = "INSERT INTO `product_info` (`Prod_Name`, `Prod_Client_Price`, `Prod_Manufacturer_Price`, `Prod_Details`, `Prod_Comments`, `Prod_Stock`, `Prod_Category`, `Prod_Image_Path`) VALUES ('$Prod_Name', $Prod_Client_Price, $Prod_Manufacturer_Price, '$Prod_Details', '$Prod_Comments', $Prod_Stock, '$Prod_Category', '$Prod_Image_Path')";
         $conn -> query($sql);
-
-        var_dump($conn -> $error);
     }
 
     function deleteProduct($id) {

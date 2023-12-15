@@ -16,6 +16,21 @@ if(isset($_POST['log_sub'])){
     header('Location: ?controller=home&action=index');
 }
 
+if (isset($_POST['add-product-admin'])) {
+    $PNAME = $_POST['Admin_Product_Name'];
+    $CPRICE = $_POST['Admin_Product_Client'];
+    $MPRICE = $_POST['Admin_Product_Manufacturer'];
+    $PDETAILS = $_POST['Admin_Product_Details'];
+    $PSTOCK = $_POST['Admin_Product_Stock'];
+    $PCATEGORY = $_POST['Admin_Product_Category'];
+    $PIMAGEPATH = $_POST['Admin_Product_ImagePath'];
+    $PIMAGE = $_FILES['Admin_Product_Image']['name'];
+    $product = $product -> insertProduct($PNAME, $CPRICE, $MPRICE, $PDETAILS, '', $PSTOCK, $PCATEGORY, $PIMAGEPATH);
+    $tempname = $_FILES['Admin_Product_Image']['tmp_name'];
+    $folder = "images/{$PIMAGE}";
+    move_uploaded_file($tempname, $folder);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +55,28 @@ if(isset($_POST['log_sub'])){
                     <?php echo $log_out_button ?>
                 </form>
             </div>
-            
         </div>
         <div class="admin user">
+            <h3>Add Product</h3>
+            <form method="POST" enctype="multipart/form-data">
+                <p id="first_name">Name</p>
+                <input type="text" name="Admin_Product_Name">
+                <p id="first_name">Client Price</p>
+                <input type="text" name="Admin_Product_Client">
+                <p id="first_name">Manufacturer Price</p>
+                <input type="text" name="Admin_Product_Manufacturer">
+                <p id="first_name">Details</p>
+                <input type="text" name="Admin_Product_Details">
+                <p id="first_name">Stock</p>
+                <input type="text" name="Admin_Product_Stock">
+                <p id="first_name">Category</p>
+                <input type="text" name="Admin_Product_Category">
+                <p id="first_name">Image Path</p>
+                <input type="text" name="Admin_Product_ImagePath">
+                <p id="first_name">Image</p>
+                <input type="file" name="Admin_Product_Image">
+                <button type="submit" id="search" name="add-product-admin">Add</button>
+            </form>
             <h3>Search Product(s)</h3>
             <form action="" method="POST">
                 <p id="first_name">Name</p>
@@ -51,8 +85,7 @@ if(isset($_POST['log_sub'])){
             </form>
         </div>
         <h3>Result</h3>
-
-<form action="" method="POST">
+        <form action="" method="POST">
             <table>
                 <tr>
                     <th>Image</th>
@@ -84,6 +117,7 @@ if(isset($_POST['log_sub'])){
             }
                 ?>
             </table>
+            <p>P.S: CAN ONLY SAVE 1 PRODUCT AT A TIME</p>
             <button type="submit" id="save-changes">Save</button>
         </form>
     </div>
