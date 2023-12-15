@@ -26,7 +26,6 @@ class UserController {
             $result = $conn ->query($sql);
 
             if ($result -> num_rows == 1) {
-                // If is an Admin
                 $row = $result -> fetch_assoc();
                 $hash = $row['U_Pass'];
                 $permission = $row['Permissions'];

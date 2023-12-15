@@ -37,13 +37,13 @@ include "mysqldatabase.php";
                 <div class="stack 1">
                     <a href="?controller=user&action=myaccount&id=<?php echo $uID?>">My Profile</a>
                     <a href="?controller=user&action=editAddress&id=<?php echo $uID ?>">Address Book</a>
-                    <a href="?controller=user&action=editPayment">My Payment Options</a>
+                    <a href="?controller=user&action=editPayment&id=<?php echo $uID?>">My Payment Options</a>
                 </div>
                 <h4>My Orders</h4>
                 <div class="stack 2">
-                    <a href="?controller=user&action=orderHist">My Orders</a>
-                    <a href="?controller=user&action=returns">My Returns</a>
-                    <a href="?controller=user&action=cancellations">My Cancellations</a> 
+                    <a href="?controller=user&action=orderHist&id=<?php echo $uID?>">My Orders</a>
+                    <a href="?controller=user&action=returns&id=<?php echo $uID?>">My Returns</a>
+                    <a href="?controller=user&action=cancellations&id=<?php echo $uID?>">My Cancellations</a> 
                 </div>
             </div>
             <div class="account cancellations">
