@@ -43,14 +43,6 @@ if(isset($_GET['category'])) {
     <?php include_once "navbar.php"; ?>
 
     <div class="wrapper">
-        <p><a href="?controller=home&action=index">Home</a> / <a href="?controller=product&action=categories&page=1">Categories</a> / <b><?php 
-        if(isset($_GET['category'])) {
-            $cat = ucfirst($_GET['category']);
-            echo "{$cat}";
-        } else {
-            echo "All";
-        } ?>
-        </b></p>
         <div class="container categories">
             <div class="product-categories">
                 <h1>Categories</h1>
@@ -65,6 +57,16 @@ if(isset($_GET['category'])) {
                     ";
                 }
                 ?>
+            </div>
+            <div class="container">
+            <p><a href="?controller=home&action=index">Home</a> / <a href="?controller=product&action=categories&page=1">Categories</a> / <b><?php 
+                if(isset($_GET['category'])) {
+                    $cat = ucfirst($_GET['category']);
+                    echo "{$cat}";
+                } else {
+                    echo "All";
+                } ?>
+                </b></p>
             </div>
             <div class="product-boxes-categories">
             <ol class="ol-product-case">
@@ -88,6 +90,7 @@ if(isset($_GET['category'])) {
             </ol>
             </div>
         </div>
+        <div class="container">
         <div class="pagination">
                 <p>Page <?php echo $page + 1 ?> of <?php echo $pages ?></p>
                 <a href="?controller=product&action=categories&page=1">First</a>
@@ -124,6 +127,7 @@ if(isset($_GET['category'])) {
                 ?>
                 <a href="?controller=product&action=categories&page=<?php echo $pages ?>">Last</a>
             </div>
+        </div>
         <div class="push"></div>
     </div>
 
