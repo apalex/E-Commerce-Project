@@ -41,7 +41,8 @@ $pList = $prod -> listProducts();
     include_once 'navbar.php';
     ?>
     <div class="wrapper">
-        <p><a href="?controller=home&action=index">Home</a> / <b>Privacy Policy</b></p>
+        <div class="container">
+        <p><a class="product location" href="?controller=home&action=index">Home</a> / <b>Privacy Policy</b></p>
         <div class="containerPP">
             <h3>Privacy Policy</h3>
             <p><strong>Who are we?</strong></p>
@@ -53,6 +54,7 @@ $pList = $prod -> listProducts();
             <p><span>The Site may contain links to other third-party websites or applications. Please be aware that these websites and applications may collect information about you. These websites and applications may have their own privacy notices or policies. We encourage you to be aware when you leave the Site and to read the privacy statements of each and every website and application that you use.</span></p>
             <p><span>To the extent any linked websites or applications you visit are not owned or operated by ABD, please be aware that we are not responsible or liable for the websites’ or applications’ content, any use of the websites or applications, or the privacy and security practices and policies of those websites or applications</span></p>        
         </div>
+        </div>
         <div class="push">
         </div>
     </div>
@@ -62,6 +64,5 @@ $pList = $prod -> listProducts();
     ?>
 
 <script src="app.js"></script>
-<script src='caroussel.js'></script>
 </body>
 </html>

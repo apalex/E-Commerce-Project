@@ -29,7 +29,7 @@ $cartList = $prod ->listCart($cartQuan);
 
     <div class="wrapper">
         <div class="container cart">
-            <div id="cart location">
+            <div class="product location">
                 <p><a href="?controller=user&action=myaccount">Account</a> / <b>Cart</b></p>
             </div>
             <div class="cart box">
