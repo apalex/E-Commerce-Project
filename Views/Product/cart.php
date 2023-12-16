@@ -7,6 +7,7 @@ $prod = new Product();
 $cartQuan = $prod ->cartQuan();
 $cartList = $prod ->listCart($cartQuan);
 
+
 ?>
 
 
@@ -43,7 +44,11 @@ $cartList = $prod ->listCart($cartQuan);
 
                 <?php 
                 $subTotal = 0;
-                
+                $hasProduct = false;
+                if(count($cartList) != 0){
+                $hasProduct =  true;
+                }
+                if($hasProduct){
                 foreach($cartList as $cl) {
                     $quantity = $cartQuan[$cl ->Prod_ID];
                     $price = $cl -> Prod_Client_Price;
@@ -75,7 +80,7 @@ $cartList = $prod ->listCart($cartQuan);
                     </form>
                     ';
                 }
-                
+                }
                 ?>
                 
                 <button id="return-to-shop" onclick="window.location = '?controller=home&action=index';">Return To Shop</button>
@@ -99,14 +104,16 @@ $cartList = $prod ->listCart($cartQuan);
                     </div>
                     <div class="shipping">
                         <label for="">Tax</label>
-                        <p>$<?php echo $tax; ?></p>
+                        <p>$<?php if($hasProduct) echo $tax; ?></p>
                     </div>
                     <div class="total">
                         <label for="">Total</label>
-                        <p>$<?php echo $total; ?></p>
+                        <p>$<?php if($hasProduct)echo $total; ?></p>
                     </div>
                     <div class="checkout-btn">
-                        <button type="submit">Proceed to checkout</button>
+                        <form action="?controller=product&action=checkout" method="POST">
+                           <?php if($hasProduct) echo '<button type="submit">Proceed to checkout</button>'; ?>
+                        </form>
                     </div>
                 </div>
             </div>

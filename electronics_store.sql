@@ -79,20 +79,19 @@ CREATE TABLE Order_Details
 
 CREATE TABLE Store_Info
 (
-	Store_ID INT NOT NULL AUTO_INCREMENT,
+	Store_ID INT NOT NULL AUTO_INCREMENT AUTO_INCREMENT,
 	Store_Name VARCHAR(255) NOT NULL,
-	Store_Location VARCHAR(255) DEFAULT '',
+	Store_Location VARCHAR(255) DEFAULT '' DEFAULT '',
 	CONSTRAINT PK_SINFO_SID PRIMARY KEY (Store_ID)
 );
 
 CREATE TABLE Discount
 (
-	Discount_ID INT NOT NULL,
-	Prod_ID INT NOT NULL,
+	Discount_ID INT NOT NULL AUTO_INCREMENT,
+	Discount_Name VARCHAR(255),
 	Discount_Percentage FLOAT NOT NULL,
 	Discount_Usage INT,
-	CONSTRAINT PK_DISCOUNT_DID PRIMARY KEY (Discount_ID),
-	CONSTRAINT FK_DISCOUNT_PID FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
+	CONSTRAINT PK_DISCOUNT_DID PRIMARY KEY (Discount_ID)
 );
 
 CREATE TABLE Store_Products (
@@ -167,8 +166,43 @@ INSERT INTO `Store_Products` (`Store_ID`, `Prod_ID`) VALUES
 (13, 18),
 (14, 19),
 (15, 20);
+INSERT INTO `Store_Info` (`Store_Name`) VALUES 
+('Razer'),
+('Logitech'),
+('ASUS'),
+('ENHANCE'),
+('Blue Yeti'),
+('Tomshine'),
+('Adesso'),
+('Vivitar'),
+('NERDI'),
+('PDP'),
+('Turtle Beach'),
+('HyperX'),
+('onn.'),
+('Samsung'),
+('LG');
 
--- INSERT INTO `Discount` (`Discount_ID`, `Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES 
--- (1, 5, 0.15, 5),
--- (2, 20, 0.1, 10),
--- (3, 12, 0.2, 20);
+INSERT INTO `Store_Products` (`Store_ID`, `Prod_ID`) VALUES  
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(2, 6),
+(3, 7),
+(4, 8),
+(1, 9),
+(5, 10),
+(6, 11),
+(7, 12),
+(8, 13),
+(9, 14),
+(10, 15),
+(11, 16),
+(12, 17),
+(13, 18),
+(14, 19),
+(15, 20);
+
+INSERT INTO `Discount` (`Discount_Name`, `Discount_Percentage`, `Discount_Usage`) VALUES ('CHRISTMAS', 0.10, 5);

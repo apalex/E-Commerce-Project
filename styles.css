@@ -209,6 +209,10 @@ header {
     background-color: #00A4BD;
 }
 
+.header-discount {
+    text-align: center;
+}
+
 /* -------------- */
 
 /* Footer */
@@ -914,8 +918,9 @@ footer {
 }
 
 .checkout.details input {
-    width: 70%;
+    width: 10%;
 }
+
 
 .checkout.products-total {
     display: inline-block;

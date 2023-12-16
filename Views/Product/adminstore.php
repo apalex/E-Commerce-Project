@@ -3,6 +3,12 @@ include "mysqldatabase.php";
 
 if (session_status() === PHP_SESSION_NONE){session_start();}
 
+$log_out_button = "<button type='submit' name='log_sub'>Log out</button>";
+if(isset($_POST['log_sub'])){
+    unset($_SESSION['id']);
+    header('Location: ?controller=home&action=index');
+}
+
 $store = new Store();
 
 if(isset($_POST['search_admin_stores'])) {
@@ -42,6 +48,10 @@ if (isset($_POST['input_admin_store_product'])) {
                 <a href="?controller=user&action=admin">Users</a>
                 <a href="?controller=product&action=admin">Products</a>
                 <a href="?controller=product&action=adminstore">Stores</a>
+                <a href="?controller=product&action=admindiscount">Discounts</a>
+                <form action="" method="POST">
+                    <?php echo $log_out_button ?>
+                </form>
             </div>
             
         </div>

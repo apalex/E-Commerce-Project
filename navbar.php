@@ -24,7 +24,7 @@ if(isset($_SESSION["id"])) {
 }
 
 if(isset($_POST['log_sub'])){
-    unset($_SESSION['id']);
+   session_destroy();
     header('Location: ?controller=home&action=index');
 }
 ?>
@@ -126,6 +126,9 @@ if(isset($_POST['log_sub'])){
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="header-discount">
+                <p><b>USE COUPON 'CHRISTMAS' FOR 10% OF ALL PURCHASES!</b></p>
             </div>
         </div>
     </header>

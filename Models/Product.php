@@ -380,7 +380,7 @@ class Product {
 
 class Discount {
     public $Discount_ID;
-    public $Prod_ID;
+    public $Discount_Name;
     public $Discount_Percentage;
     public $Discount_Usage;
 
@@ -390,8 +390,7 @@ class Discount {
         $this -> Discount_ID = $id;
 
         if ($id < 0) {
-            $this -> Prod_ID = 0;
-            $this -> Discount_Eliglibility = false;
+            $this -> Discount_Name = '';
             $this -> Discount_Percentage = 0;
             $this -> Discount_Usage = 0;
         } else {
@@ -401,7 +400,7 @@ class Discount {
             $data = $result -> fetch_assoc();
 
             $this -> Discount_ID = $id;
-            $this -> Prod_ID = $data['Prod_ID'];
+            $this -> Discount_Name = $data['Discount_Name'];
             $this -> Discount_Percentage = $data['Discount_Percentage'];
             $this -> Discount_Usage = $data['Discount_Usage'];
         }
@@ -417,7 +416,7 @@ class Discount {
         while ($row = $result -> fetch_assoc()) {
             $discount = new Discount();
             $discount -> Discount_ID = $row['Discount_ID'];
-            $discount -> Prod_ID = $row['Prod_ID'];
+            $discount -> Discount_Name = $row['Discount_Name'];
             $discount -> Discount_Percentage = $row['Discount_Percentage'];
             $discount -> Discount_Usage = $row['Discount_Usage'];
 
@@ -426,32 +425,11 @@ class Discount {
         return $list;
     }
 
-    function insertDiscount($id, $Prod_ID, $Discount_Percentage, $Discount_Usage) {
+    function insertDiscount($Discount_Name, $Discount_Percentage, $Discount_Usage) {
         global $conn;
         
-        $sql = "INSERT INTO `Discount` (`Discount_ID`, `Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES (`$id`, `$Prod_ID`, `$Discount_Percentage`, `$Discount_Usage`);";
-        $conn = query($sql);
-
-        var_dump($conn -> $error);
-    }
-
-    function updateDiscount($Prod_ID, $Discount_Percentage, $Discount_Usage) {
-        global $conn;
-    
-        $sql = "UPDATE `Discount` SET `Prod_ID` = `$Prod_ID`, `Discount_Percentage` = `$Discount_Percentage`, `Discount_Usage` = `$Discount_Usage`;";
-        $conn =  query($sql);
-
-        var_dump($conn -> $error);
-    }
-
-    function deleteDiscount($id) {
-        global $conn;
-    
-        $sql = "DELETE FROM `Discount` WHERE `Discount_ID` = `$id`;";
-
-        $conn = query($sql);
-
-        var_dump($conn -> $error);
+        $sql = "INSERT INTO `Discount` (`Discount_Name`, `Discount_Percentage`, `Discount_Usage`) VALUES ('$Discount_Name', $Discount_Percentage, $Discount_Usage);";
+        $result = $conn -> query($sql);
     }
 
     function searchDiscount($search){
@@ -464,13 +442,20 @@ class Discount {
         $row = $result -> fetch_assoc();
         $discount = new Discount();
         $discount -> Discount_ID = $row['Discount_ID'];
-        $discount -> Prod_ID = $row['Prod_ID'];
+        $discount -> Discount_Name = $row['Discount_Name'];
         $discount -> Discount_Percentage = $row['Discount_Percentage'];
         $discount -> Discount_Usage = $row['Discount_Usage'];
 
         array_push($list, $discount);
 
         return $list;
+    }
+
+    function deleteDiscount($Discount_ID) {
+        global $conn;
+
+        $sql = "DELETE FROM `Discount` WHERE `Discount_ID` = $Discount_ID";
+        $result = $conn -> query($sql);
     }
 
 }

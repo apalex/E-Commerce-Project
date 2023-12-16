@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="checkout products-total">
-                        <div class="product-scroll-box">
+                        <!-- <div class="product-scroll-box">
                             <div class="product box">
                                 <div class="checkout product-info">
                                     <img src="images/razer_ornata_v3.jpg" width=100 heigth=100>
@@ -90,9 +90,10 @@
                             <p id="product-left-total">Shipping:</p>
                             <p id="product-right-money">Free</p>
                         </div>
-                        <div class="checkout total-amt">
+-->
+                        <div class="checkout total-amt"> 
                             <p id="product-left-total">Total:</p>
-                            <p id="product-right-money">$400</p>
+                            <p id="product-right-money">$<?php echo $data[0];?></p>
                         </div>
                         <button type="submit" id="Place-Order">Place Order</button>
                     </div>
