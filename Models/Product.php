@@ -380,7 +380,7 @@ class Product {
 
 class Discount {
     public $Discount_ID;
-    public $Prod_ID;
+    public $Discount_Name;
     public $Discount_Percentage;
     public $Discount_Usage;
 
@@ -390,8 +390,7 @@ class Discount {
         $this -> Discount_ID = $id;
 
         if ($id < 0) {
-            $this -> Prod_ID = 0;
-            $this -> Discount_Eliglibility = false;
+            $this -> Discount_Name = '';
             $this -> Discount_Percentage = 0;
             $this -> Discount_Usage = 0;
         } else {
@@ -401,7 +400,7 @@ class Discount {
             $data = $result -> fetch_assoc();
 
             $this -> Discount_ID = $id;
-            $this -> Prod_ID = $data['Prod_ID'];
+            $this -> Discount_Name = $data['Discount_Name'];
             $this -> Discount_Percentage = $data['Discount_Percentage'];
             $this -> Discount_Usage = $data['Discount_Usage'];
         }
@@ -417,7 +416,7 @@ class Discount {
         while ($row = $result -> fetch_assoc()) {
             $discount = new Discount();
             $discount -> Discount_ID = $row['Discount_ID'];
-            $discount -> Prod_ID = $row['Prod_ID'];
+            $discount -> Discount_Name = $row['Discount_Name'];
             $discount -> Discount_Percentage = $row['Discount_Percentage'];
             $discount -> Discount_Usage = $row['Discount_Usage'];
 
@@ -426,32 +425,11 @@ class Discount {
         return $list;
     }
 
-    function insertDiscount($id, $Prod_ID, $Discount_Percentage, $Discount_Usage) {
+    function insertDiscount($Discount_Name, $Discount_Percentage, $Discount_Usage) {
         global $conn;
         
-        $sql = "INSERT INTO `Discount` (`Discount_ID`, `Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES (`$id`, `$Prod_ID`, `$Discount_Percentage`, `$Discount_Usage`);";
-        $conn = query($sql);
-
-        var_dump($conn -> $error);
-    }
-
-    function updateDiscount($Prod_ID, $Discount_Percentage, $Discount_Usage) {
-        global $conn;
-    
-        $sql = "UPDATE `Discount` SET `Prod_ID` = `$Prod_ID`, `Discount_Percentage` = `$Discount_Percentage`, `Discount_Usage` = `$Discount_Usage`;";
-        $conn =  query($sql);
-
-        var_dump($conn -> $error);
-    }
-
-    function deleteDiscount($id) {
-        global $conn;
-    
-        $sql = "DELETE FROM `Discount` WHERE `Discount_ID` = `$id`;";
-
-        $conn = query($sql);
-
-        var_dump($conn -> $error);
+        $sql = "INSERT INTO `Discount` (`Discount_Name`, `Discount_Percentage`, `Discount_Usage`) VALUES ('$Discount_Name', $Discount_Percentage, $Discount_Usage);";
+        $result = $conn -> query($sql);
     }
 
     function searchDiscount($search){
@@ -464,13 +442,20 @@ class Discount {
         $row = $result -> fetch_assoc();
         $discount = new Discount();
         $discount -> Discount_ID = $row['Discount_ID'];
-        $discount -> Prod_ID = $row['Prod_ID'];
+        $discount -> Discount_Name = $row['Discount_Name'];
         $discount -> Discount_Percentage = $row['Discount_Percentage'];
         $discount -> Discount_Usage = $row['Discount_Usage'];
 
         array_push($list, $discount);
 
         return $list;
+    }
+
+    function deleteDiscount($Discount_ID) {
+        global $conn;
+
+        $sql = "DELETE FROM `Discount` WHERE `Discount_ID` = $Discount_ID";
+        $result = $conn -> query($sql);
     }
 
 }
@@ -525,5 +510,131 @@ class Discount {
             return $list;
         }
     }
+
+class Store {
+    public $Store_ID;
+    public $Store_Name;
+    public $Store_Location;
+    public $SP_ID;
+    public $Prod_ID;
+    public $Prod_Name;
+    public $Prod_Manufacturer_Price;
+    public $Prod_Image_Path;
+    
+    function __construct($id = -1) {
+        global $conn;
+
+        $this -> Store_ID = $id;
+        if ($id < 0) {
+            $this -> Store_ID = 0;
+            $this -> Store_Name = '';
+            $this -> Store_Location = '';
+            $this -> SP_ID = 0;
+            $this -> Prod_ID = 0;
+            $this -> Prod_Name = '';
+            $this -> Prod_Manufacturer_Price = 0;
+            $this -> Prod_Image_Path = '';
+        } else {
+            $sql = "SELECT
+            sp.SP_ID,
+            s.Store_ID,
+            s.Store_Name,
+            p.Prod_ID,
+            p.Prod_Name,
+            p.Prod_Manufacturer_Price,
+            p.Prod_Image_Path
+            FROM
+                Store_Products sp
+            JOIN
+                Store_Info s ON sp.Store_ID = s.Store_ID
+            JOIN
+                Product_Info p ON sp.Prod_ID = p.Prod_ID
+            WHERE
+                sp.Store_ID = $id;";
+            $result = $conn -> query($sql);
+            $data = $result -> fetch_assoc();
+            $this -> Store_ID = $id;
+            $this -> Store_Name = $data['Store_Name'];
+            $this -> Store_Location = $data['Location'];
+            $this -> SP_ID = $data['SP_ID'];
+            $this -> Prod_ID = $data['Prod_ID'];
+            $this -> Prod_Name = $data['Prod_Name'];
+            $this -> Prod_Manufacturer_Price = $data['Prod_Manufacturer_Price'];
+            $this -> Prod_Image_Path = $data['Prod_Image_Path'];
+        }
+    }
+
+    function searchStore($query) {
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT
+        sp.SP_ID,
+        s.Store_ID,
+        s.Store_Name,
+        p.Prod_ID,
+        p.Prod_Name,
+        p.Prod_Manufacturer_Price,
+        p.Prod_Image_Path
+        FROM
+            Store_Products sp
+        JOIN
+            Store_Info s ON sp.Store_ID = s.Store_ID
+        JOIN
+            Product_Info p ON sp.Prod_ID = p.Prod_ID
+        WHERE
+            s.Store_Name = '$query'";
+        $result = $conn -> query($sql);
+        while ($row = $result -> fetch_assoc()) {
+            $store = new Store();
+            $store -> Store_ID = $row['Store_ID'];
+            $store -> Store_Name = $row['Store_Name'];
+            $store -> Store_Location = $row['Store_Location'];
+            $store -> SP_ID = $row['SP_ID'];
+            $store -> Prod_ID = $row['Prod_ID'];
+            $store -> Prod_Name = $row['Prod_Name'];
+            $store -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
+            $store -> Prod_Image_Path = $row['Prod_Image_Path'];
+            
+            array_push($list, $store);
+        }
+        return $list;
+    }
+
+    function inputStore_Info($Store_Name, $Store_Location) {
+        global $conn;
+        $sql = "INSERT INTO `Store_Info` (`Store_Name`, `Store_Location`) VALUES ('$Store_Name', '$Store_Location')";
+        $conn -> query($sql);
+    }
+
+    function inputStore_Product($Store_ID, $Prod_ID) {
+        global $conn;
+        $sql = "INSERT INTO `Store_Products` (`Store_ID`, `Prod_ID`) VALUES ('$Store_ID', '$Prod_ID')";
+        $conn -> query($sql);
+    }
+
+    function listStores() {
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT DISTINCT `Store_Name` FROM `Store_Info`;";
+        $result = $conn -> query($sql);
+        while ($row = $result -> fetch_assoc()) {
+            $store = new Store();
+            $store -> Store_ID = 0;
+            $store -> Store_Name = $row['Store_Name'];
+            $store -> Store_Location = '';
+            $store -> SP_ID = 0;
+            $store -> Prod_ID = 0;
+            $store -> Prod_Name = '';
+            $store -> Prod_Manufacturer_Price = 0;
+            $store -> Prod_Image_Path = '';
+
+            array_push($list, $store);
+        }
+        return $list;
+    }
+
+}
 
 ?>
