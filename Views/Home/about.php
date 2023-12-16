@@ -13,7 +13,8 @@
     ?>
 
     <div class="wrapper">
-        <p><a href="?controller=home&action=index">Home</a> / <b>About Us</b></p>
+        <div class="container">
+        <p><a class="product location" href="?controller=home&action=index">Home</a> / <b>About Us</b></p>
         <div class="container about">
             <h1>ABOUT US</h1>
             <p>
@@ -23,6 +24,7 @@
                 gadgets such as keyboards, monitors, mouses, and more! Right now we are just a
                 small business and have a single store but plan on branching out in the future.
             </p>
+        </div>
         </div>
         <div class="push">
         </div>

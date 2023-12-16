@@ -15,7 +15,8 @@
 
 
     <div class="wrapper">
-        <p><a href="?controller=home&action=index">Home</a> / <b>FAQ</b></p>
+        <div class="container">
+        <p><a class="product location" href="?controller=home&action=index">Home</a> / <b>FAQ</b></p>
         <div class="container FAQ">
             <h1>FAQ</h1>
             <h2>General Questions</h2>
@@ -48,6 +49,7 @@
                 </li>
                 <!-- Add more shipping and delivery questions as needed -->
             </ul>
+        </div>
         </div>
         <div class="push">
         </div>

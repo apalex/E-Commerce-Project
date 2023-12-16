@@ -13,7 +13,8 @@
     ?>
 
     <div class="wrapper">
-        <p><a href="?controller=home&action=index">Home</a> / <b>Terms of Use</b></p>
+        <div class="container">
+        <p><a class="product location" href="?controller=home&action=index">Home</a> / <b>Terms of Use</b></p>
         <div class="container TOU">
             <h3>Terms Of Use</h3>
             <p><strong>1. Introduction</strong></p>
@@ -23,6 +24,7 @@
             <p><span>"You agree to use our website for legitimate purposes and not for any illegal or unauthorized purpose, including without limitation, in violation of any intellectual property or privacy law. By agreeing to the Terms, you represent and warrant that you are at least the age of majority in your state or province of residence and are legally capable of entering into a binding contract."</span></p>
             <p><span>"You agree to not use our website to conduct any activity that would constitute a civil or criminal offence or violate any law. You agree not to attempt to interfere with our website’s network or security features or to gain unauthorized access to our systems."</span></p>
             <p><span>"You agree to provide us with accurate personal information, such as your email address, mailing address and other contact details in order to complete your order or contact you as needed. You agree to promptly update your account and information. You authorize us to collect and use this information to contact you in accordance with our Privacy Policy."</span></p>
+        </div>
         </div>
         <div class="push">
         </div>
