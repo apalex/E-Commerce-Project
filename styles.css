@@ -899,6 +899,16 @@ footer {
     padding: 10px;
 }
 
+.container.error-center a {
+    text-decoration: none;
+    color: white;
+}
+
+.container.error-center a:hover {
+    text-decoration: none;
+    color: gray;
+}
+
 /* Checkout Page */
 
 .container.checkout {

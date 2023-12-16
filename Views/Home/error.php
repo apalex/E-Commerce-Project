@@ -24,7 +24,7 @@
                 <p>Your visited page was not found.</p>
             </div>
             <div class="container error-center 3">
-                <button type="submit">Back to Home Page</button>
+                <button type="submit"><a href="?controller=home&action=index">Back to Home Page</a></button>
             </div>
         </div>
         <div class="push">
