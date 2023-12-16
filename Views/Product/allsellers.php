@@ -1,3 +1,15 @@
+<?php
+
+$store = new Store();
+$sellers = $store -> listStores();
+
+if (isset($_GET['store'])) {
+    $seller_prod = new Store();
+    $seller_prod = $seller_prod -> searchStore($_GET['store']);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +28,13 @@
         <div class="container categories">
             <div class="product-categories">
                 <h1>Sellers</h1>
-                <a href="?controller=product&action=categories&page=1">All</a>
+                <a href="?controller=product&action=allsellers&store=all">All</a>
                 <?php
-                foreach($categories as $c) {
-                    $lower = strtolower($c -> Prod_Category);
+                foreach($sellers as $s) {
+                    $lower = strtolower($s -> Store_Name);
                     echo "
-                    <a href='?controller=product&action=categories&category={$lower}&page=1'>
-                    {$c -> Prod_Category}
+                    <a href='?controller=product&action=allsellers&store={$lower}'>
+                    {$s -> Store_Name}
                     </a>
                     ";
                 }
@@ -31,61 +43,43 @@
             <div class="product-boxes-categories">
             <ol class="ol-product-case">
                 <?php
-                foreach($category as $product) {
-                    echo 
-                    '<li class="li-product-item">
-                        <div class="product-inside-list">
-                            <a href="?controller=product&action=view&id='. $product -> Prod_ID .'">
-                                <img src="'. $product -> Prod_Image_Path .'">
-                            </a>
-                            <div class="li-product-bottom">
-                                <p id="list-product-name">'. $product -> Prod_Name .'</p>
-                                <p id="list-product-price">'. $product -> Prod_Client_Price .'$</p>
+                if ($_GET['store'] == 'all') {
+                    $prod = new Product();
+                    $prod = $prod -> listProducts();
+                    foreach($prod as $product) {
+                        echo 
+                        '<li class="li-product-item">
+                            <div class="product-inside-list">
+                                <a href="?controller=product&action=view&id='. $product -> Prod_ID .'">
+                                    <img src="'. $product -> Prod_Image_Path .'">
+                                </a>
+                                <div class="li-product-bottom">
+                                    <p id="list-product-name">'. $product -> Prod_Name .'</p>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    ';
+                        </li>
+                        ';
+                    }
+                } else {
+                    foreach($seller_prod as $product) {
+                        echo 
+                        '<li class="li-product-item">
+                            <div class="product-inside-list">
+                                <a href="?controller=product&action=view&id='. $product -> Prod_ID .'">
+                                    <img src="'. $product -> Prod_Image_Path .'">
+                                </a>
+                                <div class="li-product-bottom">
+                                    <p id="list-product-name">'. $product -> Prod_Name .'</p>
+                                </div>
+                            </div>
+                        </li>
+                        ';
+                    }
                 }
                 ?>
             </ol>
             </div>
         </div>
-        <div class="pagination">
-                <p>Page <?php echo $page + 1 ?> of <?php echo $pages ?></p>
-                <a href="?controller=product&action=categories&page=1">First</a>
-                <?php if(isset($_GET['page']) && $_GET['page'] > 1) {
-                    $previous = $_GET['page'] - 1;
-                    echo "<a href='?controller=product&action=categories&page={$previous}'>Previous</a>";
-                } else {
-                    echo "Previous";
-                } ?>
-                <div class="page-numbers">
-                    <?php
-                    for ($i = 1; $i <= $pages; $i++) {
-                        echo "<a href='?controller=product&action=categories&page={$i}'>$i</a>";
-                    }
-                    ?>
-                </div>
-                <?php
-
-                if (!isset($_GET['page'])) {
-                    ?>
-                    <a href="?controller=product&action=categories&page=2">Next</a>
-                    <?php
-                } else {
-                    if ($_GET['page'] >= $pages) {
-                        ?>
-                        <a>Next</a>
-                        <?php
-                    } else {
-                        $next = $_GET['page'] + 1;
-                        echo "<a href='?controller=product&action=categories&page={$next}'>Next</a>";
-                    }
-                }
-
-                ?>
-                <a href="?controller=product&action=categories&page=<?php echo $pages ?>">Last</a>
-            </div>
         <div class="push"></div>
     </div>
 

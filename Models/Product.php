@@ -628,6 +628,28 @@ class Store {
         $conn -> query($sql);
     }
 
+    function listStores() {
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT DISTINCT `Store_Name` FROM `Store_Info`;";
+        $result = $conn -> query($sql);
+        while ($row = $result -> fetch_assoc()) {
+            $store = new Store();
+            $store -> Store_ID = 0;
+            $store -> Store_Name = $row['Store_Name'];
+            $store -> Store_Location = '';
+            $store -> SP_ID = 0;
+            $store -> Prod_ID = 0;
+            $store -> Prod_Name = '';
+            $store -> Prod_Manufacturer_Price = 0;
+            $store -> Prod_Image_Path = '';
+
+            array_push($list, $store);
+        }
+        return $list;
+    }
+
 }
 
 ?>
