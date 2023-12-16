@@ -87,12 +87,11 @@ CREATE TABLE Store_Info
 
 CREATE TABLE Discount
 (
-	Discount_ID INT NOT NULL,
-	Prod_ID INT NOT NULL,
+	Discount_ID INT NOT NULL AUTO_INCREMENT,
+	Discount_Name VARCHAR(255),
 	Discount_Percentage FLOAT NOT NULL,
 	Discount_Usage INT,
-	CONSTRAINT PK_DISCOUNT_DID PRIMARY KEY (Discount_ID),
-	CONSTRAINT FK_DISCOUNT_PID FOREIGN KEY (Prod_ID) REFERENCES Product_Info(Prod_ID)
+	CONSTRAINT PK_DISCOUNT_DID PRIMARY KEY (Discount_ID)
 );
 
 CREATE TABLE Store_Products (
@@ -168,7 +167,4 @@ INSERT INTO `Store_Products` (`Store_ID`, `Prod_ID`) VALUES
 (14, 19),
 (15, 20);
 
--- INSERT INTO `Discount` (`Discount_ID`, `Prod_ID`, `Discount_Percentage`, `Discount_Usage`) VALUES 
--- (1, 5, 0.15, 5),
--- (2, 20, 0.1, 10),
--- (3, 12, 0.2, 20);
+INSERT INTO `Discount` (`Discount_Name`, `Discount_Percentage`, `Discount_Usage`) VALUES ('CHRISTMAS', 0.10, 5);
