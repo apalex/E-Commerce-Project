@@ -91,19 +91,16 @@ if(isset($_GET['category'])) {
             </div>
         </div>
         <div class="container">
-        <div class="pagination">
-                <p>Page <?php echo $page + 1 ?> of <?php echo $pages ?></p>
-                <a href="?controller=product&action=categories&page=1">First</a>
+        <ul class="pagination">
                 <?php if(isset($_GET['page']) && $_GET['page'] > 1) {
                     $previous = $_GET['page'] - 1;
-                    echo "<a href='?controller=product&action=categories&page={$previous}'>Previous</a>";
-                } else {
-                    echo "Previous";
-                } ?>
+                    echo "<li><a href='?controller=product&action=categories&page={$previous}'>Previous</a></li>";
+                }
+                 ?>
                 <div class="page-numbers">
                     <?php
                     for ($i = 1; $i <= $pages; $i++) {
-                        echo "<a href='?controller=product&action=categories&page={$i}'>$i</a>";
+                        echo "<li><a href='?controller=product&action=categories&page={$i}'>$i</a></li>";
                     }
                     ?>
                 </div>
@@ -115,18 +112,14 @@ if(isset($_GET['category'])) {
                     <?php
                 } else {
                     if ($_GET['page'] >= $pages) {
-                        ?>
-                        <a>Next</a>
-                        <?php
                     } else {
                         $next = $_GET['page'] + 1;
-                        echo "<a href='?controller=product&action=categories&page={$next}'>Next</a>";
+                        echo "<li><a href='?controller=product&action=categories&page={$next}'>Next</a></li>";
                     }
                 }
 
                 ?>
-                <a href="?controller=product&action=categories&page=<?php echo $pages ?>">Last</a>
-            </div>
+            </ul>
         </div>
         <div class="push"></div>
     </div>
