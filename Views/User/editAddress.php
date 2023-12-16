@@ -68,7 +68,7 @@
                 <div class="stack 1">
                     <a href="?controller=user&action=myaccount&id=<?php echo $uID?>">My Profile</a>
                     <a href="?controller=user&action=editAddress&id=<?php echo $uID ?>">Address Book</a>
-                    <a href="?controller=user&action=editPayment&id=<?php echo $uID?>">My Payment Options</a>
+                   
                 </div>
                 <h4>My Orders</h4>
                 <div class="stack 2">
@@ -104,9 +104,10 @@
                     <p>Current country: '. $au -> country .'<p>
                     <p>Countries</p>
                     <div class="stack-input five">
-                        <select id="countries" name ="country">
+                        <select id="" name ="country">
                             <option value = "" >-- Select a Country --</option>
                             <option value="Canada">Canada</option>
+                            <option value="USA">USA</option>
                         </select>
                     </div>
                     <button type="submit" id="cancel-profile">Cancel</button>

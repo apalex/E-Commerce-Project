@@ -914,8 +914,9 @@ footer {
 }
 
 .checkout.details input {
-    width: 70%;
+    width: 10%;
 }
+
 
 .checkout.products-total {
     display: inline-block;

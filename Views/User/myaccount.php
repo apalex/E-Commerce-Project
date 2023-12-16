@@ -10,7 +10,7 @@
     }
     
     if(isset($_POST['log_sub'])){
-        unset($_SESSION['id']);
+        session_destroy();
         header('Location: ?controller=home&action=index');
     }
 
@@ -38,7 +38,7 @@
                 <div class="stack 1">
                     <a href="?controller=user&action=myaccount&id=<?php echo $uID?>">My Profile</a>
                     <a href="?controller=user&action=editAddress&id=<?php echo $uID ?>">Address Book</a>
-                    <a href="?controller=user&action=editPayment&id=<?php echo $uID?>">My Payment Options</a>
+                 
                 </div>
                 <h4>My Orders</h4>
                 <div class="stack 2">

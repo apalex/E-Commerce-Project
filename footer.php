@@ -31,7 +31,7 @@ if(isset($_SESSION["id"])) {
             <tr>
                 <td>Get 10% off your first order</td>
                 <td><address><a href="mailto:abdgamestore@gmail.com">abdgamestore@gmail.com</a></address></td>
-                <td><a href="?controller=user&action=login" class="footerLinkStyle">Login</a></td>
+                <td><a href="?controller=user&action=<?php echo $log_path?>" class="footerLinkStyle">Login</a></td>
                 <td><a href="?controller=home&action=TOU" class="footerLinkStyle">Terms Of Use</a></td>
             </tr>
             <tr>

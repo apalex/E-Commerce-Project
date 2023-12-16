@@ -1,5 +1,5 @@
 <?php
-
+include_once "Models/User.php";
 include_once "Models/Product.php";
 
 class ProductController {
@@ -21,6 +21,18 @@ class ProductController {
             $product -> addComment($p_id,$u_id,$comment);
 
             header("Location: ?controller=product&action=view&id=$p_id");
+
+
+            
+        }else if($action == "checkout"){
+            if (session_status() === PHP_SESSION_NONE){session_start();}
+
+            $prod = new Product();
+            $user = new User($_SESSION['id']);
+            $cartQuan = $prod ->cartQuan();
+            $cartList = $prod ->listCart($cartQuan);
+            $data = [$cartQuan,$cartList,$user];
+            $this -> render("checkout",$data);
 
         } else {
             $product = new Product($id);

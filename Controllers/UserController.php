@@ -90,8 +90,11 @@ class UserController {
             }else{
                 $this -> render("registration",$test);
             }
-        }
-        else{
+        }if($action== "paymentdetails"){
+            $total = $_POST['total'];
+            $data = [$total];
+            $this -> render("paymentdetails",$data);
+        }else{
             
             $user = new User($id);
             $this -> render($action, array($user));
