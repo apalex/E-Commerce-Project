@@ -46,7 +46,7 @@ if(isset($_POST['log_sub'])){
             <div class="admin categories selection">
                 <a href="?controller=user&action=admin">Users</a>
                 <a href="?controller=product&action=admin">Products</a>
-                <a href="?controller=product&action=admin">Stores</a>
+                <a href="?controller=product&action=adminstore">Stores</a>
                 <form action="" method="POST">
                     <?php echo $log_out_button ?>
                 </form>

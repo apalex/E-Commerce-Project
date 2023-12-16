@@ -1,15 +1,25 @@
 <?php
 include "mysqldatabase.php";
 
-session_start();
+if (session_status() === PHP_SESSION_NONE){session_start();}
 
-$product = new Product();
+$store = new Store();
 
-if(isset($_POST['search_admin_products'])) {
-    $query = $_POST['searchAdminProd'];
-    $product = $product -> searchProducts($query);
+if(isset($_POST['search_admin_stores'])) {
+    $query = $_POST['searchAdminStore'];
+    $store = $store -> searchStore($query);
+}
 
+if (isset($_POST['input_admin_store'])) {
+    $Store_Name = $_POST['inputStoreName'];
+    $Store_Location = $_POST['inputStoreLocation'];
+    $store = $store -> inputStore_Info($Store_Name, $Store_Location);
+}
 
+if (isset($_POST['input_admin_store_product'])) {
+    $Store_ID = $_POST['inputStoreID'];
+    $Prod_ID = $_POST['inputStoreProdID'];
+    $store = $store -> inputStore_Product($Store_ID, $Prod_ID);
 }
 
 ?>
@@ -31,53 +41,64 @@ if(isset($_POST['search_admin_products'])) {
             <div class="admin categories selection">
                 <a href="?controller=user&action=admin">Users</a>
                 <a href="?controller=product&action=admin">Products</a>
-                <a href="?controller=product&action=admin">Stores</a>
+                <a href="?controller=product&action=adminstore">Stores</a>
             </div>
             
         </div>
         <div class="admin user">
-            <h3>Search Product(s)</h3>
+            <h3>Add a Store</h3>
+            <form method="POST">
+            <p id="first_name">Name</p>
+            <input type="text" name="inputStoreName">
+            <p id="first_name">Location</p>
+            <input type="text" name="inputStoreLocation">
+            <button type="submit" id="search" name="input_admin_store">Add</button>
+            </form>
+            <h3>Associate a Store and Product</h3>
+            <form method="POST">
+                <p id="first_name">Store ID</p>
+                <input type="text" name="inputStoreID">
+                <p id="first_name">Product ID</p>
+                <input type="text" name="inputStoreProdID">
+                <button type="submit" id="search" name="input_admin_store_product">Add</button>
+            </form>
+            <h3>Search Store(s)</h3>
             <form action="" method="POST">
                 <p id="first_name">Name</p>
-                <input type="search" name="searchAdminProd">
-                <button type="submit" id="search" name="search_admin_products">Search</button>
+                <input type="search" name="searchAdminStore">
+                <button type="submit" id="search" name="search_admin_stores">Search</button>
             </form>
         </div>
-        <h3>Result</h3>
+        <h3>Result for <?php echo (isset($_POST['searchAdminStore']) ? $_POST['searchAdminStore'] : 'None') ?></h3>
 
         <form action="" method="POST">
             <table>
                 <tr>
-                    <th>Image</th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Client Price</th>
+                    <th>Store ID</th>
+                    <th>Store Name</th>
+                    <th>Store Location</th>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
                     <th>Manufacturer Price</th>
-                    <th>Details</th>
-                    <th>Stock</th>
-                    <th>Category</th>
-                    <th>Image Path</th>
+                    <th>Image</th>
                 </tr>
                 <?php
           
-                if(isset($_POST['search_admin_products'])){
-                foreach($product as $p) {
+                if(isset($_POST['search_admin_stores'])) {
+                foreach($store as $s) {
                     echo '<tr>
-                        <td><img src="'. $p -> Prod_Image_Path .'" width=100 heigth=100></td>
-                        <td width=100 heigth=100><input type="text" value="'. $p -> Prod_ID .'"></td>
-                        <td width=100 heigth=100><input type="text" value="'. $p -> Prod_Name .'"></td>
-                        <td><input type="text" value="'. $p -> Prod_Client_Price .'"></td>
-                        <td><input type="text" value="'. $p -> Prod_Manufacturer_Price .'"></td>
-                        <td><input type="text" value="'. $p -> Prod_Details .'"></td>
-                        <td><input type="text" value="'. $p -> Prod_Stock .'"></td>
-                        <td><input type="text" value="'. $p -> Prod_Category .'"></td>
-                        <td><input type="text" value="'. $p -> Prod_Image_Path .'"></td>
+                        <td width=100 heigth=100><input type="text" value="'. $s -> Store_ID .'" readonly></td>
+                        <td width=100 heigth=100><input type="text" value="'. $s -> Store_Name .'"></td>
+                        <td width=100 heigth=100><input type="text" value="'. $s -> Store_Location .'"></td>
+                        <td><input type="text" value="'. $s -> Prod_ID .'" readonly></td>
+                        <td width=100 heigth=100><input type="text" value="'. $s -> Prod_Name .'"></td>
+                        <td width=100 heigth=100><input type="text" value="'. $s -> Prod_Manufacturer_Price .'"></td>
+                        <td><img src="'. $s -> Prod_Image_Path .'" width=100 heigth=100></td>
                     </tr>';
                 }
             }
                 ?>
             </table>
-            <button type="submit" id="save-changes">Save</button>
         </form>
     </div>
 <script src="app.js"></script>

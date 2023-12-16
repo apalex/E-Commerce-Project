@@ -526,4 +526,108 @@ class Discount {
         }
     }
 
+class Store {
+    public $Store_ID;
+    public $Store_Name;
+    public $Store_Location;
+    public $SP_ID;
+    public $Prod_ID;
+    public $Prod_Name;
+    public $Prod_Manufacturer_Price;
+    public $Prod_Image_Path;
+    
+    function __construct($id = -1) {
+        global $conn;
+
+        $this -> Store_ID = $id;
+        if ($id < 0) {
+            $this -> Store_ID = 0;
+            $this -> Store_Name = '';
+            $this -> Store_Location = '';
+            $this -> SP_ID = 0;
+            $this -> Prod_ID = 0;
+            $this -> Prod_Name = '';
+            $this -> Prod_Manufacturer_Price = 0;
+            $this -> Prod_Image_Path = '';
+        } else {
+            $sql = "SELECT
+            sp.SP_ID,
+            s.Store_ID,
+            s.Store_Name,
+            p.Prod_ID,
+            p.Prod_Name,
+            p.Prod_Manufacturer_Price,
+            p.Prod_Image_Path
+            FROM
+                Store_Products sp
+            JOIN
+                Store_Info s ON sp.Store_ID = s.Store_ID
+            JOIN
+                Product_Info p ON sp.Prod_ID = p.Prod_ID
+            WHERE
+                sp.Store_ID = $id;";
+            $result = $conn -> query($sql);
+            $data = $result -> fetch_assoc();
+            $this -> Store_ID = $id;
+            $this -> Store_Name = $data['Store_Name'];
+            $this -> Store_Location = $data['Location'];
+            $this -> SP_ID = $data['SP_ID'];
+            $this -> Prod_ID = $data['Prod_ID'];
+            $this -> Prod_Name = $data['Prod_Name'];
+            $this -> Prod_Manufacturer_Price = $data['Prod_Manufacturer_Price'];
+            $this -> Prod_Image_Path = $data['Prod_Image_Path'];
+        }
+    }
+
+    function searchStore($query) {
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT
+        sp.SP_ID,
+        s.Store_ID,
+        s.Store_Name,
+        p.Prod_ID,
+        p.Prod_Name,
+        p.Prod_Manufacturer_Price,
+        p.Prod_Image_Path
+        FROM
+            Store_Products sp
+        JOIN
+            Store_Info s ON sp.Store_ID = s.Store_ID
+        JOIN
+            Product_Info p ON sp.Prod_ID = p.Prod_ID
+        WHERE
+            s.Store_Name = '$query'";
+        $result = $conn -> query($sql);
+        while ($row = $result -> fetch_assoc()) {
+            $store = new Store();
+            $store -> Store_ID = $row['Store_ID'];
+            $store -> Store_Name = $row['Store_Name'];
+            $store -> Store_Location = $row['Store_Location'];
+            $store -> SP_ID = $row['SP_ID'];
+            $store -> Prod_ID = $row['Prod_ID'];
+            $store -> Prod_Name = $row['Prod_Name'];
+            $store -> Prod_Manufacturer_Price = $row['Prod_Manufacturer_Price'];
+            $store -> Prod_Image_Path = $row['Prod_Image_Path'];
+            
+            array_push($list, $store);
+        }
+        return $list;
+    }
+
+    function inputStore_Info($Store_Name, $Store_Location) {
+        global $conn;
+        $sql = "INSERT INTO `Store_Info` (`Store_Name`, `Store_Location`) VALUES ('$Store_Name', '$Store_Location')";
+        $conn -> query($sql);
+    }
+
+    function inputStore_Product($Store_ID, $Prod_ID) {
+        global $conn;
+        $sql = "INSERT INTO `Store_Products` (`Store_ID`, `Prod_ID`) VALUES ('$Store_ID', '$Prod_ID')";
+        $conn -> query($sql);
+    }
+
+}
+
 ?>
