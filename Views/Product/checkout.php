@@ -104,7 +104,6 @@
                             <p id="product-right-money">$<?php echo $total?></p>
                         </div>
 
-
                         <form action="?controller=user&action=paymentdetails" method="POST">
                             <input type= "hidden" name="total" value="<?php echo $total?>">
                         <button type="submit" id="Place-Order">Proceed to Payment Details</button>

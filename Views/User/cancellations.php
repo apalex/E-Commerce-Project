@@ -42,7 +42,6 @@ include "mysqldatabase.php";
                 <h4>My Orders</h4>
                 <div class="stack 2">
                     <a href="?controller=user&action=orderHist&id=<?php echo $uID?>">My Orders</a>
-                    <a href="?controller=user&action=returns&id=<?php echo $uID?>">My Returns</a>
                     <a href="?controller=user&action=cancellations&id=<?php echo $uID?>">My Cancellations</a> 
                 </div>
             </div>

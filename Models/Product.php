@@ -169,6 +169,21 @@ class Product {
         return $cartList;
     }
 
+    function addOrder(){
+        global $conn;
+
+    $currentDateTime = date('Y-m-d H:i:s');
+    $newDateTime = date('Y-m-d H:i:s', strtotime($currentDateTime . ' +1 week'));
+
+        $cartKeys = array_keys($_SESSION["cart"]);
+        $u_id = $_SESSION['id']; 
+        foreach($cartKeys as $ck){
+            $sql = "INSERT INTO `Order_Details` (U_ID,Prod_ID,Date_of_expected_delivery,is_canceled) VALUES ('$u_id','$ck','$newDateTime','0')";
+            $conn -> query($sql);
+        }
+        unset($_SESSION['cart']);
+    }
+
     function listNewArrivals($start, $rows) {
         global $conn;
         $list = array();

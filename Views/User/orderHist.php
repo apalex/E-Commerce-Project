@@ -1,6 +1,6 @@
 <?php
 include "mysqldatabase.php";
-
+global $conn;
    if (session_status() === PHP_SESSION_NONE){session_start();}
     $user = $data[0];
     $uID = $_SESSION['id'];
@@ -14,7 +14,8 @@ include "mysqldatabase.php";
         unset($_SESSION['id']);
         header('Location: ?controller=home&action=index');
     }
-
+    $sql = "SELECT * FROM order_details WHERE U_ID = '$uID' AND is_canceled = '0'";
+    $result = $conn -> query();
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +43,6 @@ include "mysqldatabase.php";
                 <h4>My Orders</h4>
                 <div class="stack 2">
                     <a href="?controller=user&action=orderHist&id=<?php echo $uID?>">My Orders</a>
-                    <a href="?controller=user&action=returns&id=<?php echo $uID?>">My Returns</a>
                     <a href="?controller=user&action=cancellations&id=<?php echo $uID?>">My Cancellations</a> 
                 </div>
             </div>
@@ -54,14 +54,17 @@ include "mysqldatabase.php";
                         <th>Date of Purchase</th>
                         <th>Expected Delivery Date</th>
                     </tr>
-                    <?php foreach ($order as $o): ?>
+                    <?php foreach ($order as $o){
+
+
+                    } 
+                    ?>
                         <tr>
                             <td><?= $o -> Order_ID ?></td>
                             <td><?= $o -> Prod_ID ?></td>
                             <td><?= $o -> Date_of_purchase ?></td>
                             <td><?= $o -> Date_of_expected_delivery ?></td>
                         </tr>
-                    <?php endforeach; ?>
                 </table>
             </div>
         <div class="push">

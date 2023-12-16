@@ -34,7 +34,12 @@ class ProductController {
             $data = [$cartQuan,$cartList,$user];
             $this -> render("checkout",$data);
 
-        } else {
+        } elseif ($action == "addOrder") {
+            $prod = new Product();
+            $prod -> addOrder();
+            
+            header("Location: ?controller=home&action=index");
+        }else {
             $product = new Product($id);
             $this -> render($action, array($product));
         }

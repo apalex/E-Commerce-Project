@@ -50,7 +50,7 @@
                 <p>Account / My Account / View Cart / <b>Checkout</b></p>
             </div>
             <div class="checkout box">
-                <form action="">
+               
                     <div class="checkout details">
                         <h1>Payment Details</h1>
                         <div class="payment-details">
@@ -59,9 +59,27 @@
                             <input type="text" placeholder="CVV">
                             <select name="" id="">
                                 <option disabled selected>YY</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+
                             </select>
                             <select name="" id="">
-                                <option value="">MM</option>
+                                <option value="" disabled selected>MM</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
                             </select>
                         </div>
                     </div>
@@ -95,9 +113,11 @@
                             <p id="product-left-total">Total:</p>
                             <p id="product-right-money">$<?php echo $data[0];?></p>
                         </div>
+                        <form action="?controller=product&action=addOrder" method="POST">
                         <button type="submit" id="Place-Order">Place Order</button>
+                        </form>
                     </div>
-                </form>
+                
             </div>
         </div>
         <div class="push">
