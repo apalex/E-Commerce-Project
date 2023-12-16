@@ -86,12 +86,12 @@ $cartList = $prod ->listCart($cartQuan);
                 <button id="return-to-shop" onclick="window.location = '?controller=home&action=index';">Return To Shop</button>
             </div>
             <div class="cart discount">
-                <div class="cart discount left">
+                <!-- <div class="cart discount left">
                     <form action="">
                         <input type="text" name="" id="discountInput" placeholder="Coupon Code">
                         <button id="discountBtn">Apply Coupon</button>
                     </form>
-                </div>
+                </div> -->
                 <div class="cart discount right">
                     <h3>Cart Total</h3>
                     <div class="subtotal">

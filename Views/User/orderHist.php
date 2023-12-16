@@ -14,8 +14,6 @@ global $conn;
         unset($_SESSION['id']);
         header('Location: ?controller=home&action=index');
     }
-    $sql = "SELECT * FROM order_details WHERE U_ID = '$uID' AND is_canceled = '0'";
-    $result = $conn -> query();
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +29,7 @@ global $conn;
     <?php
     include_once 'navbar.php';
     ?>
+    
     <div class="wrapper">
         <div class="container account">
             <div class="account info">
@@ -43,7 +42,7 @@ global $conn;
                 <h4>My Orders</h4>
                 <div class="stack 2">
                     <a href="?controller=user&action=orderHist&id=<?php echo $uID?>">My Orders</a>
-                    <a href="?controller=user&action=cancellations&id=<?php echo $uID?>">My Cancellations</a> 
+                    <!-- <a href="?controller=user&action=cancellations&id=<?php echo $uID?>">My Cancellations</a>  -->
                 </div>
             </div>
             <div class="account hist">
@@ -54,17 +53,27 @@ global $conn;
                         <th>Date of Purchase</th>
                         <th>Expected Delivery Date</th>
                     </tr>
-                    <?php foreach ($order as $o){
-
-
-                    } 
+                
+                    <?php
+                 
+                   $sql = "SELECT * FROM `order_details` WHERE `U_ID` = $uID AND `is_canceled` = 0";
+    $result = $conn -> query($sql);
+   
+   $row = $result -> fetch_assoc();
+   
+  // var_dump($row);
+                  while($row = $result -> fetch_assoc()){
+                 echo '
+                 <tr>
+                    <td>'. $row['Order_ID'] .'</td>
+                    <td>'. $row['Prod_ID'] .'</td>
+                    <td>'. $row['Date_of_Purchase'] .'</td>
+                    <td>'. $row['Date_of_expected_delivery'] .'</td>
+                 </tr>
+                 ';
+                  }
                     ?>
-                        <tr>
-                            <td><?= $o -> Order_ID ?></td>
-                            <td><?= $o -> Prod_ID ?></td>
-                            <td><?= $o -> Date_of_purchase ?></td>
-                            <td><?= $o -> Date_of_expected_delivery ?></td>
-                        </tr>
+                        
                 </table>
             </div>
         <div class="push">
