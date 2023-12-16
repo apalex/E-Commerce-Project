@@ -90,7 +90,7 @@ if(isset($_GET['category'])) {
             </ol>
             </div>
         </div>
-        <div class="container">
+        <div class="containerp">
         <ul class="pagination">
                 <?php if(isset($_GET['page']) && $_GET['page'] > 1) {
                     $previous = $_GET['page'] - 1;

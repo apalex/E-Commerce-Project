@@ -1250,6 +1250,12 @@ ol, ul {
 }
 
 /* pagination */
+
+.containerp {
+    width: 30%;
+    margin-left: 32%;
+}
+
 .pagination {
     position: relative;
     height: 60px;
