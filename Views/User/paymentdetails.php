@@ -47,7 +47,7 @@
     <div class="wrapper">
         <div class="container checkout">
             <div class="checkout location">
-                <p>Account / My Account / View Cart / <b>Checkout</b></p>
+                <p><a href="?controller=user&action=myaccount">Account</a> / <a href="?controller=product&action=cart">View Cart</a> / <b>Checkout</b></p>
             </div>
             <div class="checkout box">
                 <form action="">
