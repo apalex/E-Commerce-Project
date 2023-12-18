@@ -167,6 +167,7 @@ INSERT INTO `Store_Products` (`Store_ID`, `Prod_ID`) VALUES
 (13, 18),
 (14, 19),
 (15, 20);
+
 INSERT INTO `Store_Info` (`Store_Name`) VALUES 
 ('Razer'),
 ('Logitech'),
@@ -206,4 +207,4 @@ INSERT INTO `Store_Products` (`Store_ID`, `Prod_ID`) VALUES
 (14, 19),
 (15, 20);
 
-INSERT INTO `Discount` (`Discount_Name`, `Discount_Percentage`, `Discount_Usage`) VALUES ('CHRISTMAS', 0.10, 5);
+INSERT INTO `Discount` (`Discount_Name`, `Discount_Percentage`, `Discount_Usage`) VALUES ('CHRISTMAS', 0.9, 5);

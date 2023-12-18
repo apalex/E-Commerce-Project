@@ -466,6 +466,25 @@ class Discount {
         return $list;
     }
 
+    function searchDiscountName($search) {
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT * FROM `Discount` WHERE Discount_Name = '$search';";
+        $result = $conn -> query($sql);
+
+        $row = $result -> fetch_assoc();
+        $discount = new Discount();
+        $discount -> Discount_ID = $row['Discount_ID'];
+        $discount -> Discount_Name = $row['Discount_Name'];
+        $discount -> Discount_Percentage = $row['Discount_Percentage'];
+        $discount -> Discount_Usage = $row['Discount_Usage'];
+
+        array_push($list, $discount);
+
+        return $list;
+    }
+
     function deleteDiscount($Discount_ID) {
         global $conn;
 
