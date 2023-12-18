@@ -9,7 +9,6 @@ class ProductController {
         if (session_status() === PHP_SESSION_NONE){session_start();}
         if ($action == "remove-cart") {
             unset($_SESSION["cart"][$_POST['p_id']]);
-           // var_dump($_SESSION["cart"]);
             header("Location: ?controller=product&action=cart");
         }else if($action== "addComment"){
             $product = new Product();
@@ -26,13 +25,13 @@ class ProductController {
             
         }else if($action == "checkout"){
             if (session_status() === PHP_SESSION_NONE){session_start();}
-
+            $discount = $_POST['discountPOST'];
             $prod = new Product();
             $user = new User($_SESSION['id']);
-            $cartQuan = $prod ->cartQuan();
-            $cartList = $prod ->listCart($cartQuan);
-            $data = [$cartQuan,$cartList,$user];
-            $this -> render("checkout",$data);
+            $cartQuan = $prod -> cartQuan();
+            $cartList = $prod -> listCart($cartQuan);
+            $data = [$cartQuan, $cartList, $user, $discount];
+            $this -> render("checkout", $data);
 
         } elseif ($action == "addOrder") {
             $prod = new Product();

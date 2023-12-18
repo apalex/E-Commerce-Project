@@ -35,7 +35,7 @@ if(isset($_SESSION["id"])) {
                 <td><a href="?controller=home&action=TOU" class="footerLinkStyle">Terms Of Use</a></td>
             </tr>
             <tr>
-                <td><input type="text" id="c_email" name="c_name" placeholder="Enter your email"><button></button></td>
+                <td><input type="text" id="c_email" name="c_name" placeholder="Enter your email"><button type="submit" id="submit">Submit</button></td>
                 <td><a href="tel:123-456-7890">123-456-7890</a></td>
                 <td><a href="?controller=user&action=<?php echo $cart_path ?>" class="footerLinkStyle">Cart</a></td>
                 <td><a href="?controller=home&action=faq" class="footerLinkStyle">FAQ</a></td>

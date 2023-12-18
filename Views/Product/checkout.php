@@ -16,7 +16,7 @@
     <div class="wrapper">
         <div class="container checkout">
             <div class="checkout location">
-                <p>Account / My Account / View Cart / <b>Checkout</b></p>
+                <p><a href="?controller=user&action=myaccount&id=<?php echo $_SESSION['id']; ?>">Account</a> / <a href="?controller=product&action=cart">View Cart</a> / <b>Checkout</b></p>
             </div>
             <?php $user = $data[2]?>
             <div class="checkout box">
@@ -69,7 +69,9 @@
                 foreach($cartList as $cl) {
                     $quantity = $cartQuan[$cl ->Prod_ID];
                     $price = $cl -> Prod_Client_Price;
-                    $price *= $quantity; 
+                    $price *= $quantity;
+                    $discount = $data[3];
+                    $price *= $discount;
                     $subTotal += $price; 
                     $tax = $subTotal *.15;
                     $total = $subTotal *1.15;

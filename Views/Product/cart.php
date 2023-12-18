@@ -42,21 +42,42 @@ $cartList = $prod ->listCart($cartQuan);
                 </div>
              
 
-                <?php 
+                <?php
                 $subTotal = 0;
                 $hasProduct = false;
                 if(count($cartList) != 0){
                 $hasProduct =  true;
                 }
-                if($hasProduct){
+                $discountFlag = false;
+                $discountMsg = "";
+                $discount_percentage = 1;
+                
+                if (isset($_POST['discountBtn'])) {
+                    $allDiscounts = new Discount();
+                    $allDiscounts = $allDiscounts -> listDiscounts();
+                    foreach ($allDiscounts as $discount) {
+                        if ($discount -> Discount_Name == $_POST['discountInput']) {
+                            $discountFlag = true;
+                            $discountMsg = "Coupon Successfully Applied!";
+                            $discount_percentage = $discount -> Discount_Percentage;
+                        }
+                    }
+                    if ($discountFlag == false) {
+                        $discountMsg = "Invalid Coupon.";
+                    }
+                }
+
+                if($hasProduct) {
                 foreach($cartList as $cl) {
                     $quantity = $cartQuan[$cl ->Prod_ID];
                     $price = $cl -> Prod_Client_Price;
-                    $price *= $quantity; 
-                    $subTotal += $price; 
+                    $price *= $quantity;
+                    if ($discountFlag == true) {
+                        $price *= $discount_percentage;
+                    }
+                    $subTotal += $price;
                     $tax = $subTotal *.15;
                     $total = $subTotal *1.15;
-                    
                     echo '
                     <form action="?controller=product&action=remove-cart" method="POST">
                         <div class="cart products">
@@ -86,12 +107,13 @@ $cartList = $prod ->listCart($cartQuan);
                 <button id="return-to-shop" onclick="window.location = '?controller=home&action=index';">Return To Shop</button>
             </div>
             <div class="cart discount">
-                <!-- <div class="cart discount left">
-                    <form action="">
-                        <input type="text" name="" id="discountInput" placeholder="Coupon Code">
-                        <button id="discountBtn">Apply Coupon</button>
+                <div class="cart discount left">
+                    <form method="POST">
+                        <input type="text" name="discountInput" id="discountInput" placeholder="Coupon Code">
+                        <button type="submit" id="discountBtn" name="discountBtn">Apply Coupon</button>
+                        <p><?php echo $discountMsg; ?></p>
                     </form>
-                </div> -->
+                </div>
                 <div class="cart discount right">
                     <h3>Cart Total</h3>
                     <div class="subtotal">
@@ -112,6 +134,7 @@ $cartList = $prod ->listCart($cartQuan);
                     </div>
                     <div class="checkout-btn">
                         <form action="?controller=product&action=checkout" method="POST">
+                            <input type="hidden" value="<?php echo $discount_percentage ?>" name="discountPOST">
                            <?php if($hasProduct) echo '<button type="submit">Proceed to checkout</button>'; ?>
                         </form>
                     </div>

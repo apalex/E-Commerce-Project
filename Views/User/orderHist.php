@@ -32,6 +32,7 @@ global $conn;
     ?>
     
     <div class="wrapper">
+    <p><a href="?controller=user&action=myaccount&id=<?php echo $_SESSION['id']; ?>">My Account</a> / <b>Order History</b></p>
         <div class="container account">
             <div class="account info">
                 <h4>Manage my Account</h4>
@@ -57,11 +58,11 @@ global $conn;
                 
                     <?php
                  
-                   $sql = "SELECT * FROM `order_details` WHERE `U_ID` = $uID AND `is_canceled` = 0";
-    $result = $conn -> query($sql);
+                    $sql = "SELECT * FROM `order_details` WHERE `U_ID` = $uID AND `is_canceled` = 0";
+                    $result = $conn -> query($sql);
    
-   $row = $result -> fetch_assoc();
-   
+                    $row = $result -> fetch_assoc();
+
   // var_dump($row);
                   while($row = $result -> fetch_assoc()){
                     $prod = new Product($row['Prod_ID']);
