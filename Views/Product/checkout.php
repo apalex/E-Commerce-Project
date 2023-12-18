@@ -21,7 +21,7 @@
             <?php $user = $data[2]?>
             <div class="checkout box">
                 
-
+            <form action="?controller=user&action=paymentdetails" method="POST">
                     <div class="checkout details">
                         <h1>Shipping Details</h1>
                         <!-- <h3>Information:<h3> -->
@@ -31,30 +31,26 @@
                         <h4>Address:</h4>
                        <?php
                        $addList = $user -> address_list;
-                      
+                      $i = 1;
                       if($addList[0] -> address != null){
                         foreach($addList as $al){
                             if($al -> address != null){
                             echo'
-                            <input type= "radio" class= "checkout radio" id = "address' .$al->UA_ID.' name="address"></input>
+                            <input type= "radio" class= "checkout radio" id = "address'.$al->UA_ID.'" name="address" value='.$i.'></input>
                             <p>Address: '. $al -> address .'</p>
                             <p>'. $al -> city .'</p>
                             <p>'. $al -> postal .'</p>
                             <p>'. $al -> country .'</p>
                             
                             ';
+                            $i++;
                             }
-                            
                         }
                     }else{
                         echo '<a href="?controller=user&action=editAddress&id='.$_SESSION['id'].'"> Please fill out at least one address </a>';
                     }
 
-                       ?> 
-                       
-                        
-
-                       
+                       ?>       
                     </div>
                     <div class="checkout products-total">
                         <div class="product-scroll-box">
@@ -106,11 +102,16 @@
                             <p id="product-right-money">$<?php echo $total?></p>
                         </div>
 
-                        <form action="?controller=user&action=paymentdetails" method="POST">
+                        
                             <input type= "hidden" name="total" value="<?php echo $total?>">
                             <?php
                             if($addList[0] -> address != null){
-                        echo '<button type="submit" id="Place-Order">Proceed to Payment Details</button>';
+                                echo '<button type="submit" id="Place-Order" name="Place-Order">Proceed to Payment Details</button>';
+                            }
+                            if (isset($_POST['Place-Order'])) {
+                                if (empty($_POST['address'])) {
+                                    echo "<br>Must choose an address";
+                                }
                             }
                             ?>
                         </form>
