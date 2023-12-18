@@ -106,7 +106,11 @@
 
                         <form action="?controller=user&action=paymentdetails" method="POST">
                             <input type= "hidden" name="total" value="<?php echo $total?>">
-                        <button type="submit" id="Place-Order">Proceed to Payment Details</button>
+                            <?php
+                            if($addList[0] -> address != null){
+                        echo '<button type="submit" id="Place-Order">Proceed to Payment Details</button>';
+                            }
+                            ?>
                         </form>
                     </div>
              

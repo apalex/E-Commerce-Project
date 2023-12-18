@@ -1,5 +1,6 @@
 <?php
 include "mysqldatabase.php";
+include_once "Models/Product.php";
 global $conn;
    if (session_status() === PHP_SESSION_NONE){session_start();}
     $user = $data[0];
@@ -63,10 +64,11 @@ global $conn;
    
   // var_dump($row);
                   while($row = $result -> fetch_assoc()){
-                 echo '
+                    $prod = new Product($row['Prod_ID']);
+                    echo '
                  <tr>
                     <td>'. $row['Order_ID'] .'</td>
-                    <td>'. $row['Prod_ID'] .'</td>
+                    <td>'. $prod -> Prod_Name .'</td>
                     <td>'. $row['Date_of_Purchase'] .'</td>
                     <td>'. $row['Date_of_expected_delivery'] .'</td>
                  </tr>
