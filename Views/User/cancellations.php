@@ -31,6 +31,7 @@ include "mysqldatabase.php";
     include_once 'navbar.php';
     ?>
     <div class="wrapper">
+        <p><a href="?controller=user&action=myaccount&id=<?php echo $_SESSION['id']; ?>">My Account</a> / <b>Cancellations</b></p>
         <div class="container account">
             <div class="account info">
                 <h4>Manage my Account</h4>

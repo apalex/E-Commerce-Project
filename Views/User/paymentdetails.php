@@ -47,7 +47,7 @@
     <div class="wrapper">
         <div class="container checkout">
             <div class="checkout location">
-                <p><a href="?controller=user&action=myaccount">Account</a> / <a href="?controller=product&action=cart">View Cart</a> / <b>Checkout</b></p>
+                <p><a href="?controller=user&action=myaccount&id=<?php echo $_SESSION['id']; ?>">Account</a> / <a href="?controller=product&action=cart">View Cart</a> / <b>Checkout</b></p>
             </div>
             <div class="checkout box">
                
@@ -84,31 +84,6 @@
                         </div>
                     </div>
                     <div class="checkout products-total">
-                        <!-- <div class="product-scroll-box">
-                            <div class="product box">
-                                <div class="checkout product-info">
-                                    <img src="images/razer_ornata_v3.jpg" width=100 heigth=100>
-                                    <p id="product-name-checkout">Razer Ornata V3</p>
-                                    <p id="product-price-checkout">$150</p>
-                                </div>
-                            </div>
-                            <div class="product box">
-                                <div class="checkout product-info">
-                                    <img src="images/razer_ornata_v3.jpg" width=100 heigth=100>
-                                    <p id="product-name-checkout">Razer Ornata V3</p>
-                                    <p id="product-price-checkout">$250</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="checkout total-sub">
-                            <p id="product-left-total">Subtotal:</p>
-                            <p id="product-right-money">$400</p>
-                        </div>
-                        <div class="checkout total-ship">
-                            <p id="product-left-total">Shipping:</p>
-                            <p id="product-right-money">Free</p>
-                        </div>
--->
                         <div class="checkout total-amt"> 
                             <p id="product-left-total">Total:</p>
                             <p id="product-right-money">$<?php echo $data[0];?></p>
@@ -123,13 +98,6 @@
         <div class="push">
         </div>
     </div>
-
-            <!-- <?php
-                       
-        foreach($pList as $d){
-        echo"<a href='?controller=product&action=view&id=". $d-> Prod_ID."'>" . $d-> Prod_Name . "</a> <br>";
-        }
-                    ?> -->
             
         <?php
         include_once 'footer.php';
