@@ -36,7 +36,7 @@
                         foreach($addList as $al){
                             if($al -> address != null){
                             echo'
-                            <input type= "radio" class= "checkout radio"name = "address' .$al->UA_ID.'"></input>
+                            <input type= "radio" class= "checkout radio" id = "address' .$al->UA_ID.' name="address"></input>
                             <p>Address: '. $al -> address .'</p>
                             <p>'. $al -> city .'</p>
                             <p>'. $al -> postal .'</p>
