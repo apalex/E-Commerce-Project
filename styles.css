@@ -927,11 +927,6 @@ footer {
     font-size: large;
 }
 
-.checkout.details input {
-    width: 10%;
-}
-
-
 .checkout.products-total {
     display: inline-block;
     float: right;

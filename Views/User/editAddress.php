@@ -119,7 +119,7 @@
                 }
             }
             ?>
-            <form action="" method="POST">
+            <form method="POST">
             <input type="submit" name="addButton" value="Add Address">
             </form>
             </div>
