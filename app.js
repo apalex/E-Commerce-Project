@@ -50,3 +50,25 @@ function removeProduct() {
 function status_update(value) {
     window.location.href = "?controller=product&action=newarrivals&page=1&criteria=" + value;
 }
+
+// Validate if an address has been selected
+document.addEventListener('DOMContentLoaded', () => {
+    var radioBtn = document.getElementsByName("address");
+    for (var i = 0; i < radioBtn.length; i++) {
+        if (document.getElementsByName("address").checked == true) {
+            return true;
+        } else if (i == radioBtn.length - 1) {
+            document.getElementById("Place-Order").addEventListener("click", function(event) {
+                event.preventDefault();
+            })
+        }
+    }
+})
+
+function validateAddress() {
+    if (document.querySelector('input[name="address"]:checked')) {
+        return true;
+    } else {
+        event.preventDefault();
+    }
+}

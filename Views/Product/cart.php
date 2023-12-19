@@ -4,9 +4,8 @@ if (session_status() === PHP_SESSION_NONE){session_start();}
 
 $prod = new Product();
 
-$cartQuan = $prod ->cartQuan();
-$cartList = $prod ->listCart($cartQuan);
-
+$cartQuan = $prod -> cartQuan();
+$cartList = $prod -> listCart($cartQuan);
 
 ?>
 

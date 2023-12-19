@@ -1,34 +1,3 @@
-
-<!-- <?php
-//  include "mysqldatabase.php";
-// session_start();
-// $log_path;
-// $cart_path;
-// $button;
-// if(isset($_SESSION["id"])){
-//     $log_path = "myaccount&id=". $_SESSION['id']. "";
-//     $cart_path = "cart";
-//     $button = "<button type='submit' name='log_sub'>Log out</button>";
-// }else{
-//     $log_path = "login";
-//     $cart_path= "login";
-//     $button = "";
-// }
-
-
-
-// if(isset($_POST['log_sub'])){
-//     unset($_SESSION['id']);
-//     header('Location: ?controller=home&action=index');
-// }
-
-// $prod = new Product();
-
-// $pList = $prod -> listProducts();
-
-?> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
