@@ -25,7 +25,11 @@ class ProductController {
             
         }else if($action == "checkout"){
             if (session_status() === PHP_SESSION_NONE){session_start();}
-            $discount = $_POST['discountPOST'];
+            if (isset($_POST['discountPOST'])) {
+                $discount = $_POST['discountPOST'];
+            } else {
+                $discount = 1;
+            }
             $prod = new Product();
             $user = new User($_SESSION['id']);
             $cartQuan = $prod -> cartQuan();
